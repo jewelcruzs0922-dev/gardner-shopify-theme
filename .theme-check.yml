@@ -1,0 +1,6 @@
+MatchingTranslations:
+  enabled: false
+TemplateLength:
+  enabled: false
+ignore:
+  - docs/**

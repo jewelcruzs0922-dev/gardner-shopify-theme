@@ -1,0 +1,207 @@
+{
+  "sections": {
+    "gardner_hero": {
+      "type": "gardner-hero",
+      "settings": {
+        "eyebrow": "Garden tools, made simple",
+        "heading": "Good tools. Better gardens.",
+        "text": "Durable, thoughtful essentials for the everyday gardener — from first trowel to full harvest.",
+        "button_label": "Shop garden tools",
+        "button_link": "shopify://collections/all",
+        "button_label_2": "Read the guides",
+        "button_link_2": "/blogs/news",
+        "overlay_opacity": 30,
+        "height": "large",
+        "alignment": "left"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Bestsellers",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bestsellers",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 64,
+        "padding_bottom": 32
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "cat_hand_tools": { "type": "featured_collection", "settings": { "collection": "hand-tools" } },
+        "cat_pruning": { "type": "featured_collection", "settings": { "collection": "pruning-cutting" } },
+        "cat_digging": { "type": "featured_collection", "settings": { "collection": "digging-planting" } },
+        "cat_watering": { "type": "featured_collection", "settings": { "collection": "watering-irrigation" } },
+        "cat_accessories": { "type": "featured_collection", "settings": { "collection": "garden-accessories" } },
+        "cat_power": { "type": "featured_collection", "settings": { "collection": "power-tools" } }
+      },
+      "block_order": [
+        "cat_hand_tools",
+        "cat_pruning",
+        "cat_digging",
+        "cat_watering",
+        "cat_accessories",
+        "cat_power"
+      ],
+      "settings": {
+        "title": "Shop by category",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "gardner_story": {
+      "type": "gardner-story",
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "Our approach",
+        "heading": "Tools that earn their place",
+        "text": "<p>We choose tools for how they feel in the hand and how they hold up in real soil. No gimmicks, no shelves of duplicates — just dependable essentials, clearly explained.</p>",
+        "button_label": "Shop the collection",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "why_gardner": {
+      "type": "multicolumn",
+      "blocks": {
+        "why_1": {
+          "type": "column",
+          "settings": {
+            "title": "Chosen for real gardens",
+            "text": "<p>Tools we would actually use, at prices that make sense for everyday gardening.</p>"
+          }
+        },
+        "why_2": {
+          "type": "column",
+          "settings": {
+            "title": "Clear, honest pricing",
+            "text": "<p>Demonstration prices are shown plainly — no invented urgency, no fake scarcity.</p>"
+          }
+        },
+        "why_3": {
+          "type": "column",
+          "settings": {
+            "title": "Guidance included",
+            "text": "<p>Short, practical guides help you choose the right tool and care for it well.</p>"
+          }
+        }
+      },
+      "block_order": ["why_1", "why_2", "why_3"],
+      "settings": {
+        "title": "Why Gardner",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "button_label": "",
+        "button_link": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "reviews": {
+      "type": "gardner-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "quote": "The trowel feels solid without being heavy. It has become the tool I reach for first.",
+            "author": "Sample gardener",
+            "detail": "Raised-bed grower"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "quote": "Clear product pages and honest prices made choosing my first pruners easy.",
+            "author": "Sample gardener",
+            "detail": "Balcony grower"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "quote": "The watering wand reaches the back of the border without soaking the path.",
+            "author": "Sample gardener",
+            "detail": "Cottage garden"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "show_section": true,
+        "eyebrow": "In the garden",
+        "heading": "What gardeners are saying",
+        "text": "<p>Short notes from people who use these tools every week.</p>",
+        "disclaimer": "Demo content: these are illustrative sample reviews, not real customer feedback.",
+        "show_stars": true
+      }
+    },
+    "guides": {
+      "type": "featured-blog",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "Garden guides",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 64
+      }
+    },
+    "gallery": {
+      "type": "gardner-gallery",
+      "settings": {
+        "eyebrow": "From the garden",
+        "heading": "A closer look",
+        "text": "<p>Original editorial imagery made for this demo storefront.</p>",
+        "alt_1": "Raised garden beds in warm evening light",
+        "alt_2": "Hands planting a seedling in a raised bed",
+        "alt_3": "Garden hand tools on a potting bench",
+        "note": "Editorial imagery for this portfolio demo — not customer posts or a live social feed."
+      }
+    }
+  },
+  "order": [
+    "gardner_hero",
+    "featured_collection",
+    "collection_list",
+    "gardner_story",
+    "why_gardner",
+    "reviews",
+    "guides",
+    "gallery"
+  ]
+}

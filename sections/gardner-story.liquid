@@ -1,0 +1,75 @@
+{%- liquid
+  assign story_image = section.settings.image
+-%}
+<section class="g-story">
+  <div class="page-width g-story__grid{% if section.settings.image_position == 'right' %} g-story__grid--reverse{% endif %}">
+    <div class="g-story__media">
+      {%- if story_image != blank -%}
+        {{
+          story_image
+          | image_url: width: 1400
+          | image_tag: class: 'g-story__img', sizes: '(min-width: 990px) 45vw, 100vw', widths: '500, 750, 1000, 1400', alt: ''
+        }}
+      {%- else -%}
+        <img
+          class="g-story__img"
+          src="{{ 'gardner-story-900.jpg' | asset_url }}"
+          srcset="{{ 'gardner-story-600.jpg' | asset_url }} 600w, {{ 'gardner-story-900.jpg' | asset_url }} 900w, {{ 'gardner-story-1200.jpg' | asset_url }} 1200w"
+          sizes="(min-width: 990px) 45vw, 100vw"
+          alt=""
+          width="1200"
+          height="1490"
+        >
+      {%- endif -%}
+    </div>
+
+    <div class="g-story__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="g-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="g-story__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="g-story__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a class="button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          {{- section.settings.button_label -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gardner story",
+  "tag": "section",
+  "class": "section-gardner-story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our approach" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tools that earn their place" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We choose tools for how they feel in the hand and how they hold up in real soil. No gimmicks, no shelves of duplicates — just dependable essentials, clearly explained.</p>"
+    },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop the collection" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Gardner story" }]
+}
+{% endschema %}

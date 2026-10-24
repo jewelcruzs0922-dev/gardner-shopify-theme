@@ -1,0 +1,37 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Shopify CLI
+.shopify/
+.shopify-cli/
+.shopifyignore
+shopify.theme.toml
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Playwright / test artifacts
+.playwright-mcp/
+.playwright/
+test-results/
+playwright-report/
+
+# Build output
+dist/
+.cache/
+*.zip
+.tmp/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Oversized generated CLI transcript
+docs/theme-push-verbose.log

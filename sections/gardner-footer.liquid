@@ -1,0 +1,142 @@
+<footer class="g-footer">
+  <div class="g-footer__image">
+    <img
+      src="{{ 'gardner-footer-1200.jpg' | asset_url }}"
+      srcset="{{ 'gardner-footer-800.jpg' | asset_url }} 800w, {{ 'gardner-footer-1200.jpg' | asset_url }} 1200w, {{ 'gardner-footer-1600.jpg' | asset_url }} 1600w"
+      sizes="100vw"
+      alt=""
+      width="1600"
+      height="893"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="page-width g-footer__grid">
+    <div class="g-footer__brand">
+      <a class="g-footer__wordmark g-brand-lockup" href="{{ routes.root_url }}">
+        <svg class="g-brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 29V15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 18C9 18 5 13.5 4.5 6.5 11.5 6 16 10.5 16 18Z" fill="currentColor"/>
+          <path d="M16 14C22.5 14 27 10 27.5 3.5 20.5 3 16 7.5 16 14Z" fill="currentColor"/>
+        </svg>
+        <span>{{ settings.brand_name | default: shop.name }}</span>
+      </a>
+      <div class="g-footer__story rte">{{ section.settings.brand_text }}</div>
+
+      {%- if section.settings.show_social -%}
+        <ul class="g-footer__social list-unstyled" role="list">
+          {%- if settings.social_instagram_link != blank -%}
+            <li>
+              <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener">
+                {{- 'icon-instagram.svg' | inline_asset_content -}}
+                <span class="g-visually-hidden">Instagram</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if settings.social_facebook_link != blank -%}
+            <li>
+              <a href="{{ settings.social_facebook_link }}" target="_blank" rel="noopener">
+                {{- 'icon-facebook.svg' | inline_asset_content -}}
+                <span class="g-visually-hidden">Facebook</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if settings.social_pinterest_link != blank -%}
+            <li>
+              <a href="{{ settings.social_pinterest_link }}" target="_blank" rel="noopener">
+                {{- 'icon-pinterest.svg' | inline_asset_content -}}
+                <span class="g-visually-hidden">Pinterest</span>
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if settings.social_youtube_link != blank -%}
+            <li>
+              <a href="{{ settings.social_youtube_link }}" target="_blank" rel="noopener">
+                {{- 'icon-youtube.svg' | inline_asset_content -}}
+                <span class="g-visually-hidden">YouTube</span>
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    <nav class="g-footer__menu" aria-label="{{ section.settings.menu_heading | escape }}">
+      <h2 class="g-footer__heading">{{ section.settings.menu_heading }}</h2>
+      <ul class="list-unstyled" role="list">
+        {%- for link in linklists[section.settings.menu].links -%}
+          <li><a class="link link--text" href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="g-footer__newsletter">
+      <h2 class="g-footer__heading">{{ section.settings.newsletter_heading }}</h2>
+      <div class="g-footer__newsletter-text rte">{{ section.settings.newsletter_text }}</div>
+
+      {%- form 'customer', class: 'g-footer__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="g-visually-hidden" for="GardnerFooterEmail">Email address</label>
+        <div class="g-footer__field">
+          <input
+            id="GardnerFooterEmail"
+            type="email"
+            name="contact[email]"
+            placeholder="Email address"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="button">Subscribe</button>
+        </div>
+        {%- if form.posted_successfully? -%}
+          <p class="g-footer__message" role="status">Thanks — you’re on the list.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="g-footer__message" role="alert">
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+
+  <div class="page-width g-footer__bottom">
+    <p class="g-footer__fineprint">
+      &copy; {{ 'now' | date: '%Y' }} {{ settings.brand_name | default: shop.name }}. Demonstration storefront.
+    </p>
+    <ul class="list-unstyled g-footer__policies" role="list">
+      {%- for policy in shop.policies -%}
+        {%- if policy != blank -%}
+          <li><a class="link link--text" href="{{ policy.url }}">{{ policy.title }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Gardner footer",
+  "tag": "section",
+  "class": "section-gardner-footer",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "brand_text",
+      "label": "Brand story",
+      "default": "<p>Gardner makes gardening easier with dependable tools, clear guidance, and prices that make sense for real gardens.</p>"
+    },
+    { "type": "link_list", "id": "menu", "label": "Footer menu", "default": "footer" },
+    { "type": "text", "id": "menu_heading", "label": "Menu heading", "default": "Explore" },
+    { "type": "checkbox", "id": "show_social", "label": "Show social links", "default": true },
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Garden notes" },
+    {
+      "type": "richtext",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "<p>Occasional notes on seasonal jobs, new tools, and garden ideas.</p>"
+    }
+  ],
+  "presets": [{ "name": "Gardner footer" }]
+}
+{% endschema %}

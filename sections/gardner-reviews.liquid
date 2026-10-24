@@ -1,0 +1,86 @@
+{%- if section.settings.show_section -%}
+  <section class="g-reviews">
+    <div class="page-width">
+      <div class="g-reviews__head">
+        <div>
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="g-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          <h2 class="g-reviews__title">{{ section.settings.heading }}</h2>
+          {%- if section.settings.text != blank -%}
+            <div class="g-reviews__intro rte">{{ section.settings.text }}</div>
+          {%- endif -%}
+        </div>
+        <p class="g-reviews__demo-note">{{ section.settings.disclaimer }}</p>
+      </div>
+
+      <ul class="g-reviews__grid list-unstyled" role="list">
+        {%- for block in section.blocks -%}
+          <li class="g-review" {{ block.shopify_attributes }}>
+            <div class="g-review__top">
+              {%- if section.settings.show_stars -%}
+                <span class="g-review__stars" aria-hidden="true">★★★★★</span>
+              {%- endif -%}
+              <span class="g-review__badge">Sample</span>
+            </div>
+            <blockquote class="g-review__quote">{{ block.settings.quote }}</blockquote>
+            <p class="g-review__author">
+              {{ block.settings.author }}
+              {%- if block.settings.detail != blank -%}
+                <span class="g-review__detail">{{ block.settings.detail }}</span>
+              {%- endif -%}
+            </p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Gardner reviews",
+  "tag": "section",
+  "class": "section-gardner-reviews",
+  "settings": [
+    { "type": "checkbox", "id": "show_section", "label": "Show section", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "In the garden" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What gardeners are saying" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Intro",
+      "default": "<p>Short notes from people who use these tools every week.</p>"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Demo disclaimer",
+      "default": "Demo content: these are illustrative sample reviews, not real customer feedback."
+    },
+    { "type": "checkbox", "id": "show_stars", "label": "Show star row", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Sample review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "The trowel feels solid without being heavy. It has become the tool I reach for first."
+        },
+        { "type": "text", "id": "author", "label": "Name", "default": "Sample gardener" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Raised-bed grower" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gardner reviews",
+      "blocks": [{ "type": "review" }, { "type": "review" }, { "type": "review" }]
+    }
+  ]
+}
+{% endschema %}

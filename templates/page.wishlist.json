@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "gardner-wishlist",
+      "settings": {
+        "eyebrow": "Your selection",
+        "heading": "Wishlist",
+        "text": "<p>Tools you have saved while browsing Gardner.</p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

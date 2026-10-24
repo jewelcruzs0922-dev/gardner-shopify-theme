@@ -1,0 +1,20 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "gardner_footer": {
+      "type": "gardner-footer",
+      "settings": {
+        "brand_text": "<p>Gardner makes gardening easier with dependable tools, clear guidance, and prices that make sense for real gardens. Built as a portfolio demonstration storefront.</p>",
+        "menu": "footer",
+        "menu_heading": "Explore",
+        "show_social": true,
+        "newsletter_heading": "Garden notes",
+        "newsletter_text": "<p>Occasional notes on seasonal jobs, new tools, and garden ideas.</p>"
+      }
+    }
+  },
+  "order": [
+    "gardner_footer"
+  ]
+}
