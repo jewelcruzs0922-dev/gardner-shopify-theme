@@ -93,7 +93,7 @@ No announcement bar is rendered.
 
 - `sections/header.liquid` keeps Dawn's sticky-header custom element and adds:
   - A verified hidden-down / reveal-up sticky mode (`sticky_header_type: on-scroll-up`).
-  - Mega menu with seven collection links (Hand Tools, Pruning & Cutting, Digging & Planting, Watering & Irrigation, Soil Care, Garden Accessories, Power Tools).
+  - Mega menu with seven collection links and two featured products (Hand Tools, Pruning & Cutting, Digging & Planting, Watering & Irrigation, Soil Care, Garden Accessories, Power Tools).
   - Search modal with predictive results.
   - Account entry point is a native link to Shopify's `/account` route rather than the heavy `shopify-account` web component; this keeps the customer-account entry point native and avoids loading the Shop login/checkout bundle on every page.
   - Wishlist icon/link injected by `gardner-wishlist.js` next to the cart, with a live saved count.

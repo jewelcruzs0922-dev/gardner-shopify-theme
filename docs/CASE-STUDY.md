@@ -10,7 +10,7 @@ A complete Dawn-based Shopify theme with:
 
 - An original brand layer: cream `#F7F1E3`, apple green `#8DBF39`, orange `#F28C28`, Josefin Sans display type, Nunito Sans body type, soft radii.
 - A homepage with hero, bestsellers, six category cards, brand story, trust/benefits, visibly labelled demo reviews, guides, and editorial gallery.
-- A commerce header with a seven-collection mega menu, predictive search, hide-on-scroll sticky behavior, wishlist, and native account/cart links.
+- A commerce header with a seven-collection mega menu, featured products, predictive search, hide-on-scroll sticky behavior, wishlist, and native account/cart links.
 - A 32-product catalog across hand tools, pruning, digging/planting, watering, soil care, accessories, and one power tool, with documented sources and demonstration pricing.
 - Functional faceted filtering, sorting, PDP gallery lightbox, available/low-stock/sold-out inventory states, related products, a cart drawer, cart fallback, and a persistent browser-local wishlist.
 - About, contact, guides, article, shipping, returns, privacy, terms, wishlist, 404, and empty-state pages.

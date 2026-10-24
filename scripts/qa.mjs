@@ -128,6 +128,8 @@ await test('Navigation: mega menu opens, lists six collections, closes on Escape
   assert(await details.getAttribute('open') !== null, 'mega menu did not open');
   const links = await page.locator('header.header .mega-menu__link:visible').allTextContents();
   assert(links.length >= 7, `expected at least 7 collection links, found ${links.length}`);
+  const featured = await page.locator('header.header .mega-menu__product:visible').count();
+  assert(featured >= 2, `expected featured products in the mega menu, found ${featured}`);
   await shot('mega-menu-1440.png', false);
   await page.keyboard.press('Escape');
   await page.waitForTimeout(300);

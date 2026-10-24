@@ -45,7 +45,7 @@ Verified:
 - Demo review and editorial gallery disclosures are visible
 - All homepage images load; 6 category cards and 4 bestseller cards render
 - Sticky header hides on scroll down and returns on scroll up
-- Mega menu opens by keyboard, lists 7 collections, and closes on Escape
+- Mega menu opens by keyboard, lists 7 collections plus 2 featured products, and closes on Escape
 - Predictive search returns 10 product thumbnails; search results page renders; empty search state renders
 - Collection price filter reduces 15 → 5 products through the UI, shows an active chip, and reset returns to 15
 - Price sort low-to-high puts the $8.99 trowel first

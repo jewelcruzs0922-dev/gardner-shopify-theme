@@ -60,7 +60,7 @@ Reference baselines remain in `docs/reference/` (Lavandula home/product/products
 
 ## Header, menus, and footer
 
-- Mega menu opens on click/Enter, uses a 3-column list, and closes on Escape. Mobile uses a drawer.
+- Mega menu opens on click/Enter, uses a 3-column collection list plus a featured-products column, and closes on Escape. Mobile uses a drawer.
 - Sticky header hides on scroll down and returns on scroll up; verified at 1440.
 - Footer is editorial: botanical lockup, brand story, menu, newsletter, policy links, and a full-width image band.
 - **Difference:** no announcement bar (per brief). Social icons are only rendered when URLs exist in theme settings; none were invented.
