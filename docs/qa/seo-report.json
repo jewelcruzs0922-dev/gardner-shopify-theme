@@ -1,0 +1,405 @@
+{
+  "generated": "2026-10-24T21:07:17.555Z",
+  "store": "gardner-dev-zwlohenx.myshopify.com",
+  "previewThemeId": "191259083065",
+  "summary": {
+    "passed": 20,
+    "failed": 0,
+    "blocked": 0,
+    "info": 0,
+    "total": 20
+  },
+  "results": [
+    {
+      "name": "All sampled pages return the expected HTTP status",
+      "status": "pass",
+      "detail": "15 pages"
+    },
+    {
+      "name": "Every page has a non-empty title and meta description",
+      "status": "pass",
+      "detail": "titles and descriptions present"
+    },
+    {
+      "name": "Titles are unique across canonical pages",
+      "status": "pass",
+      "detail": "14 unique titles"
+    },
+    {
+      "name": "Titles use the storefront brand, not the admin store name",
+      "status": "pass",
+      "detail": "Gardner brand used"
+    },
+    {
+      "name": "Canonical URLs are present and absolute",
+      "status": "pass",
+      "detail": "absolute canonicals"
+    },
+    {
+      "name": "Filtered collection canonical points at the clean collection URL",
+      "status": "pass",
+      "detail": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools"
+    },
+    {
+      "name": "Each page has exactly one h1",
+      "status": "pass",
+      "detail": "one h1 per page"
+    },
+    {
+      "name": "Open Graph title, description, and image are present",
+      "status": "pass",
+      "detail": "og metadata complete"
+    },
+    {
+      "name": "All images expose an alt attribute",
+      "status": "pass",
+      "detail": "alt attribute present on every image"
+    },
+    {
+      "name": "Product images have descriptive alt text",
+      "status": "pass",
+      "detail": "6 product images"
+    },
+    {
+      "name": "JSON-LD parses on every page",
+      "status": "pass",
+      "detail": "19 blocks parsed"
+    },
+    {
+      "name": "Organization schema appears once per page",
+      "status": "pass",
+      "detail": "one Organization block per page"
+    },
+    {
+      "name": "WebSite schema appears once on the homepage only",
+      "status": "pass",
+      "detail": "homepage only"
+    },
+    {
+      "name": "Product schema is present and matches the displayed price",
+      "status": "pass",
+      "detail": "FELCO 2 Classic Pruning Shears / 86.71 USD / http://schema.org/InStock"
+    },
+    {
+      "name": "Breadcrumb schema is present on product pages",
+      "status": "pass",
+      "detail": "3 breadcrumb items"
+    },
+    {
+      "name": "Article schema is present on the article template",
+      "status": "pass",
+      "detail": "Article"
+    },
+    {
+      "name": "Search, cart, and wishlist pages are marked noindex",
+      "status": "pass",
+      "detail": "noindex present"
+    },
+    {
+      "name": "Content pages are indexable",
+      "status": "pass",
+      "detail": "no unexpected noindex"
+    },
+    {
+      "name": "Sitemap and robots.txt are reachable",
+      "status": "pass",
+      "detail": "sitemap 200 / robots 200 / platform robots.txt omits Sitemap directive"
+    },
+    {
+      "name": "Homepage and collection expose crawlable internal links",
+      "status": "pass",
+      "detail": "73 home / 81 collection"
+    }
+  ],
+  "snapshots": [
+    {
+      "page": "home",
+      "path": "/",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "title": "Gardner – Garden tools, made simple",
+      "description": "Gardner is a demonstration garden-tools storefront with practical hand tools, watering gear, and clear guides for everyday gardeners.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "robots": "",
+      "h1": [
+        "Good tools. Better gardens."
+      ],
+      "jsonLdTypes": [
+        "Organization",
+        "WebSite"
+      ],
+      "imageCount": 19,
+      "imagesMissingAlt": 0,
+      "internalLinks": 73
+    },
+    {
+      "page": "collection",
+      "path": "/collections/hand-tools",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools",
+      "title": "Hand Tools – Gardner",
+      "description": "Pruners, shovels, and everyday hand tools for the garden.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools",
+      "robots": "",
+      "h1": [
+        "Collection: Hand Tools"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 16,
+      "imagesMissingAlt": 0,
+      "internalLinks": 81
+    },
+    {
+      "page": "collection-filtered",
+      "path": "/collections/hand-tools?filter.v.price.gte=40&sort_by=price-ascending",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools?filter.v.price.gte=40&sort_by=price-ascending",
+      "title": "Hand Tools – Gardner",
+      "description": "Pruners, shovels, and everyday hand tools for the garden.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools",
+      "robots": "",
+      "h1": [
+        "Collection: Hand Tools"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 6,
+      "imagesMissingAlt": 0,
+      "internalLinks": 63
+    },
+    {
+      "page": "product",
+      "path": "/products/felco-2-classic-pruner",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/products/felco-2-classic-pruner",
+      "title": "FELCO 2 Classic Pruning Shears – Gardner",
+      "description": "The FELCO 2 is a Swiss-made bypass pruner with forged aluminum handles and a hardened steel blade, designed for clean cuts up to about 1 inch. Bypass cutting action, right-handed, large hand size 8.46 in (215 mm) length; 0.55 lb (251 g) Cutting capacity: 0.98 in (25 mm) Forged aluminum handles; hardened steel blade Rep",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/products/felco-2-classic-pruner",
+      "robots": "",
+      "h1": [
+        "FELCO 2 Classic Pruning Shears"
+      ],
+      "jsonLdTypes": [
+        "Organization",
+        "Product",
+        "BreadcrumbList"
+      ],
+      "imageCount": 7,
+      "imagesMissingAlt": 0,
+      "internalLinks": 55
+    },
+    {
+      "page": "search",
+      "path": "/search?q=pruner&type=product",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/search?q=pruner&type=product",
+      "title": "Search: 30 results found for \"pruner\" – Gardner",
+      "description": "Search the Gardner demonstration catalog for hand tools, pruning shears, watering gear, and garden accessories.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/search?q=pruner&type=product",
+      "robots": "noindex, follow",
+      "h1": [
+        "Search results"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 25,
+      "imagesMissingAlt": 0,
+      "internalLinks": 98
+    },
+    {
+      "page": "search-empty",
+      "path": "/search?q=zzzznotathing&type=product",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/search?q=zzzznotathing&type=product",
+      "title": "Search: 0 results found for \"zzzznotathing\" – Gardner",
+      "description": "Search the Gardner demonstration catalog for hand tools, pruning shears, watering gear, and garden accessories.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/search?q=zzzznotathing&type=product",
+      "robots": "noindex, follow",
+      "h1": [
+        "Search results"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 44
+    },
+    {
+      "page": "cart",
+      "path": "/cart",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/cart",
+      "title": "Your Shopping Cart – Gardner",
+      "description": "Review the items in your Gardner demonstration cart before checkout.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/cart",
+      "robots": "noindex, follow",
+      "h1": [
+        "Your cart"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 47
+    },
+    {
+      "page": "wishlist",
+      "path": "/pages/wishlist",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/wishlist",
+      "title": "Wishlist – Gardner",
+      "description": "Gardner is a demonstration garden-tools storefront for everyday gardeners.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/wishlist",
+      "robots": "noindex, follow",
+      "h1": [
+        "Wishlist"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 45
+    },
+    {
+      "page": "about",
+      "path": "/pages/about",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/about",
+      "title": "About Gardner",
+      "description": "Gardner is a demonstration garden-tools storefront built to show a warm, practical shopping experience for everyday gardeners.We focus on tools that are easy to understand, comfortable to use, and priced sensibly — from a first trowel to a full season of pruning and planting.This store is a portfolio project, not a liv",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/about",
+      "robots": "",
+      "h1": [
+        "About Gardner"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 44
+    },
+    {
+      "page": "contact",
+      "path": "/pages/contact",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/contact",
+      "title": "Contact – Gardner",
+      "description": "Gardner is a demonstration garden-tools storefront for everyday gardeners.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/contact",
+      "robots": "",
+      "h1": [
+        "Contact"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 44
+    },
+    {
+      "page": "guides",
+      "path": "/blogs/news",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news",
+      "title": "Guides – Gardner",
+      "description": "Practical gardening guides, seasonal checklists, and tool advice from Gardner.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news",
+      "robots": "",
+      "h1": [
+        "Guides"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 4,
+      "imagesMissingAlt": 0,
+      "internalLinks": 50
+    },
+    {
+      "page": "article",
+      "path": "/blogs/news/choosing-pruning-shears",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news/choosing-pruning-shears",
+      "title": "Choosing your first pruning shears – Gardner",
+      "description": "Most gardeners only need one good pair of bypass pruners to start.Bypass firstBypass pruners cut like scissors and make clean cuts on living stems. Anvil pruners crush growth and are better for dead wood.Fit and feelLook for a handle that fits your hand, a lock you can use with gloves, and a blade you can sharpen or re",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news/choosing-pruning-shears",
+      "robots": "",
+      "h1": [
+        "Choosing your first pruning shears"
+      ],
+      "jsonLdTypes": [
+        "Organization",
+        "Article"
+      ],
+      "imageCount": 2,
+      "imagesMissingAlt": 0,
+      "internalLinks": 45
+    },
+    {
+      "page": "privacy",
+      "path": "/pages/privacy",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/privacy",
+      "title": "Privacy – Gardner",
+      "description": "Draft template for a portfolio demonstration. This is not legal advice and is not a final business policy. The store owner must review and complete it before any real use.What we collectThis demo store uses Shopify-native checkout and newsletter signup. Data practices must be reviewed and completed by the owner.Your ch",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/privacy",
+      "robots": "",
+      "h1": [
+        "Privacy"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 44
+    },
+    {
+      "page": "terms",
+      "path": "/pages/terms",
+      "status": 200,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/terms",
+      "title": "Terms – Gardner",
+      "description": "Draft template for a portfolio demonstration. This is not legal advice and is not a final business policy. The store owner must review and complete it before any real use. Using this storeGardner is a demonstration storefront. Product listings, prices, and inventory are sample data. No real orders are fulfilled. Orders",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/terms",
+      "robots": "",
+      "h1": [
+        "Terms"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 45
+    },
+    {
+      "page": "404",
+      "path": "/this-page-does-not-exist-qa",
+      "status": 404,
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/this-page-does-not-exist-qa",
+      "title": "404 Not Found – Gardner",
+      "description": "The page you requested could not be found. Browse Gardner garden tools or return to the homepage.",
+      "canonical": "https://gardner-dev-zwlohenx.myshopify.com/404",
+      "robots": "noindex, follow",
+      "h1": [
+        "Page not found"
+      ],
+      "jsonLdTypes": [
+        "Organization"
+      ],
+      "imageCount": 1,
+      "imagesMissingAlt": 0,
+      "internalLinks": 45
+    }
+  ]
+}

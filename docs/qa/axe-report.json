@@ -1,0 +1,217 @@
+{
+  "generated": "2026-10-24T20:23:38.441Z",
+  "viewport": "1440x900",
+  "pages": [
+    {
+      "label": "home",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "violations": [],
+      "passes": 30,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 7
+        }
+      ]
+    },
+    {
+      "label": "collection",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/collections/hand-tools",
+      "violations": [],
+      "passes": 32,
+      "incomplete": []
+    },
+    {
+      "label": "product",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/products/felco-2-classic-pruner",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 4
+        }
+      ]
+    },
+    {
+      "label": "search",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/search?q=pruner&type=product",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "impact": "critical",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "label": "search-empty",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/search?q=zzzznotathing&type=product",
+      "violations": [],
+      "passes": 29,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "impact": "critical",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "label": "cart",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/cart",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "wishlist",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/wishlist",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "about",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/about",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "contact",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/contact",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "guides",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news",
+      "violations": [],
+      "passes": 29,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 1
+        }
+      ]
+    },
+    {
+      "label": "article",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news/choosing-pruning-shears",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "policies",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/privacy",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "label": "404",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/this-page-does-not-exist-qa",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    }
+  ],
+  "states": [
+    {
+      "label": "mega-menu-open",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "violations": [],
+      "passes": 30,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 7
+        }
+      ]
+    },
+    {
+      "label": "search-modal-open",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "violations": [],
+      "passes": 30,
+      "incomplete": [
+        {
+          "id": "aria-valid-attr-value",
+          "impact": "critical",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 15
+        }
+      ]
+    },
+    {
+      "label": "cart-drawer-open",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/products/felco-2-classic-pruner",
+      "violations": [],
+      "passes": 35,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 7
+        }
+      ]
+    },
+    {
+      "label": "wishlist-saved",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/products/felco-2-classic-pruner",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 4
+        }
+      ]
+    },
+    {
+      "label": "mobile-menu-open",
+      "url": "https://gardner-dev-zwlohenx.myshopify.com/",
+      "viewport": "390x844",
+      "violations": [],
+      "passes": 31,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 9
+        }
+      ]
+    }
+  ],
+  "totals": [],
+  "file": "C:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\docs\\qa\\axe-report.json"
+}

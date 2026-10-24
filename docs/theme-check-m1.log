@@ -1,0 +1,295 @@
+﻿Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\config\settings_data.json         Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [error]: ValidJSON                                                          Γöé
+Γöé  Expected a JSON object, array or literal.                                   Γöé
+Γöé                                                                              Γöé
+Γöé  1  {                                                                        Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\docs\theme-check-baseline.json    Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [error]: ValidJSON                                                          Γöé
+Γöé  Expected a JSON object, array or literal.                                   Γöé
+Γöé                                                                              Γöé
+Γöé  1  [{"path":"c:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\snippets\\qu  Γöé
+Γöé  ick-order-product-row.liquid","offenses":[{"check":"OrphanedSnippet","seve  Γöé
+Γöé  rity":"warning","start_row":0,"start_column":0,"end_row":0,"end_column":1,  Γöé
+Γöé  "message":"This snippet is not referenced by any other                      Γöé
+Γöé  files"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users  Γöé
+Γöé  \\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-list-collections.li  Γöé
+Γöé  quid","offenses":[{"check":"VariableName","severity":"warning","start_row"  Γöé
+Γöé  :19,"start_column":11,"end_row":19,"end_column":72,"message":"The variable  Γöé
+Γöé   'moduloResult' uses wrong naming                                           Γöé
+Γöé  format"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\User  Γöé
+Γöé  s\\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-article.liquid","o  Γöé
+Γöé  ffenses":[{"check":"VariableName","severity":"warning","start_row":101,"st  Γöé
+Γöé  art_column":21,"end_row":101,"end_column":66,"message":"The variable        Γöé
+Γöé  'anchorId' uses wrong naming                                                Γöé
+Γöé  format"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\User  Γöé
+Γöé  s\\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-search.liquid","of  Γöé
+Γöé  fenses":[{"check":"UnusedAssign","severity":"warning","start_row":273,"sta  Γöé
+Γöé  rt_column":24,"end_row":273,"end_column":56,"message":"The variable         Γöé
+Γöé  'product_settings' is assigned but not                                      Γöé
+Γöé  used"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users\  Γöé
+Γöé  \Jimwel\\Downloads\\OpenCode\\Gardner\\snippets\\facets.liquid","offenses"  Γöé
+Γöé  :[{"check":"LiquidComplexity","severity":"warning","start_row":864,"start_  Γöé
+Γöé  column":8,"end_row":864,"end_column":63,"message":"Liquid complexity is     Γöé
+Γöé  136, which exceeds the maximum of 120. The decision at line 865 pushed it   Γöé
+Γöé  over the limit. Consider simplifying conditional logic, or moving           Γöé
+Γöé  self-contained decision logic into snippets with the render                 Γöé
+Γöé  tag."}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users\  Γöé
+Γöé  \Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-product.liquid","off  Γöé
+Γöé  enses":[{"check":"UnusedAssign","severity":"warning","start_row":744,"star  Γöé
+Γöé  t_column":10,"end_row":744,"end_column":51,"message":"The variable          Γöé
+Γöé  'seo_media' is assigned but not                                             Γöé
+Γöé  used"},{"check":"UndefinedObject","severity":"warning","start_row":600,"st  Γöé
+Γöé  art_column":46,"end_row":600,"end_column":54,"message":"Unknown object      Γöé
+Γöé  'continue' used."}],"errorCount":0,"warningCount":2,"infoCount":0},{"path"  Γöé
+Γöé  :"c:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\layout\\password.liquid  Γöé
+Γöé  ","offenses":[{"check":"UndefinedObject","severity":"warning","start_row":  Γöé
+Γöé  39,"start_column":35,"end_row":39,"end_column":49,"message":"Unknown        Γöé
+Γöé  object 'scheme_classes'                                                     Γöé
+Γöé  used."}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users  Γöé
+Γöé  \\Jimwel\\Downloads\\OpenCode\\Gardner\\layout\\theme.liquid","offenses":[  Γöé
+Γöé  {"check":"UndefinedObject","severity":"warning","start_row":81,"start_colu  Γöé
+Γöé  mn":35,"end_row":81,"end_column":49,"message":"Unknown object               Γöé
+Γöé  'scheme_classes' used."}],"errorCount":0,"warningCount":1,"infoCount":0}]   Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\docs\theme-check-m1.json          Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [error]: ValidJSON                                                          Γöé
+Γöé  Expected a JSON object, array or literal.                                   Γöé
+Γöé                                                                              Γöé
+Γöé  1  [{"path":"c:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\snippets\\qu  Γöé
+Γöé  ick-order-product-row.liquid","offenses":[{"check":"OrphanedSnippet","seve  Γöé
+Γöé  rity":"warning","start_row":0,"start_column":0,"end_row":0,"end_column":1,  Γöé
+Γöé  "message":"This snippet is not referenced by any other                      Γöé
+Γöé  files"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users  Γöé
+Γöé  \\Jimwel\\Downloads\\OpenCode\\Gardner\\config\\settings_data.json","offen  Γöé
+Γöé  ses":[{"check":"ValidJSON","severity":"error","start_row":0,"start_column"  Γöé
+Γöé  :0,"end_row":0,"end_column":1,"message":"Expected a JSON object, array or   Γöé
+Γöé  literal."}],"errorCount":1,"warningCount":0,"infoCount":0},{"path":"c:\\Us  Γöé
+Γöé  ers\\Jimwel\\Downloads\\OpenCode\\Gardner\\docs\\theme-check-baseline.json  Γöé
+Γöé  ","offenses":[{"check":"ValidJSON","severity":"error","start_row":0,"start  Γöé
+Γöé  _column":0,"end_row":0,"end_column":1,"message":"Expected a JSON object,    Γöé
+Γöé  array or literal."}],"errorCount":1,"warningCount":0,"infoCount":0},{"path  Γöé
+Γöé  ":"c:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\templates\\index.json"  Γöé
+Γöé  ,"offenses":[{"check":"ValidJSON","severity":"error","start_row":0,"start_  Γöé
+Γöé  column":0,"end_row":0,"end_column":1,"message":"Expected a JSON object,     Γöé
+Γöé  array or                                                                    Γöé
+Γöé  literal."}],"errorCount":1,"warningCount":0,"infoCount":0},{"path":"c:\\Us  Γöé
+Γöé  ers\\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-list-collections  Γöé
+Γöé  .liquid","offenses":[{"check":"VariableName","severity":"warning","start_r  Γöé
+Γöé  ow":19,"start_column":11,"end_row":19,"end_column":72,"message":"The        Γöé
+Γöé  variable 'moduloResult' uses wrong naming                                   Γöé
+Γöé  format"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\User  Γöé
+Γöé  s\\Jimwel\\Downloads\\OpenCode\\Gardner\\layout\\theme.liquid","offenses":  Γöé
+Γöé  [{"check":"RemoteAsset","severity":"warning","start_row":17,"start_column"  Γöé
+Γöé  :27,"end_row":17,"end_column":62,"message":"Asset should be served by the   Γöé
+Γöé  Shopify CDN for better                                                      Γöé
+Γöé  performance."},{"check":"RemoteAsset","severity":"warning","start_row":18,  Γöé
+Γöé  "start_column":27,"end_row":18,"end_column":59,"message":"Asset should be   Γöé
+Γöé  served by the Shopify CDN for better                                        Γöé
+Γöé  performance."},{"check":"RemoteAsset","severity":"warning","start_row":20,  Γöé
+Γöé  "start_column":6,"end_row":20,"end_column":136,"message":"Asset should be   Γöé
+Γöé  served by the Shopify CDN for better                                        Γöé
+Γöé  performance."},{"check":"UndefinedObject","severity":"warning","start_row"  Γöé
+Γöé  :88,"start_column":35,"end_row":88,"end_column":49,"message":"Unknown       Γöé
+Γöé  object 'scheme_classes'                                                     Γöé
+Γöé  used."}],"errorCount":0,"warningCount":4,"infoCount":0},{"path":"c:\\Users  Γöé
+Γöé  \\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-article.liquid","of  Γöé
+Γöé  fenses":[{"check":"VariableName","severity":"warning","start_row":101,"sta  Γöé
+Γöé  rt_column":21,"end_row":101,"end_column":66,"message":"The variable         Γöé
+Γöé  'anchorId' uses wrong naming                                                Γöé
+Γöé  format"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\User  Γöé
+Γöé  s\\Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-search.liquid","of  Γöé
+Γöé  fenses":[{"check":"UnusedAssign","severity":"warning","start_row":273,"sta  Γöé
+Γöé  rt_column":24,"end_row":273,"end_column":56,"message":"The variable         Γöé
+Γöé  'product_settings' is assigned but not                                      Γöé
+Γöé  used"}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users\  Γöé
+Γöé  \Jimwel\\Downloads\\OpenCode\\Gardner\\snippets\\facets.liquid","offenses"  Γöé
+Γöé  :[{"check":"LiquidComplexity","severity":"warning","start_row":864,"start_  Γöé
+Γöé  column":8,"end_row":864,"end_column":63,"message":"Liquid complexity is     Γöé
+Γöé  136, which exceeds the maximum of 120. The decision at line 865 pushed it   Γöé
+Γöé  over the limit. Consider simplifying conditional logic, or moving           Γöé
+Γöé  self-contained decision logic into snippets with the render                 Γöé
+Γöé  tag."}],"errorCount":0,"warningCount":1,"infoCount":0},{"path":"c:\\Users\  Γöé
+Γöé  \Jimwel\\Downloads\\OpenCode\\Gardner\\sections\\main-product.liquid","off  Γöé
+Γöé  enses":[{"check":"UnusedAssign","severity":"warning","start_row":744,"star  Γöé
+Γöé  t_column":10,"end_row":744,"end_column":51,"message":"The variable          Γöé
+Γöé  'seo_media' is assigned but not                                             Γöé
+Γöé  used"},{"check":"UndefinedObject","severity":"warning","start_row":600,"st  Γöé
+Γöé  art_column":46,"end_row":600,"end_column":54,"message":"Unknown object      Γöé
+Γöé  'continue' used."}],"errorCount":0,"warningCount":2,"infoCount":0},{"path"  Γöé
+Γöé  :"c:\\Users\\Jimwel\\Downloads\\OpenCode\\Gardner\\layout\\password.liquid  Γöé
+Γöé  ","offenses":[{"check":"UndefinedObject","severity":"warning","start_row":  Γöé
+Γöé  39,"start_column":35,"end_row":39,"end_column":49,"message":"Unknown        Γöé
+Γöé  object 'scheme_classes'                                                     Γöé
+Γöé  used."}],"errorCount":0,"warningCount":1,"infoCount":0}]                    Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\layout\password.liquid            Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: UndefinedObject                                                  Γöé
+Γöé  Unknown object 'scheme_classes' used.                                       Γöé
+Γöé                                                                              Γöé
+Γöé  40  {% assign scheme_classes = scheme_classes | append: ', .color-' |       Γöé
+Γöé  append: scheme.id %}                                                        Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\layout\theme.liquid               Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: RemoteAsset                                                      Γöé
+Γöé  Asset should be served by the Shopify CDN for better performance.           Γöé
+Γöé                                                                              Γöé
+Γöé  18  <link rel="preconnect" href="https://fonts.googleapis.com">             Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: RemoteAsset                                                      Γöé
+Γöé  Asset should be served by the Shopify CDN for better performance.           Γöé
+Γöé                                                                              Γöé
+Γöé  19  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: RemoteAsset                                                      Γöé
+Γöé  Asset should be served by the Shopify CDN for better performance.           Γöé
+Γöé                                                                              Γöé
+Γöé  21  href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;5  Γöé
+Γöé  00;600&family=Nunito+Sans:wght@400;500;600;700&display=swap"                Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: UndefinedObject                                                  Γöé
+Γöé  Unknown object 'scheme_classes' used.                                       Γöé
+Γöé                                                                              Γöé
+Γöé  89  {% assign scheme_classes = scheme_classes | append: ', .color-' |       Γöé
+Γöé  append: scheme.id %}                                                        Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\sections\main-article.liquid      Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: VariableName                                                     Γöé
+Γöé  The variable 'anchorId' uses wrong naming format                            Γöé
+Γöé                                                                              Γöé
+Γöé  102  {%- assign anchorId = '#Comments-' | append: article.id -%}            Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\sections\main-list-collections.l  Γöé
+Γöé  iquid                                                                       Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: VariableName                                                     Γöé
+Γöé  The variable 'moduloResult' uses wrong naming format                        Γöé
+Γöé                                                                              Γöé
+Γöé  20  assign moduloResult = 28 | modulo: section.settings.columns_desktop     Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\sections\main-product.liquid      Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: UnusedAssign                                                     Γöé
+Γöé  The variable 'seo_media' is assigned but not used                           Γöé
+Γöé                                                                              Γöé
+Γöé  745  assign seo_media = product.featured_media                              Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: UndefinedObject                                                  Γöé
+Γöé  Unknown object 'continue' used.                                             Γöé
+Γöé                                                                              Γöé
+Γöé  601  offset: continue                                                       Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\sections\main-search.liquid       Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: UnusedAssign                                                     Γöé
+Γöé  The variable 'product_settings' is assigned but not used                    Γöé
+Γöé                                                                              Γöé
+Γöé  274  {%- capture product_settings -%}{%- if                                 Γöé
+Γöé  section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%-  Γöé
+Γöé   endcapture -%}                                                             Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\snippets\facets.liquid            Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: LiquidComplexity                                                 Γöé
+Γöé  Liquid complexity is 136, which exceeds the maximum of 120. The decision    Γöé
+Γöé  at line 865 pushed it over the limit. Consider simplifying conditional      Γöé
+Γöé  logic, or moving self-contained decision logic into snippets with the       Γöé
+Γöé  render tag.                                                                 Γöé
+Γöé                                                                              Γöé
+Γöé  865  {% if results.current_vendor or results.current_type %}                Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\snippets\quick-order-product-row  Γöé
+Γöé  .liquid                                                                     Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [warning]: OrphanedSnippet                                                  Γöé
+Γöé  This snippet is not referenced by any other files                           Γöé
+Γöé                                                                              Γöé
+Γöé  1  {% comment %}                                                            Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  :\Users\Jimwel\Downloads\OpenCode\Gardner\templates\index.json              Γöé
+Γöé                                                                              Γöé
+Γöé                                                                              Γöé
+Γöé  [error]: ValidJSON                                                          Γöé
+Γöé  Expected a JSON object, array or literal.                                   Γöé
+Γöé                                                                              Γöé
+Γöé  1  {                                                                        Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
+Γò¡ΓöÇ info ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò«
+Γöé                                                                              Γöé
+Γöé  Theme Check Summary.                                                        Γöé
+Γöé                                                                              Γöé
+Γöé  157 files inspected with 16 total offenses found across 12 files.           Γöé
+Γöé  4 errors.                                                                   Γöé
+Γöé  12 warnings.                                                                Γöé
+Γöé                                                                              Γöé
+Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓò»
+System.Management.Automation.RemoteException
