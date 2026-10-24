@@ -1,0 +1,20 @@
+{
+  "name": "gardner-shopify-theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gardner - native Shopify storefront theme (portfolio project)",
+  "type": "module",
+  "scripts": {
+    "lint": "shopify theme check --path . --fail-level error",
+    "check": "shopify theme check --path .",
+    "qa": "node scripts/qa.mjs",
+    "qa:a11y": "node scripts/qa-a11y.mjs",
+    "qa:seo": "node scripts/qa-seo.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "lighthouse": "^13.5.0",
+    "playwright": "^1.64.1",
+    "sharp": "^0.35.5"
+  }
+}

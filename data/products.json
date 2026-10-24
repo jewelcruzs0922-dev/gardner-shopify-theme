@@ -1,0 +1,590 @@
+{
+  "researchedOn": "2026-10-24",
+  "notes": "Demonstration prices are plausible US retail levels, not supplier quotes. Images are brand-owned product photos referenced from the source page; usage rights are NOT licensed. Replace with licensed assets or obtain permission before any commercial use.",
+  "products": [
+    {
+      "handle": "fiskars-powergear2-pruner",
+      "title": "Fiskars PowerGear2 Softgrip Pruner",
+      "vendor": "Fiskars",
+      "product_type": "Pruning Shears",
+      "price": "34.99",
+      "compare_at_price": "39.99",
+      "sku": "FIS-391041-1002",
+      "inventory_quantity": 24,
+      "tags": "Pruning & Cutting,Hand Tools,Bestsellers,Pruning",
+      "collections": [
+        "pruning-cutting",
+        "hand-tools",
+        "bestsellers"
+      ],
+      "source_url": "https://cuix-prod.fiskars.com/en-us/gardening-and-yard-care/products/pruning-shears/powergear2-softgrip-pruner-392791-1001",
+      "specs": "Bypass pruner, model 392791-1001; 3/4 in cut capacity; hardened steel blade with low-friction coating; Softgrip handle; limited lifetime warranty.",
+      "body_html": "<p>A geared bypass pruner from the PowerGear2 Softgrip line, built for tougher stems and light branches. The cam mechanism multiplies leverage through the middle of the cut, where resistance is highest.</p><ul><li>Bypass cutting action for clean, precise cuts</li><li>3/4 in (19 mm) cutting capacity</li><li>Fully hardened steel blade with a low-friction coating</li><li>Softgrip handle</li><li>Limited lifetime warranty from Fiskars</li></ul><p><em>Specifications summarized from Fiskars product information (model 392791-1001). Demonstration listing — not an authorized Fiskars reseller.</em></p>",
+      "image": "https://cuix-prod.fiskars.com/-/media/products/2019/10/03/13/48/resource_fiskarsamericas_392791-1001.jpg"
+    },
+    {
+      "handle": "fiskars-steel-d-handle-digging-shovel-46",
+      "title": "Fiskars Steel D-Handle Digging Shovel (46 in)",
+      "vendor": "Fiskars",
+      "product_type": "Shovels",
+      "price": "44.99",
+      "compare_at_price": "49.99",
+      "sku": "FIS-396690-1001",
+      "inventory_quantity": 12,
+      "tags": "Digging & Planting,Hand Tools,Bestsellers,Shovels",
+      "collections": [
+        "digging-planting",
+        "hand-tools",
+        "bestsellers"
+      ],
+      "source_url": "https://www.fiskars.com/en-us/gardening-and-yard-care/products/shovels-and-digging-tools/digging-shovel-with-steel-d-handle-46-396690-1001",
+      "specs": "46 in overall length; welded 14-gauge hardened steel blade; 18-gauge steel shaft; D-handle; powder-coated; lifetime warranty.",
+      "body_html": "<p>An all-steel digging shovel with a large D-handle for two-handed control in dense soil.</p><ul><li>Welded 14-gauge hardened steel blade</li><li>18-gauge steel shaft</li><li>Sharpened blade edge for penetrating tough soil</li><li>Powder-coated finish resists rust and cleans easily</li><li>46 in overall length; limited lifetime warranty</li></ul><p><em>Specifications summarized from Fiskars product information. Demonstration listing — not an authorized Fiskars reseller.</em></p>",
+      "image": "https://cuix-prod.fiskars.com/-/media/products/2022/04/08/01/00/resource_fiskarsamericas_396690-1001.jpg"
+    },
+    {
+      "handle": "felco-2-classic-pruner",
+      "title": "FELCO 2 Classic Pruning Shears",
+      "vendor": "FELCO",
+      "product_type": "Pruning Shears",
+      "price": "86.71",
+      "sku": "FELCO-2",
+      "inventory_quantity": 8,
+      "tags": "Pruning & Cutting,Hand Tools,Premium,Pruning",
+      "collections": [
+        "pruning-cutting",
+        "hand-tools",
+        "premium-picks"
+      ],
+      "source_url": "https://america.felco.com/products/felco-2",
+      "specs": "Swiss-made bypass pruner; 8.46 in length; 0.55 lb; 0.98 in cut capacity; forged aluminum handles; hardened steel blade; right-handed, large.",
+      "body_html": "<p>The FELCO 2 is a Swiss-made bypass pruner with forged aluminum handles and a hardened steel blade, designed for clean cuts up to about 1 inch.</p><ul><li>Bypass cutting action, right-handed, large hand size</li><li>8.46 in (215 mm) length; 0.55 lb (251 g)</li><li>Cutting capacity: 0.98 in (25 mm)</li><li>Forged aluminum handles; hardened steel blade</li><li>Replaceable parts and lifetime warranty from FELCO</li></ul><p><em>Specifications summarized from FELCO product information. Demonstration listing — not an authorized FELCO reseller.</em></p>",
+      "image": "https://cdn.shopify.com/s/files/1/1020/5452/7289/files/FELCO-2_7eaae226-a272-4532-8c28-4d67fefbf251.png?v=1792825828"
+    },
+    {
+      "handle": "dramm-colorstorm-pistol-nozzle",
+      "title": "Dramm ColorStorm Premium Pistol Spray Nozzle",
+      "vendor": "Dramm",
+      "product_type": "Watering Tools",
+      "price": "16.31",
+      "sku": "DRM-60-12721",
+      "inventory_quantity": 40,
+      "tags": "Watering & Irrigation,Accessories,Bestsellers,Nozzles",
+      "collections": [
+        "watering-irrigation",
+        "garden-accessories",
+        "bestsellers"
+      ],
+      "source_url": "https://www.lowes.com/pd/DRAMM-Dramm-ColorStorm-Premium-Pistol-Spray-Nozzle-Versatile-Garden-Hose-Sprayer-for-All-Your-Needs/7222954",
+      "specs": "Heavy-duty metal pistol nozzle; insulated ergonomic grip; adjustable spray patterns; available in six colors.",
+      "body_html": "<p>A metal pistol nozzle for everyday watering, rinsing, and cleaning tasks.</p><ul><li>Heavy-duty metal body</li><li>Insulated ergonomic grip</li><li>Adjustable spray pattern</li><li>Available in six ColorStorm colors</li></ul><p><em>Specifications summarized from Dramm retailer/product information. Demonstration listing — not an authorized Dramm reseller.</em></p>",
+      "image": "https://mobileimages.lowes.com/productimages/313b9987-f577-44de-8c16-4a099779596b/72549184.jpeg"
+    },
+    {
+      "handle": "borongreen-hand-trowel-rhs-endorsed",
+      "title": "BoronGreen Hand Trowel - RHS Endorsed",
+      "vendor": "Burgon & Ball",
+      "product_type": "Hand Tools",
+      "price": "8.99",
+      "sku": "BURGON-BORONGREEN-HAND-TROWEL-RHS-E",
+      "inventory_quantity": 6,
+      "tags": "Hand Tools,Digging & Planting,Burgon & Ball,Demo Catalog",
+      "collections": [
+        "hand-tools",
+        "digging-planting"
+      ],
+      "source_url": "https://www.burgonandball.com/products/borongreen-hand-trowel-rhs-endorsed",
+      "image": "https://cdn.shopify.com/s/files/1/1868/2841/files/GBO-BHTRHS-burgon-and-ball-borongreen-rhs-endorsed-trowel-01.jpg?v=1741789026",
+      "body_html": "<p>BoronGreen Hand Trowel - RHS Endorsed from Burgon & Ball.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Burgon & Ball store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "borongreen-hand-fork-rhs-endorsed",
+      "title": "BoronGreen Hand Fork - RHS Endorsed",
+      "vendor": "Burgon & Ball",
+      "product_type": "Hand Tools",
+      "price": "8.99",
+      "sku": "BURGON-BORONGREEN-HAND-FORK-RHS-END",
+      "inventory_quantity": 13,
+      "tags": "Hand Tools,Digging & Planting,Burgon & Ball,Demo Catalog",
+      "collections": [
+        "hand-tools",
+        "digging-planting"
+      ],
+      "source_url": "https://www.burgonandball.com/products/borongreen-hand-fork-rhs-endorsed",
+      "image": "https://cdn.shopify.com/s/files/1/1868/2841/files/GBO-BHFRHS-burgon-and-ball-borongreen-rhs-endorsed-hand-fork-01.jpg?v=1741790018",
+      "body_html": "<p>BoronGreen Hand Fork - RHS Endorsed from Burgon & Ball.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Burgon & Ball store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "borongreen-dibber-rhs-endorsed",
+      "title": "BoronGreen Dibber - RHS Endorsed",
+      "vendor": "Burgon & Ball",
+      "product_type": "Hand Tools",
+      "price": "9.99",
+      "sku": "BURGON-BORONGREEN-DIBBER-RHS-ENDORS",
+      "inventory_quantity": 20,
+      "tags": "Hand Tools,Garden Accessories,Burgon & Ball,Demo Catalog",
+      "collections": [
+        "hand-tools",
+        "garden-accessories"
+      ],
+      "source_url": "https://www.burgonandball.com/products/borongreen-dibber-rhs-endorsed",
+      "image": "https://cdn.shopify.com/s/files/1/1868/2841/files/GBO-BDBRHS-burgon-and-ball-borongreen-rhs-endorsed-dibber-01.jpg?v=1742228930",
+      "body_html": "<p>BoronGreen Dibber - RHS Endorsed from Burgon & Ball.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Burgon & Ball store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "florabrite-pink-garden-gloves-m-l",
+      "title": "FloraBrite® Pink Garden Gloves - M/L",
+      "vendor": "Burgon & Ball",
+      "product_type": "Garden Accessories",
+      "price": "8.99",
+      "sku": "BURGON-FLORABRITE-PINK-GARDEN-GLOVE",
+      "inventory_quantity": 27,
+      "tags": "Garden Accessories,Burgon & Ball,Demo Catalog",
+      "collections": [
+        "garden-accessories"
+      ],
+      "source_url": "https://www.burgonandball.com/products/florabrite-pink-garden-gloves-m-l",
+      "image": "https://cdn.shopify.com/s/files/1/1868/2841/products/GFB-GGPINK-burgon-and-ball-fluorescent-garden-glove-pink-01_4e65d583-86d7-492c-b8ac-dd170a1793e5.jpg?v=1665490179",
+      "body_html": "<p>FloraBrite® Pink Garden Gloves - M/L from Burgon & Ball.</p><p>Part of our Garden Accessories selection, chosen for small upgrades that make garden work easier.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Burgon & Ball store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "dewit-rock-n-root-trowel",
+      "title": "DeWit Rock n' Root Trowel",
+      "vendor": "DeWit",
+      "product_type": "Digging & Planting",
+      "price": "35.00",
+      "sku": "DEWIT-DEWIT-ROCK-N-ROOT-TROWEL",
+      "inventory_quantity": 34,
+      "tags": "Digging & Planting,Hand Tools,DeWit,Demo Catalog",
+      "collections": [
+        "digging-planting",
+        "hand-tools"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/dewit-rock-n-root-trowel",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/dewit-rock-n-root-trowel-x1.jpg?v=1717871902",
+      "body_html": "<p>DeWit Rock n' Root Trowel from DeWit.</p><p>Part of our Digging & Planting selection, chosen for durable edges and comfortable control in real soil.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official DeWit store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "dewit-dutch-hand-fork",
+      "title": "DeWit Dutch Hand Fork",
+      "vendor": "DeWit",
+      "product_type": "Hand Tools",
+      "price": "35.00",
+      "sku": "DEWIT-DEWIT-DUTCH-HAND-FORK",
+      "inventory_quantity": 6,
+      "tags": "Hand Tools,DeWit,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/dewit-dutch-hand-fork",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/dewit-garden-hand-fork-x1.jpg?v=1715195508",
+      "body_html": "<p>DeWit Dutch Hand Fork from DeWit.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official DeWit store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "dewit-bio-onion-hoe",
+      "title": "DeWit Bio Onion Hoe",
+      "vendor": "DeWit",
+      "product_type": "Hand Tools",
+      "price": "28.00",
+      "sku": "DEWIT-DEWIT-BIO-ONION-HOE",
+      "inventory_quantity": 13,
+      "tags": "Hand Tools,DeWit,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/dewit-bio-onion-hoe",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/dewit-bio-onion-hoe-x1.jpg?v=1715191888",
+      "body_html": "<p>DeWit Bio Onion Hoe from DeWit.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official DeWit store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "dewit-bio-3-tine-cultivator",
+      "title": "DeWit Bio 3-Tine Cultivator",
+      "vendor": "DeWit",
+      "product_type": "Hand Tools",
+      "price": "30.00",
+      "sku": "DEWIT-DEWIT-BIO-3-TINE-CULTIVATOR",
+      "inventory_quantity": 20,
+      "tags": "Hand Tools,DeWit,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/dewit-bio-3-tine-cultivator",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/dewit-bio-3-tine-cultivator-x1.jpg?v=1715191413",
+      "body_html": "<p>DeWit Bio 3-Tine Cultivator from DeWit.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official DeWit store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "sneeboer-greenhouse-trowel",
+      "title": "Sneeboer Greenhouse Trowel",
+      "vendor": "Sneeboer",
+      "product_type": "Digging & Planting",
+      "price": "50.60",
+      "sku": "SNEEBO-SNEEBOER-GREENHOUSE-TROWEL",
+      "inventory_quantity": 27,
+      "tags": "Digging & Planting,premium-picks,Sneeboer,Demo Catalog",
+      "collections": [
+        "digging-planting",
+        "premium-picks"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/sneeboer-greenhouse-trowel",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/sneeboer-greenhouse-trowel-x1.jpg?v=1717438199",
+      "body_html": "<p>Sneeboer Greenhouse Trowel from Sneeboer.</p><p>Part of our Digging & Planting selection, chosen for durable edges and comfortable control in real soil.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Sneeboer store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "sneeboer-hand-leaf-rake",
+      "title": "Sneeboer Hand Leaf Rake",
+      "vendor": "Sneeboer",
+      "product_type": "Hand Tools",
+      "price": "56.35",
+      "sku": "SNEEBO-SNEEBOER-HAND-LEAF-RAKE",
+      "inventory_quantity": 34,
+      "tags": "Hand Tools,premium-picks,Sneeboer,Demo Catalog",
+      "collections": [
+        "hand-tools",
+        "premium-picks"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/sneeboer-hand-leaf-rake",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/sneeboer-hand-leaf-rake-x7.jpg?v=1719919655",
+      "body_html": "<p>Sneeboer Hand Leaf Rake from Sneeboer.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Sneeboer store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "sneeboer-wrotter-garden-weeder",
+      "title": "Sneeboer Wrotter Garden Weeder",
+      "vendor": "Sneeboer",
+      "product_type": "Hand Tools",
+      "price": "56.35",
+      "sku": "SNEEBO-SNEEBOER-WROTTER-GARDEN-WEED",
+      "inventory_quantity": 6,
+      "tags": "Hand Tools,premium-picks,Sneeboer,Demo Catalog",
+      "collections": [
+        "hand-tools",
+        "premium-picks"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/sneeboer-wrotter-garden-weeder",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/SneeboerWrotterGardenWeeder-x1.jpg?v=1717446996",
+      "body_html": "<p>Sneeboer Wrotter Garden Weeder from Sneeboer.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Sneeboer store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "spade",
+      "title": "Spade Hand Trowel",
+      "vendor": "Barebones",
+      "product_type": "Digging & Planting",
+      "price": "20.99",
+      "sku": "BAREBO-SPADE",
+      "inventory_quantity": 13,
+      "tags": "Digging & Planting,Barebones,Demo Catalog",
+      "collections": [
+        "digging-planting"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/spade",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/GDN-052_GardenTrowel-WalnutBlack_PDP_01.jpg?v=1682706300",
+      "body_html": "<p>Spade Hand Trowel from Barebones.</p><p>Part of our Digging & Planting selection, chosen for durable edges and comfortable control in real soil.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "shovel",
+      "title": "Folding Shovel",
+      "vendor": "Barebones",
+      "product_type": "Digging & Planting",
+      "price": "83.99",
+      "sku": "BAREBO-SHOVEL",
+      "inventory_quantity": 20,
+      "tags": "Digging & Planting,Barebones,Demo Catalog",
+      "collections": [
+        "digging-planting"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/shovel",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/products/HMS-2100_FoldingShovel_PDP_01.jpg?v=1646846997",
+      "body_html": "<p>Folding Shovel from Barebones.</p><p>Part of our Digging & Planting selection, chosen for durable edges and comfortable control in real soil.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "japanese-weeding-hoe",
+      "title": "Japanese Weeding Hoe",
+      "vendor": "Barebones",
+      "product_type": "Hand Tools",
+      "price": "20.99",
+      "sku": "BAREBO-JAPANESE-WEEDING-HOE",
+      "inventory_quantity": 27,
+      "tags": "Hand Tools,Barebones,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/japanese-weeding-hoe",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/GDN-094_JapaneseWeedingHoe-WalnutBlack_PDP_01.jpg?v=1682720868",
+      "body_html": "<p>Japanese Weeding Hoe from Barebones.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "triangle-hoe",
+      "title": "Triangle Hoe",
+      "vendor": "Barebones",
+      "product_type": "Hand Tools",
+      "price": "20.99",
+      "sku": "BAREBO-TRIANGLE-HOE",
+      "inventory_quantity": 34,
+      "tags": "Hand Tools,Barebones,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/triangle-hoe",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/products/TH01.jpg?v=1647463767",
+      "body_html": "<p>Triangle Hoe from Barebones.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "artisan-shears",
+      "title": "Artisan Pruning & Trimming Shears",
+      "vendor": "Barebones",
+      "product_type": "Pruning & Cutting",
+      "price": "29.39",
+      "sku": "BAREBO-ARTISAN-SHEARS",
+      "inventory_quantity": 6,
+      "tags": "Pruning & Cutting,Barebones,Demo Catalog",
+      "collections": [
+        "pruning-cutting"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/artisan-shears",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/products/AS01.jpg?v=1647468831",
+      "body_html": "<p>Artisan Pruning & Trimming Shears from Barebones.</p><p>Part of our Pruning & Cutting selection, chosen for clean cuts, healthy growth, and comfortable daily use.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "leepa-garden-glove",
+      "title": "Leepa Garden Glove",
+      "vendor": "Barebones",
+      "product_type": "Garden Accessories",
+      "price": "15.39",
+      "sku": "BAREBO-LEEPA-GARDEN-GLOVE",
+      "inventory_quantity": 13,
+      "tags": "Garden Accessories,Barebones,Demo Catalog",
+      "collections": [
+        "garden-accessories"
+      ],
+      "source_url": "https://www.barebonesliving.com/products/leepa-garden-glove",
+      "image": "https://cdn.shopify.com/s/files/1/0045/1297/2890/files/LeepaGardenGlove-Stone_PDP_01.jpg?v=1685656280",
+      "body_html": "<p>Leepa Garden Glove from Barebones.</p><p>Part of our Garden Accessories selection, chosen for small upgrades that make garden work easier.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Barebones store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "cape-cod-weeder-by-red-pig-garden-tools",
+      "title": "Cape Cod Weeder",
+      "vendor": "Red Pig Garden Tools",
+      "product_type": "Hand Tools",
+      "price": "40.00",
+      "sku": "REDPIG-CAPE-COD-WEEDER-BY-RED-PIG-G",
+      "inventory_quantity": 20,
+      "tags": "Hand Tools,Red Pig Garden Tools,Demo Catalog",
+      "collections": [
+        "hand-tools"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/cape-cod-weeder-by-red-pig-garden-tools",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/red-pig-cape-cod-weeder-x1.jpg?v=1716577142",
+      "body_html": "<p>Cape Cod Weeder from Red Pig Garden Tools.</p><p>Part of our Hand Tools selection, chosen for forged strength and everyday ergonomics.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Red Pig Garden Tools store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "pointed-thinning-shears-by-okatsune",
+      "title": "Pointed Thinning Shears",
+      "vendor": "Okatsune",
+      "product_type": "Pruning & Cutting",
+      "price": "28.00",
+      "sku": "OKATSU-POINTED-THINNING-SHEARS-BY-O",
+      "inventory_quantity": 27,
+      "tags": "Pruning & Cutting,Okatsune,Demo Catalog",
+      "collections": [
+        "pruning-cutting"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/pointed-thinning-shears-by-okatsune",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/pointed-thinning-shears-okatsune-x1.jpg?v=1716576390",
+      "body_html": "<p>Pointed Thinning Shears from Okatsune.</p><p>Part of our Pruning & Cutting selection, chosen for clean cuts, healthy growth, and comfortable daily use.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Okatsune store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "harvesting-pruner-by-ars",
+      "title": "Harvesting Pruner",
+      "vendor": "ARS",
+      "product_type": "Pruning & Cutting",
+      "price": "29.00",
+      "sku": "ARS-HARVESTING-PRUNER-BY-ARS",
+      "inventory_quantity": 34,
+      "tags": "Pruning & Cutting,ARS,Demo Catalog",
+      "collections": [
+        "pruning-cutting"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/harvesting-pruner-by-ars",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/harvesting-pruner-ars-x1.jpg?v=1718630306",
+      "body_html": "<p>Harvesting Pruner from ARS.</p><p>Part of our Pruning & Cutting selection, chosen for clean cuts, healthy growth, and comfortable daily use.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official ARS store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "felco-5",
+      "title": "FELCO 5",
+      "vendor": "FELCO",
+      "product_type": "Pruning & Cutting",
+      "price": "46.33",
+      "sku": "FELCO-FELCO-5",
+      "inventory_quantity": 6,
+      "tags": "Pruning & Cutting,premium-picks,FELCO,Demo Catalog",
+      "collections": [
+        "pruning-cutting",
+        "premium-picks"
+      ],
+      "source_url": "https://america.felco.com/products/felco-5",
+      "image": "https://cdn.shopify.com/s/files/1/0615/6294/5629/files/FELCO_5_6d749458-9b3f-4db9-b37f-0d37f48980a9.png?v=1779368570",
+      "body_html": "<p>FELCO 5 from FELCO.</p><p>Part of our Pruning & Cutting selection, chosen for clean cuts, healthy growth, and comfortable daily use.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official FELCO store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "felco-2e",
+      "title": "FELCO 2e",
+      "vendor": "FELCO",
+      "product_type": "Power Tools",
+      "price": "249.99",
+      "sku": "FELCO-FELCO-2E",
+      "inventory_quantity": 13,
+      "tags": "Power Tools,premium-picks,FELCO,Demo Catalog",
+      "collections": [
+        "power-tools",
+        "premium-picks"
+      ],
+      "source_url": "https://america.felco.com/products/felco-2e",
+      "image": "https://cdn.shopify.com/s/files/1/0615/6294/5629/files/FELCO-2e_face-open_38388335-6faf-4ff6-b223-106595e81f68.png?v=1775739774",
+      "body_html": "<p>FELCO 2e from FELCO.</p><p>Part of our Power Tools selection, chosen for less effort on repetitive cutting tasks.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official FELCO store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "fanno-tri-edge-folding-pruning-saw",
+      "title": "Fanno Tri-Edge Folding Pruning Saw",
+      "vendor": "Fanno Saw Works",
+      "product_type": "Pruning & Cutting",
+      "price": "33.00",
+      "sku": "FANNOS-FANNO-TRI-EDGE-FOLDING-PRUNI",
+      "inventory_quantity": 20,
+      "tags": "Pruning & Cutting,Fanno Saw Works,Demo Catalog",
+      "collections": [
+        "pruning-cutting"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/fanno-tri-edge-folding-pruning-saw",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/Img1512.jpg?v=1716577534",
+      "body_html": "<p>Fanno Tri-Edge Folding Pruning Saw from Fanno Saw Works.</p><p>Part of our Pruning & Cutting selection, chosen for clean cuts, healthy growth, and comfortable daily use.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Fanno Saw Works store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "professional-water-breakers-by-dramm",
+      "title": "Professional Water Breakers",
+      "vendor": "Dramm",
+      "product_type": "Watering & Irrigation",
+      "price": "30.00",
+      "sku": "DRAMM-PROFESSIONAL-WATER-BREAKERS-",
+      "inventory_quantity": 27,
+      "tags": "Watering & Irrigation,Dramm,Demo Catalog",
+      "collections": [
+        "watering-irrigation"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/professional-water-breakers-by-dramm",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/professional-water-breaker-dramm-x1.jpg?v=1716574241",
+      "body_html": "<p>Professional Water Breakers from Dramm.</p><p>Part of our Watering & Irrigation selection, chosen for gentle, controllable watering that saves time.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Dramm store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "brass-adjustable-water-nozzle-by-dramm",
+      "title": "Brass Adjustable Water Nozzle",
+      "vendor": "Dramm",
+      "product_type": "Watering & Irrigation",
+      "price": "41.00",
+      "sku": "DRAMM-BRASS-ADJUSTABLE-WATER-NOZZL",
+      "inventory_quantity": 34,
+      "tags": "Watering & Irrigation,Dramm,Demo Catalog",
+      "collections": [
+        "watering-irrigation"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/brass-adjustable-water-nozzle-by-dramm",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/adjustable-water-nozzle-dramm-x1.jpg?v=1716575630",
+      "body_html": "<p>Brass Adjustable Water Nozzle from Dramm.</p><p>Part of our Watering & Irrigation selection, chosen for gentle, controllable watering that saves time.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Dramm store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "dramm-professional-watering-wand",
+      "title": "Dramm Professional Watering Wand",
+      "vendor": "Dramm",
+      "product_type": "Watering & Irrigation",
+      "price": "82.00",
+      "sku": "DRAMM-DRAMM-PROFESSIONAL-WATERING-",
+      "inventory_quantity": 6,
+      "tags": "Watering & Irrigation,Dramm,Demo Catalog",
+      "collections": [
+        "watering-irrigation"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/dramm-professional-watering-wand",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/products/Pro_Watering_Wand_by_Dramm__19989.jpeg?v=1426604248",
+      "body_html": "<p>Dramm Professional Watering Wand from Dramm.</p><p>Part of our Watering & Irrigation selection, chosen for gentle, controllable watering that saves time.</p><p><em>Demonstration listing. Product details and pricing are summarized from the official Dramm store on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "soil-scoop",
+      "title": "Soil Scoop",
+      "vendor": "Garden Works",
+      "product_type": "Soil Care",
+      "price": "35.00",
+      "sku": "GARDEN-WORKS-SOIL-SCOOP",
+      "inventory_quantity": 14,
+      "tags": "Soil Care,Digging & Planting,Garden Works,Demo Catalog",
+      "collections": [
+        "soil-care",
+        "digging-planting"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/soil-scoop",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/files/Img1518.jpg?v=1716577915",
+      "body_html": "<p>A deep, sturdy scoop for moving potting mix, compost, and amendments without spilling them across the bench.</p><p>Part of our Soil Care selection, chosen for filling pots, raised beds, and wheelbarrows with less mess.</p><p><em>Demonstration listing. Product details and pricing are summarized from the Garden Tool Company listing on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    },
+    {
+      "handle": "garden-soil-ph-testing-meter",
+      "title": "Garden Soil pH Testing Meter",
+      "vendor": "Bosmere",
+      "product_type": "Soil Care",
+      "price": "15.20",
+      "sku": "BOSMERE-SOIL-PH-METER",
+      "inventory_quantity": 10,
+      "tags": "Soil Care,Garden Accessories,Bosmere,Demo Catalog",
+      "collections": [
+        "soil-care",
+        "garden-accessories"
+      ],
+      "source_url": "https://www.gardentoolcompany.com/products/garden-soil-ph-testing-meter",
+      "image": "https://cdn.shopify.com/s/files/1/0596/9309/products/Garden_Soil_pH_Testing_Meter_1__25771.jpeg?v=1424443705",
+      "body_html": "<p>A simple analog probe meter for checking soil acidity before planting or adjusting a bed. No batteries required.</p><p>Part of our Soil Care selection, useful for vegetables, shrubs, and established borders where pH can drift over time.</p><p><em>Demonstration listing. Product details and pricing are summarized from the Garden Tool Company listing on 2026-10-24; verify before purchase. Gardner is not an authorized reseller.</em></p>"
+    }
+  ],
+  "collections": [
+    {
+      "handle": "hand-tools",
+      "title": "Hand Tools",
+      "description": "Pruners, shovels, and everyday hand tools for the garden."
+    },
+    {
+      "handle": "pruning-cutting",
+      "title": "Pruning & Cutting",
+      "description": "Bypass pruners and cutting tools for clean, healthy growth."
+    },
+    {
+      "handle": "digging-planting",
+      "title": "Digging & Planting",
+      "description": "Shovels and digging tools for beds, borders, and planting."
+    },
+    {
+      "handle": "watering-irrigation",
+      "title": "Watering & Irrigation",
+      "description": "Hoses, nozzles, and watering tools."
+    },
+    {
+      "handle": "garden-accessories",
+      "title": "Garden Accessories",
+      "description": "Useful extras that make garden work easier."
+    },
+    {
+      "handle": "bestsellers",
+      "title": "Bestsellers",
+      "description": "The tools gardeners reach for most."
+    },
+    {
+      "handle": "premium-picks",
+      "title": "Premium Picks",
+      "description": "Buy-once tools for serious gardeners."
+    },
+    {
+      "handle": "power-tools",
+      "title": "Power Tools",
+      "description": "Battery and electric tools for bigger garden jobs."
+    },
+    {
+      "handle": "soil-care",
+      "title": "Soil Care",
+      "description": "Tools for checking, scooping, and working the soil before you plant."
+    }
+  ]
+}
