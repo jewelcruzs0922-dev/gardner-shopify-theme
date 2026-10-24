@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T21:07:17.555Z",
+  "generated": "2026-10-24T21:47:24.496Z",
   "store": "gardner-dev-zwlohenx.myshopify.com",
   "previewThemeId": "191259083065",
   "summary": {
@@ -58,7 +58,7 @@
     {
       "name": "Product images have descriptive alt text",
       "status": "pass",
-      "detail": "6 product images"
+      "detail": "4 product images"
     },
     {
       "name": "JSON-LD parses on every page",
@@ -108,7 +108,7 @@
     {
       "name": "Homepage and collection expose crawlable internal links",
       "status": "pass",
-      "detail": "73 home / 81 collection"
+      "detail": "75 home / 83 collection"
     }
   ],
   "snapshots": [
@@ -128,9 +128,9 @@
         "Organization",
         "WebSite"
       ],
-      "imageCount": 19,
+      "imageCount": 21,
       "imagesMissingAlt": 0,
-      "internalLinks": 73
+      "internalLinks": 75
     },
     {
       "page": "collection",
@@ -147,9 +147,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 16,
+      "imageCount": 18,
       "imagesMissingAlt": 0,
-      "internalLinks": 81
+      "internalLinks": 83
     },
     {
       "page": "collection-filtered",
@@ -166,9 +166,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 6,
+      "imageCount": 8,
       "imagesMissingAlt": 0,
-      "internalLinks": 63
+      "internalLinks": 65
     },
     {
       "page": "product",
@@ -187,9 +187,9 @@
         "Product",
         "BreadcrumbList"
       ],
-      "imageCount": 7,
+      "imageCount": 5,
       "imagesMissingAlt": 0,
-      "internalLinks": 55
+      "internalLinks": 49
     },
     {
       "page": "search",
@@ -206,9 +206,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 25,
+      "imageCount": 27,
       "imagesMissingAlt": 0,
-      "internalLinks": 98
+      "internalLinks": 100
     },
     {
       "page": "search-empty",
@@ -225,9 +225,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 44
+      "internalLinks": 46
     },
     {
       "page": "cart",
@@ -244,9 +244,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 47
+      "internalLinks": 49
     },
     {
       "page": "wishlist",
@@ -263,9 +263,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 45
+      "internalLinks": 47
     },
     {
       "page": "about",
@@ -282,9 +282,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 44
+      "internalLinks": 46
     },
     {
       "page": "contact",
@@ -301,9 +301,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 44
+      "internalLinks": 46
     },
     {
       "page": "guides",
@@ -320,9 +320,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 4,
+      "imageCount": 6,
       "imagesMissingAlt": 0,
-      "internalLinks": 50
+      "internalLinks": 52
     },
     {
       "page": "article",
@@ -340,9 +340,9 @@
         "Organization",
         "Article"
       ],
-      "imageCount": 2,
+      "imageCount": 4,
       "imagesMissingAlt": 0,
-      "internalLinks": 45
+      "internalLinks": 47
     },
     {
       "page": "privacy",
@@ -359,9 +359,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 44
+      "internalLinks": 46
     },
     {
       "page": "terms",
@@ -378,9 +378,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 45
+      "internalLinks": 47
     },
     {
       "page": "404",
@@ -397,9 +397,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 1,
+      "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 45
+      "internalLinks": 47
     }
   ]
 }

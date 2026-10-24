@@ -95,7 +95,7 @@ Command: `npm run qa:seo`.
 - Product offer price `86.71 USD`, availability `InStock`
 - `noindex` on search/cart/wishlist; indexable content pages
 - `sitemap.xml` 200 and `robots.txt` 200. Shopify’s platform `robots.txt` does not include a `Sitemap:` directive; `sitemap.xml` is still served at the standard path.
-- 73 internal links on home, 81 on collection
+- 75 internal links on home, 83 on collection
 
 Not performed: Google Rich Results Test / Schema Markup Validator against a public URL (the store is password-protected; no public URL exists). JSON-LD was parsed and field-checked locally instead.
 
