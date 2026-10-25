@@ -1,0 +1,204 @@
+{
+  "captured": "2026-10-25T00:06:23.587Z",
+  "viewports": [
+    "1440x900",
+    "390x844"
+  ],
+  "manifest": [
+    {
+      "viewport": "1440x900",
+      "file": "desktop/01-home.jpg",
+      "path": "/"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/02-collections.jpg",
+      "path": "/collections"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/03-collection-hand-tools.jpg",
+      "path": "/collections/hand-tools"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/04-collection-soil-care.jpg",
+      "path": "/collections/soil-care"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/05-product-in-stock.jpg",
+      "path": "/products/felco-2-classic-pruner"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/06-product-low-stock.jpg",
+      "path": "/products/borongreen-dibber-rhs-endorsed"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/07-product-sold-out.jpg",
+      "path": "/products/dewit-bio-onion-hoe"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/08-search-results.jpg",
+      "path": "/search?q=pruner&type=product"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/09-search-empty.jpg",
+      "path": "/search?q=zzzznotathing&type=product"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/10-cart-empty.jpg",
+      "path": "/cart"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/11-wishlist-empty.jpg",
+      "path": "/pages/wishlist"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/12-about.jpg",
+      "path": "/pages/about"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/13-contact.jpg",
+      "path": "/pages/contact"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/14-guides.jpg",
+      "path": "/blogs/news"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/15-article.jpg",
+      "path": "/blogs/news/choosing-pruning-shears"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/16-shipping.jpg",
+      "path": "/pages/shipping"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/17-returns.jpg",
+      "path": "/pages/returns"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/18-privacy.jpg",
+      "path": "/pages/privacy"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/19-terms.jpg",
+      "path": "/pages/terms"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/20-404.jpg",
+      "path": "/this-page-does-not-exist-qa"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/21-wishlist-saved.jpg",
+      "path": "/pages/wishlist (saved item)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "desktop/22-cart-with-item.jpg",
+      "path": "/cart (one item)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "states/desktop-mega-menu.jpg",
+      "path": "/ (mega menu open)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "states/desktop-predictive-search.jpg",
+      "path": "/ (predictive search)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "states/desktop-filters-open.jpg",
+      "path": "/collections/hand-tools (price filter open)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "states/desktop-gallery-lightbox.jpg",
+      "path": "/products/felco-2-classic-pruner (lightbox)"
+    },
+    {
+      "viewport": "1440x900",
+      "file": "states/desktop-cart-drawer.jpg",
+      "path": "PDP (cart drawer open)"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/01-home.jpg",
+      "path": "/"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/02-collections.jpg",
+      "path": "/collections"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/03-collection-hand-tools.jpg",
+      "path": "/collections/hand-tools"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/04-product.jpg",
+      "path": "/products/felco-2-classic-pruner"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/05-cart-empty.jpg",
+      "path": "/cart"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/06-wishlist-empty.jpg",
+      "path": "/pages/wishlist"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/07-about.jpg",
+      "path": "/pages/about"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/08-contact.jpg",
+      "path": "/pages/contact"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/09-guides.jpg",
+      "path": "/blogs/news"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/10-article.jpg",
+      "path": "/blogs/news/choosing-pruning-shears"
+    },
+    {
+      "viewport": "390x844",
+      "file": "mobile/11-404.jpg",
+      "path": "/this-page-does-not-exist-qa"
+    },
+    {
+      "viewport": "390x844",
+      "file": "states/mobile-menu.jpg",
+      "path": "/ (mobile menu open)"
+    }
+  ]
+}

@@ -85,3 +85,17 @@ Reference baselines remain in `docs/reference/` (Lavandula home/product/products
 - Reference hover/micro-interaction timing in detail.
 - Pixel-difference percentage or perceptual diff scoring.
 - Logged-in customer/account states.
+
+## Screenshot-led correction pass (2026-10-25)
+
+A second pass used the full 39-image audit set (`docs/audit/`) to correct concrete defects:
+
+- Mobile wordmark no longer wraps or clips; header is 64 px at 320/360/390.
+- Account and wishlist moved to the mobile drawer utility row; search, menu, brand, and cart remain in the header.
+- Product card, category tile, PDP gallery, and wishlist media use one warm-white stage with contained imagery.
+- Mobile PDP wishlist control repaired (156×40 pill, 18 px heart).
+- Mobile gallery zoom control moved to the bottom-right.
+- Category images for Watering and Accessories changed to a brass nozzle and neutral leather glove to restore palette balance.
+- Header height reduced on desktop/tablet by removing an accidental whitespace row.
+
+Refreshed screenshots: `docs/audit/desktop/`, `docs/audit/mobile/`, `docs/audit/states/`. Full details: `docs/VISUAL-CORRECTION-REPORT.md`.

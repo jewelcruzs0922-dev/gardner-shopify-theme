@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T21:47:24.496Z",
+  "generated": "2026-10-25T00:07:52.119Z",
   "store": "gardner-dev-zwlohenx.myshopify.com",
   "previewThemeId": "191259083065",
   "summary": {
@@ -58,7 +58,7 @@
     {
       "name": "Product images have descriptive alt text",
       "status": "pass",
-      "detail": "4 product images"
+      "detail": "8 product images"
     },
     {
       "name": "JSON-LD parses on every page",
@@ -108,7 +108,7 @@
     {
       "name": "Homepage and collection expose crawlable internal links",
       "status": "pass",
-      "detail": "75 home / 83 collection"
+      "detail": "78 home / 86 collection"
     }
   ],
   "snapshots": [
@@ -130,7 +130,7 @@
       ],
       "imageCount": 21,
       "imagesMissingAlt": 0,
-      "internalLinks": 75
+      "internalLinks": 78
     },
     {
       "page": "collection",
@@ -149,7 +149,7 @@
       ],
       "imageCount": 18,
       "imagesMissingAlt": 0,
-      "internalLinks": 83
+      "internalLinks": 86
     },
     {
       "page": "collection-filtered",
@@ -168,7 +168,7 @@
       ],
       "imageCount": 8,
       "imagesMissingAlt": 0,
-      "internalLinks": 65
+      "internalLinks": 68
     },
     {
       "page": "product",
@@ -187,9 +187,9 @@
         "Product",
         "BreadcrumbList"
       ],
-      "imageCount": 5,
+      "imageCount": 9,
       "imagesMissingAlt": 0,
-      "internalLinks": 49
+      "internalLinks": 60
     },
     {
       "page": "search",
@@ -208,7 +208,7 @@
       ],
       "imageCount": 27,
       "imagesMissingAlt": 0,
-      "internalLinks": 100
+      "internalLinks": 103
     },
     {
       "page": "search-empty",
@@ -227,7 +227,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 46
+      "internalLinks": 49
     },
     {
       "page": "cart",
@@ -246,7 +246,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 49
+      "internalLinks": 52
     },
     {
       "page": "wishlist",
@@ -265,7 +265,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 47
+      "internalLinks": 50
     },
     {
       "page": "about",
@@ -284,7 +284,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 46
+      "internalLinks": 49
     },
     {
       "page": "contact",
@@ -303,7 +303,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 46
+      "internalLinks": 49
     },
     {
       "page": "guides",
@@ -322,7 +322,7 @@
       ],
       "imageCount": 6,
       "imagesMissingAlt": 0,
-      "internalLinks": 52
+      "internalLinks": 55
     },
     {
       "page": "article",
@@ -342,7 +342,7 @@
       ],
       "imageCount": 4,
       "imagesMissingAlt": 0,
-      "internalLinks": 47
+      "internalLinks": 50
     },
     {
       "page": "privacy",
@@ -361,7 +361,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 46
+      "internalLinks": 49
     },
     {
       "page": "terms",
@@ -380,7 +380,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 47
+      "internalLinks": 50
     },
     {
       "page": "404",
@@ -399,7 +399,7 @@
       ],
       "imageCount": 3,
       "imagesMissingAlt": 0,
-      "internalLinks": 47
+      "internalLinks": 50
     }
   ]
 }

@@ -95,7 +95,7 @@ Command: `npm run qa:seo`.
 - Product offer price `86.71 USD`, availability `InStock`
 - `noindex` on search/cart/wishlist; indexable content pages
 - `sitemap.xml` 200 and `robots.txt` 200. Shopify’s platform `robots.txt` does not include a `Sitemap:` directive; `sitemap.xml` is still served at the standard path.
-- 75 internal links on home, 83 on collection
+- 78 internal links on home, 86 on collection
 
 Not performed: Google Rich Results Test / Schema Markup Validator against a public URL (the store is password-protected; no public URL exists). JSON-LD was parsed and field-checked locally instead.
 
@@ -140,6 +140,8 @@ Positive findings:
 **Not performed:** WebPageTest, field Core Web Vitals, or a published-store Lighthouse run.
 
 ## 8. Responsive and visual QA
+
+A later screenshot-led correction pass fixed the mobile wordmark/header, product media stages, mobile wishlist pill, and category palette. See docs/VISUAL-CORRECTION-REPORT.md and the refreshed docs/audit/ set.
 
 - Automated overflow check at 1440, 768, 390: no horizontal overflow on home, collection, or product.
 - Mobile menu opens and closes on Escape at 390.

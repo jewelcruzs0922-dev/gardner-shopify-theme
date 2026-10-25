@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T21:36:56.214Z",
+  "generated": "2026-10-25T00:00:56.379Z",
   "viewport": "1440x900",
   "pages": [
     {
@@ -36,7 +36,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 5
+          "nodes": 4
         }
       ]
     },
@@ -193,7 +193,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 5
+          "nodes": 4
         }
       ]
     },
