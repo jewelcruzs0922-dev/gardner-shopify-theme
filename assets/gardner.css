@@ -775,6 +775,7 @@ button.shopify-payment-button__button--unbranded:hover {
   transition: color var(--g-duration) var(--g-ease), background-color var(--g-duration) var(--g-ease), transform var(--g-duration) var(--g-ease);
 }
 .g-wishlist-toggle svg {
+  flex: 0 0 auto;
   width: 1.8rem;
   height: 1.8rem;
   fill: none;
@@ -793,8 +794,10 @@ button.shopify-payment-button__button--unbranded:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
-  width: auto;
+  width: fit-content;
+  min-width: max-content;
   height: auto;
+  white-space: nowrap;
   margin: 1.2rem 0 0;
   padding: 1rem 1.8rem;
   background: transparent;
@@ -841,7 +844,7 @@ button.shopify-payment-button__button--unbranded:hover {
 @media screen and (max-width: 749px) {
   .g-wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; }
   .g-wishlist-card__info { padding: 1.2rem; }
-  .g-wishlist-toggle { top: 0.8rem; right: 0.8rem; width: 3.2rem; height: 3.2rem; }
+  .g-wishlist-toggle:not(.g-wishlist-toggle--pdp) { top: 0.8rem; right: 0.8rem; width: 3.2rem; height: 3.2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -947,4 +950,115 @@ button.shopify-payment-button__button--unbranded:hover {
 /* Anchor wishlist toggles without measuring layout during injection. */
 .card-wrapper {
   position: relative;
+}
+
+/* ---------- Mobile header + product/category image stages ---------- */
+.g-brand-lockup .h2 {
+  white-space: nowrap;
+}
+
+/* Collapse anonymous whitespace rows in the header grid. */
+.header {
+  font-size: 0;
+}
+
+.header > * {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 749px) {
+  .header__icons .header__icon--account,
+  .header__icons .g-wishlist-link {
+    display: none;
+  }
+
+  .g-brand-lockup {
+    gap: 0.6rem;
+  }
+
+  .g-brand-mark {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .g-brand-lockup .h2 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+  }
+
+  .header__heading-link {
+    padding: 0.8rem;
+  }
+
+  .header__icons {
+    padding-right: 0;
+  }
+}
+
+.g-drawer-utilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 0;
+  padding: 1.2rem 3.2rem 0;
+}
+
+.g-drawer-utility-link {
+  color: var(--g-ink);
+  font-size: 1.4rem;
+  text-underline-offset: 0.3rem;
+}
+
+.g-drawer-utility-link:hover {
+  text-decoration: underline;
+}
+
+/* Unify product/category photography on a clean warm-white stage. */
+product-component .card__inner,
+product-component .card__media,
+.collection-card-wrapper .card__inner,
+.collection-card-wrapper .card__media {
+  background: #fffdf7;
+}
+
+product-component .card__media img {
+  object-fit: contain;
+  padding: clamp(1rem, 1.6vw, 1.6rem);
+}
+
+.collection-card-wrapper .card__media img {
+  object-fit: contain;
+  padding: clamp(1.8rem, 2.6vw, 3.2rem);
+}
+
+/* Product gallery + wishlist cards share the clean product stage. */
+.product__media,
+.product-media-container .media {
+  background: #fffdf7;
+}
+
+.g-wishlist-card__media {
+  background: #fffdf7;
+}
+
+.g-wishlist-card__media img {
+  object-fit: contain;
+  padding: 1.4rem;
+}
+
+.g-trust__title {
+  font-size: 1.5rem;
+}
+
+.g-trust__text {
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 749px) {
+  .product__modal-opener .product__media-icon {
+    left: auto;
+    right: 1.2rem;
+    top: auto;
+    bottom: 1.2rem;
+  }
 }

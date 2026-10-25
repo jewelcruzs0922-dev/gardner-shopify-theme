@@ -152,3 +152,12 @@ The PDP inventory block is enabled in `templates/product.json` (threshold 5).
 - Hero, story, reviews, gallery, trust strip, footer, and wishlist sections expose editable headings, text, images, links, and disclaimers.
 - Homepage sections can be reordered/removed in the editor; product blocks (vendor, title, price, inventory, variant picker, quantity, buy buttons, description, share) are editable.
 - Collection template exposes filters, sorting, columns, image ratio, and product count.
+
+## Visual correction pass (2026-10-25)
+
+- Mobile header: 64 px at 320–390; wordmark is nowrap; account and wishlist move to the drawer utility row (`snippets/header-drawer.liquid`). Search and cart stay in the header.
+- Header grid: anonymous whitespace rows collapsed with a font-size reset; desktop header 87 px, tablet 67 px, mobile 64 px.
+- Media: `product-component` cards, collection cards, PDP media, and wishlist cards share a warm-white `#fffdf7` stage with contained imagery and consistent padding.
+- PDP wishlist pill uses intrinsic sizing; mobile gallery zoom control sits bottom-right.
+- Category images: Watering uses the brass Dramm nozzle; Accessories uses the neutral Leepa glove.
+- See `docs/VISUAL-CORRECTION-REPORT.md`.

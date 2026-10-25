@@ -140,6 +140,21 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
+            <ul class="g-drawer-utilities list-unstyled" role="list">
+              <li>
+                <a class="g-drawer-utility-link" href="{{ routes.search_url }}">Search</a>
+              </li>
+              <li>
+                <a class="g-drawer-utility-link" href="/pages/wishlist">Wishlist</a>
+              </li>
+              {%- if shop.customer_accounts_enabled -%}
+                <li>
+                  <a class="g-drawer-utility-link" href="{{ routes.account_url }}">
+                    {{ 'customer.log_in' | t }}
+                  </a>
+                </li>
+              {%- endif -%}
+            </ul>
             {%- if show_country_selector or show_language_selector -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if show_country_selector -%}
