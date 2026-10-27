@@ -1,25 +1,159 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "contact": {
+      "type": "gardner-contact",
+      "blocks": {
+        "support_service": {
+          "type": "support",
+          "settings": {
+            "icon": "headset",
+            "title": "Customer support",
+            "text": "<p>Questions about an order, a return, or the right tool for the job? Send us a note.</p>",
+            "link_label": "Send a message",
+            "link": "#contact-form"
+          }
+        },
+        "support_product": {
+          "type": "support",
+          "settings": {
+            "icon": "question",
+            "title": "Product questions",
+            "text": "<p>Not sure which size or shape will suit your garden? Ask before you order.</p>",
+            "link_label": "Browse garden tools",
+            "link": "/collections/all"
+          }
+        },
+        "support_order": {
+          "type": "support",
+          "settings": {
+            "icon": "truck",
+            "title": "Order assistance",
+            "text": "<p>Have an order number ready so we can help you find the right information.</p>",
+            "link_label": "Ask about an order",
+            "link": "#contact-form"
+          }
+        },
+        "detail_support": {
+          "type": "detail",
+          "settings": {
+            "icon": "headset",
+            "title": "Customer support",
+            "text": "<p>Use the form for product questions, order help, and returns.</p>"
+          }
+        },
+        "detail_advice": {
+          "type": "detail",
+          "settings": {
+            "icon": "question",
+            "title": "Product advice",
+            "text": "<p>Tell us what you are growing and the job you need to do.</p>"
+          }
+        },
+        "detail_order": {
+          "type": "detail",
+          "settings": {
+            "icon": "truck",
+            "title": "Order questions",
+            "text": "<p>Include your order number so we can find the right details.</p>"
+          }
+        },
+        "faq_choose": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I choose the right gardening tools?",
+            "answer": "<p>Start with the job you need to do: planting, weeding, pruning, or watering. Our <a href=\"/blogs/news\">garden guides</a> explain the differences, and you can send us the details through the form.</p>"
+          }
+        },
+        "faq_status": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I check my order status?",
+            "answer": "<p>Your order confirmation email includes the order details. If you need help finding an update, send us a message with your order number.</p>"
+          }
+        },
+        "faq_shipping": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Shipping options and costs are shown at checkout. If you need help with a delivery question, send us a message with your order number.</p>"
+          }
+        },
+        "faq_returns": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>See our <a href=\"/pages/returns\">Returns page</a> for the return details available at this time. For a specific item, contact us before ordering.</p>"
+          }
+        },
+        "faq_beginner": {
+          "type": "faq",
+          "settings": {
+            "question": "Are your gardening tools suitable for beginners?",
+            "answer": "<p>Many of our tools are straightforward hand tools for everyday garden jobs. Product pages explain what each tool is for, and our guides can help you build a simple kit.</p>"
+          }
+        },
+        "faq_warranty": {
+          "type": "faq",
+          "settings": {
+            "question": "Do your products come with a warranty?",
+            "answer": "<p>Warranty information varies by product. Check the product page or ask us before ordering so we can point you to the right details.</p>"
+          }
+        },
+        "faq_care": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I care for and maintain my tools?",
+            "answer": "<p>Clean soil from tools after use, dry metal parts, and keep cutting edges sharp. Our <a href=\"/blogs/news/clean-sharpen-bypass-pruners\">pruner care guide</a> covers cleaning, sharpening, and oiling.</p>"
+          }
+        },
+        "faq_contact": {
+          "type": "faq",
+          "settings": {
+            "question": "How can I contact customer support?",
+            "answer": "<p>Use the <a href=\"#contact-form\">contact form</a> on this page. Include your order number if your question is about an order, and as much detail as you can about the product or garden job.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "support_service",
+        "support_product",
+        "support_order",
+        "detail_support",
+        "detail_advice",
+        "detail_order",
+        "faq_choose",
+        "faq_status",
+        "faq_shipping",
+        "faq_returns",
+        "faq_beginner",
+        "faq_warranty",
+        "faq_care",
+        "faq_contact"
+      ],
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "hero_image": "",
+        "hero_alt": "A metal watering can watering raised garden beds in the evening light",
+        "hero_eyebrow": "",
+        "hero_heading": "Contact us",
+        "hero_text": "",
+        "form_button_label": "Send message",
+        "topic_options": "Choosing the right tools, Product question, Order help, Returns or warranty, Something else",
+        "support_eyebrow": "",
+        "support_heading": "Contact our <em>support team</em>",
+        "support_text": "<p>Tell us what you are growing, which tool you are considering, or what you need help with. Include your order number if your question is about an order.</p>",
+        "support_email": "",
+        "support_phone": "",
+        "support_address": "",
+        "faq_eyebrow": "",
+        "faq_heading": "Customers <em>frequently ask</em>",
+        "cta_heading": "Need a hand with your garden? <em>We're here to help.</em>",
+        "cta_text": "",
+        "cta_button_label": "Contact us",
+        "cta_button_link": "#contact-form"
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "contact"
   ]
 }

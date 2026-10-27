@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T00:07:52.119Z",
+  "generated": "2026-10-27T18:12:54.328Z",
   "store": "gardner-dev-zwlohenx.myshopify.com",
   "previewThemeId": "191259083065",
   "summary": {
@@ -58,7 +58,7 @@
     {
       "name": "Product images have descriptive alt text",
       "status": "pass",
-      "detail": "8 product images"
+      "detail": "6 product images"
     },
     {
       "name": "JSON-LD parses on every page",
@@ -108,7 +108,7 @@
     {
       "name": "Homepage and collection expose crawlable internal links",
       "status": "pass",
-      "detail": "78 home / 86 collection"
+      "detail": "94 home / 86 collection"
     }
   ],
   "snapshots": [
@@ -122,15 +122,15 @@
       "canonical": "https://gardner-dev-zwlohenx.myshopify.com/",
       "robots": "",
       "h1": [
-        "Good tools. Better gardens."
+        "Tools for everyday gardeners."
       ],
       "jsonLdTypes": [
         "Organization",
         "WebSite"
       ],
-      "imageCount": 21,
+      "imageCount": 77,
       "imagesMissingAlt": 0,
-      "internalLinks": 78
+      "internalLinks": 94
     },
     {
       "page": "collection",
@@ -147,7 +147,7 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 18,
+      "imageCount": 33,
       "imagesMissingAlt": 0,
       "internalLinks": 86
     },
@@ -166,7 +166,7 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 8,
+      "imageCount": 13,
       "imagesMissingAlt": 0,
       "internalLinks": 68
     },
@@ -187,9 +187,9 @@
         "Product",
         "BreadcrumbList"
       ],
-      "imageCount": 9,
+      "imageCount": 7,
       "imagesMissingAlt": 0,
-      "internalLinks": 60
+      "internalLinks": 52
     },
     {
       "page": "search",
@@ -206,7 +206,7 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 27,
+      "imageCount": 51,
       "imagesMissingAlt": 0,
       "internalLinks": 103
     },
@@ -277,14 +277,14 @@
       "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/about",
       "robots": "",
       "h1": [
-        "About Gardner"
+        "Gardening, made simpler."
       ],
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 3,
+      "imageCount": 13,
       "imagesMissingAlt": 0,
-      "internalLinks": 49
+      "internalLinks": 68
     },
     {
       "page": "contact",
@@ -296,14 +296,14 @@
       "canonical": "https://gardner-dev-zwlohenx.myshopify.com/pages/contact",
       "robots": "",
       "h1": [
-        "Contact"
+        "Contact us"
       ],
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 3,
+      "imageCount": 4,
       "imagesMissingAlt": 0,
-      "internalLinks": 49
+      "internalLinks": 53
     },
     {
       "page": "guides",
@@ -320,9 +320,9 @@
       "jsonLdTypes": [
         "Organization"
       ],
-      "imageCount": 6,
+      "imageCount": 10,
       "imagesMissingAlt": 0,
-      "internalLinks": 55
+      "internalLinks": 56
     },
     {
       "page": "article",
@@ -340,9 +340,9 @@
         "Organization",
         "Article"
       ],
-      "imageCount": 4,
+      "imageCount": 8,
       "imagesMissingAlt": 0,
-      "internalLinks": 50
+      "internalLinks": 55
     },
     {
       "page": "privacy",

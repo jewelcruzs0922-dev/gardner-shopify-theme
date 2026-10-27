@@ -1,16 +1,18 @@
 (() => {
   const STORAGE_KEY = 'gardner:wishlist';
+  const FETCH_TIMEOUT_MS = 8000;
   const HEART = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.5 4.6 13a4.9 4.9 0 0 1 0-6.9 4.7 4.7 0 0 1 6.7 0l.7.7.7-.7a4.7 4.7 0 0 1 6.7 0 4.9 4.9 0 0 1 0 6.9Z"/></svg>';
+  const HEADER_HEART = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M10 5.24 8.515 3.773a4.433 4.433 0 0 0-6.21 0 4.293 4.293 0 0 0 0 6.128L10 17.495l7.695-7.593a4.293 4.293 0 0 0 0-6.128 4.433 4.433 0 0 0-6.21 0zm.765-2.177c2.113-2.084 5.538-2.084 7.65 0a5.29 5.29 0 0 1 0 7.55l-7.695 7.593a1.03 1.03 0 0 1-1.44 0l-7.696-7.594a5.29 5.29 0 0 1 0-7.549C3.697.98 7.122.98 9.234 3.063l.766.755z"/></svg>';
   const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
-  let items = read();
   let storageWorks = true;
+  let items = read();
 
   function read() {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       const parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed.filter((handle) => typeof handle === 'string' && handle) : [];
+      return Array.isArray(parsed) ? [...new Set(parsed.filter((handle) => typeof handle === 'string' && handle))] : [];
     } catch (error) {
       storageWorks = false;
       return [];
@@ -127,7 +129,7 @@
       link.href = '/pages/wishlist';
       link.dataset.wishlistLink = '';
       link.setAttribute('aria-label', 'Wishlist');
-      link.innerHTML = `${HEART}<span class="g-wishlist-count" data-wishlist-count hidden>0</span>`;
+      link.innerHTML = `${HEADER_HEART}<span class="g-wishlist-count" data-wishlist-count hidden>0</span>`;
       const cart = icons.querySelector('.header__icon--cart');
       if (cart) {
         icons.insertBefore(link, cart);
@@ -198,33 +200,57 @@
     return card;
   }
 
+  let renderSequence = 0;
+
   async function renderWishlistPage() {
     const grid = document.querySelector('[data-wishlist-grid]');
     if (!grid) return;
     const status = document.querySelector('[data-wishlist-status]');
     const empty = document.querySelector('[data-wishlist-empty]');
     const note = document.querySelector('[data-wishlist-note]');
+    const sequence = ++renderSequence;
+    const requested = items.slice();
 
     grid.setAttribute('aria-busy', 'true');
-    if (status) status.hidden = false;
+    if (status) {
+      status.hidden = false;
+      status.textContent = 'Loading your saved tools…';
+    }
 
-    const products = await Promise.all(
-      items.map(async (handle) => {
+    const results = await Promise.all(
+      requested.map(async (handle) => {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
         try {
-          const response = await fetch(`/products/${handle}.js`, { headers: { Accept: 'application/json' } });
-          if (!response.ok) return null;
-          const product = await response.json();
-          return { handle, product };
+          const response = await fetch(`/products/${handle}.js`, {
+            headers: { Accept: 'application/json' },
+            signal: controller.signal
+          });
+          if (response.ok) {
+            const product = await response.json();
+            return { handle, product, state: 'ok' };
+          }
+          if (response.status === 404 || response.status === 410) {
+            return { handle, state: 'missing' };
+          }
+          return { handle, state: 'transient' };
         } catch (error) {
-          return null;
+          return { handle, state: 'transient' };
+        } finally {
+          clearTimeout(timeout);
         }
       })
     );
 
-    const valid = products.filter(Boolean);
-    const missing = products.filter((entry) => !entry).length;
-    if (missing) {
-      items = items.filter((handle) => valid.some((entry) => entry.handle === handle));
+    if (sequence !== renderSequence) return;
+
+    const valid = results.filter((entry) => entry.state === 'ok');
+    const missing = results.filter((entry) => entry.state === 'missing');
+    const transient = results.filter((entry) => entry.state === 'transient');
+
+    if (missing.length) {
+      const missingHandles = new Set(missing.map((entry) => entry.handle));
+      items = items.filter((handle) => !missingHandles.has(handle));
       persist();
       sync();
     }
@@ -232,15 +258,39 @@
     grid.textContent = '';
     valid.forEach(({ handle, product }) => grid.appendChild(buildCard(product, handle)));
 
-    const isEmpty = valid.length === 0;
-    grid.hidden = isEmpty;
+    const hasSavedItems = items.length > 0;
+    const isEmpty = !hasSavedItems;
+    grid.hidden = valid.length === 0;
     if (empty) empty.hidden = !isEmpty;
-    if (status) status.hidden = true;
+    if (note) note.hidden = !hasSavedItems;
+
+    if (transient.length) {
+      if (status) {
+        status.hidden = false;
+        status.textContent = valid.length
+          ? 'Some saved tools could not be loaded. Your wishlist is unchanged. '
+          : 'We could not load your saved tools. Your wishlist is unchanged. ';
+        const retry = document.createElement('button');
+        retry.type = 'button';
+        retry.className = 'g-wishlist-retry';
+        retry.dataset.wishlistRetry = '';
+        retry.textContent = 'Retry';
+        status.appendChild(retry);
+      }
+    } else if (status) {
+      status.hidden = true;
+    }
+
     grid.removeAttribute('aria-busy');
-    if (note) note.hidden = isEmpty;
   }
 
   document.addEventListener('click', (event) => {
+    const retry = event.target.closest('[data-wishlist-retry]');
+    if (retry) {
+      event.preventDefault();
+      renderWishlistPage();
+      return;
+    }
     const button = event.target.closest('[data-wishlist-toggle]');
     if (!button) return;
     event.preventDefault();

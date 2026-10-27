@@ -1,0 +1,63 @@
+{%- liquid
+  assign row_start = row_start | default: 0
+  if clone_first == nil
+    assign clone_first = true
+  endif
+-%}
+
+{%- for pass in (1..2) -%}
+  {%- assign is_clone = false -%}
+  {%- if clone_first -%}
+    {%- if pass == 1 -%}
+      {%- assign is_clone = true -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- if pass == 2 -%}
+      {%- assign is_clone = true -%}
+    {%- endif -%}
+  {%- endif -%}
+
+  <div class="g-gallery__group{% if is_clone %} g-gallery__group--clone{% endif %}"{% if is_clone %} aria-hidden="true"{% endif %}>
+    {%- for block in row_blocks -%}
+      {%- assign global_index = forloop.index0 | plus: row_start -%}
+      {%- assign fallback_index = global_index | plus: 1 | prepend: '00' | slice: -2, 2 -%}
+      {%- capture fallback_name -%}gardner-gallery-clean-{{ fallback_index }}.jpg{%- endcapture -%}
+      {%- assign alt_text = block.settings.alt | default: block.settings.image.alt | default: 'Garden tools and plants' -%}
+      {%- if is_clone -%}
+        {%- assign image_alt = '' -%}
+      {%- else -%}
+        {%- assign image_alt = alt_text -%}
+      {%- endif -%}
+
+      <button
+        class="g-gallery__item"
+        type="button"
+        data-gallery-index="{{ global_index }}"
+        aria-haspopup="dialog"
+        aria-label="Open image: {{ alt_text | escape }}"
+        {% if is_clone %}tabindex="-1"{% else %}{{ block.shopify_attributes }}{% endif %}
+      >
+        {%- if block.settings.image != blank -%}
+          {{
+            block.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 990px) 420px, 260px',
+              widths: '400, 600, 900, 1200',
+              alt: image_alt
+          }}
+        {%- else -%}
+          <img
+            class="g-gallery__img"
+            src="{{ fallback_name | asset_url }}"
+            alt="{{ image_alt | escape }}"
+            width="1200"
+            height="900"
+            loading="lazy"
+          >
+        {%- endif -%}
+      </button>
+    {%- endfor -%}
+  </div>
+{%- endfor -%}

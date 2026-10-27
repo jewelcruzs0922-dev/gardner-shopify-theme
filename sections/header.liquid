@@ -306,6 +306,15 @@
   </header>
 </{{ header_tag }}>
 
+<script>
+  (() => {
+    const section = document.currentScript.closest('.section-header');
+    if (section) {
+      document.documentElement.style.setProperty('--header-height', `${section.offsetHeight}px`);
+    }
+  })();
+</script>
+
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,

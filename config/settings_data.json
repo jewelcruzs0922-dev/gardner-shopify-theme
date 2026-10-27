@@ -22,7 +22,7 @@
             "background": "#EFEBCD",
             "background_gradient": "",
             "text": "#1E2A16",
-            "button": "#F28C28",
+            "button": "#F4E24C",
             "button_label": "#1E2A16",
             "secondary_button_label": "#1E2A16",
             "shadow": "#1E2A16"
@@ -41,7 +41,7 @@
         },
         "scheme-4": {
           "settings": {
-            "background": "#F28C28",
+            "background": "#F4E24C",
             "background_gradient": "",
             "text": "#1E2A16",
             "button": "#1E2A16",
@@ -64,7 +64,7 @@
       },
       "type_header_font": "josefin_sans_n5",
       "heading_scale": 100,
-      "type_body_font": "nunito_sans_n4",
+      "type_body_font": "manrope_n4",
       "body_scale": 100,
       "page_width": 1400,
       "spacing_sections": 0,

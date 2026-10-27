@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-24T20:30:37.392Z",
+  "generated": "2026-10-27T16:37:55.071Z",
   "note": "Median of repeated Lighthouse runs against the password-protected preview theme. The preview bar and Shopify platform scripts are present in the primary runs.",
   "runs": [
     {
@@ -7,43 +7,43 @@
       "formFactor": "mobile",
       "runs": 3,
       "categories": {
-        "performance": 61,
+        "performance": 53,
         "accessibility": 97,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 4737.9349999999995,
-        "lcp": 8076.640000000003,
-        "tbt": 199.56449999999995,
-        "cls": 0.001940001708882579,
-        "speedIndex": 4737.9349999999995,
-        "interactive": 8277.767600000001
+        "fcp": 5110.153,
+        "lcp": 11135.675999999996,
+        "tbt": 322.5,
+        "cls": 0,
+        "speedIndex": 6665.594164094951,
+        "interactive": 11383.210899999996
       },
       "ranges": {
         "fcp": {
-          "min": 1909.8210000000004,
-          "max": 5041.0470000000005
+          "min": 5097.224,
+          "max": 5189.1990000000005
         },
         "lcp": {
-          "min": 2787.6879999999996,
-          "max": 8402.66
+          "min": 10940.982499999998,
+          "max": 11297.017499999998
         },
         "tbt": {
-          "min": 182.5000000000009,
-          "max": 276
+          "min": 289.9485000000009,
+          "max": 380.5
         },
         "cls": {
           "min": 0,
-          "max": 0.0019852292899698904
+          "max": 0
         },
         "speedIndex": {
-          "min": 2266.3550558904517,
-          "max": 6122.312551394521
+          "min": 5269.85101456793,
+          "max": 6754.204482430311
         },
         "interactive": {
-          "min": 7639.508,
-          "max": 8447.224400000001
+          "min": 11201.59425,
+          "max": 11570.160499999998
         }
       },
       "file": "docs/qa/lighthouse-home-mobile.json"
@@ -53,43 +53,43 @@
       "formFactor": "desktop",
       "runs": 3,
       "categories": {
-        "performance": 99,
+        "performance": 95,
         "accessibility": 97,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 603.5515,
-        "lcp": 972.0215000000005,
-        "tbt": 22.500000000000114,
+        "fcp": 635.6714999999999,
+        "lcp": 1412.28,
+        "tbt": 10.499999999999886,
         "cls": 0.0002028927348103886,
-        "speedIndex": 715.3021405265488,
-        "interactive": 1808.6676000000002
+        "speedIndex": 1288.1945021624101,
+        "interactive": 1907.4993999999997
       },
       "ranges": {
         "fcp": {
-          "min": 553.181,
-          "max": 605.0215000000002
+          "min": 629.6565,
+          "max": 653.0055
         },
         "lcp": {
-          "min": 861.216,
-          "max": 1013.5440000000002
+          "min": 1213.4035,
+          "max": 1719.8120000000004
         },
         "tbt": {
-          "min": 20,
-          "max": 32
+          "min": 0.5,
+          "max": 82.00000000000023
         },
         "cls": {
           "min": 0.0002028927348103886,
-          "max": 0.0024854238644675254
+          "max": 0.00044896970169072074
         },
         "speedIndex": {
-          "min": 603.5515,
-          "max": 794.5347936689882
+          "min": 1172.6209920064616,
+          "max": 1436.2413523248554
         },
         "interactive": {
-          "min": 1769.2265000000011,
-          "max": 1853.71445
+          "min": 1772.5456000000004,
+          "max": 2141.885750000001
         }
       },
       "file": "docs/qa/lighthouse-home-desktop.json"
@@ -99,43 +99,43 @@
       "formFactor": "mobile",
       "runs": 2,
       "categories": {
-        "performance": 53.5,
+        "performance": 47.5,
         "accessibility": 97,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 4795.68075,
-        "lcp": 7606.279750000002,
-        "tbt": 431.25,
-        "cls": 0.001940001708882579,
-        "speedIndex": 4795.68075,
-        "interactive": 7647.139650000003
+        "fcp": 5217.92775,
+        "lcp": 10073.372,
+        "tbt": 528.9999999999998,
+        "cls": 0,
+        "speedIndex": 5743.418417036664,
+        "interactive": 10282.2551
       },
       "ranges": {
         "fcp": {
-          "min": 4753.6425,
-          "max": 4837.719000000001
+          "min": 4971.877,
+          "max": 5463.978499999999
         },
         "lcp": {
-          "min": 7532.068750000002,
-          "max": 7680.490750000003
+          "min": 9935.646000000004,
+          "max": 10211.097999999994
         },
         "tbt": {
-          "min": 339,
-          "max": 523.5
+          "min": 517.5000000000005,
+          "max": 540.4999999999991
         },
         "cls": {
-          "min": 0.001940001708882579,
-          "max": 0.001940001708882579
+          "min": 0,
+          "max": 0
         },
         "speedIndex": {
-          "min": 4753.6425,
-          "max": 4837.719000000001
+          "min": 5571.90619533443,
+          "max": 5914.9306387389
         },
         "interactive": {
-          "min": 7573.361375000002,
-          "max": 7720.917925000003
+          "min": 10142.922900000007,
+          "max": 10421.587299999994
         }
       },
       "file": "docs/qa/lighthouse-collection-mobile.json"
@@ -145,43 +145,43 @@
       "formFactor": "mobile",
       "runs": 2,
       "categories": {
-        "performance": 53,
+        "performance": 52,
         "accessibility": 97,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 5107.129,
-        "lcp": 7738.556499999999,
-        "tbt": 398.58374999999955,
-        "cls": 0.02482733900221181,
-        "speedIndex": 5107.129,
-        "interactive": 7911.165375
+        "fcp": 5053.9177500000005,
+        "lcp": 8030.507999999998,
+        "tbt": 404,
+        "cls": 0.0000028520851025920724,
+        "speedIndex": 5671.228967433779,
+        "interactive": 8069.394074999999
       },
       "ranges": {
         "fcp": {
-          "min": 5045.905,
-          "max": 5168.353
+          "min": 4993.304,
+          "max": 5114.5315
         },
         "lcp": {
-          "min": 7681.856999999998,
-          "max": 7795.255999999999
+          "min": 8006.184999999998,
+          "max": 8054.830999999999
         },
         "tbt": {
-          "min": 364.8579999999997,
-          "max": 432.3094999999994
+          "min": 322,
+          "max": 486
         },
         "cls": {
-          "min": 0.02482733900221181,
-          "max": 0.02482733900221181
+          "min": 0,
+          "max": 0.000005704170205184145
         },
         "speedIndex": {
-          "min": 5045.905,
-          "max": 5168.353
+          "min": 5603.8646148339485,
+          "max": 5738.593320033609
         },
         "interactive": {
-          "min": 7902.71755,
-          "max": 7919.613199999999
+          "min": 8047.850349999999,
+          "max": 8090.9378
         }
       },
       "file": "docs/qa/lighthouse-product-mobile.json"
@@ -192,18 +192,18 @@
       "name": "theme-only-home-mobile",
       "formFactor": "mobile",
       "categories": {
-        "performance": 72,
+        "performance": 67,
         "accessibility": 100,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 2975.1700000000005,
-        "lcp": 5062.2575,
-        "tbt": 148.5,
+        "fcp": 2875.3360000000002,
+        "lcp": 7603.275999999998,
+        "tbt": 65.5,
         "cls": 0,
-        "speedIndex": 4927.919199243421,
-        "interactive": 5102.22395
+        "speedIndex": 5375.31117069824,
+        "interactive": 7861.885999999999
       },
       "blockedPatterns": [
         "*preview-bar*",
@@ -221,18 +221,18 @@
       "name": "theme-only-product-mobile",
       "formFactor": "mobile",
       "categories": {
-        "performance": 77,
+        "performance": 72,
         "accessibility": 100,
         "best-practices": 96,
         "seo": 100
       },
       "metrics": {
-        "fcp": 2959.935,
-        "lcp": 4582.690999999999,
-        "tbt": 92,
-        "cls": 0.02482733900221181,
-        "speedIndex": 3294.637016375169,
-        "interactive": 4591.4082
+        "fcp": 2826.29,
+        "lcp": 4821.423499999999,
+        "tbt": 215.99999999999955,
+        "cls": 0,
+        "speedIndex": 4535.322532424541,
+        "interactive": 4855.303649999999
       },
       "blockedPatterns": [
         "*preview-bar*",

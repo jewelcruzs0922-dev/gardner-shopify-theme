@@ -33,6 +33,13 @@
   </div>
 
   <div class="g-hero__content page-width">
+    <div class="g-hero__logo" aria-hidden="true">
+      <svg viewBox="0 0 32 32" focusable="false">
+        <path d="M16 29V15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M16 18C9 18 5 13.5 4.5 6.5 11.5 6 16 10.5 16 18Z" fill="currentColor"/>
+        <path d="M16 14C22.5 14 27 10 27.5 3.5 20.5 3 16 7.5 16 14Z" fill="currentColor"/>
+      </svg>
+    </div>
     {%- if section.settings.eyebrow != blank -%}
       <p class="g-eyebrow g-hero__eyebrow">{{ section.settings.eyebrow }}</p>
     {%- endif -%}
@@ -64,13 +71,12 @@
   "class": "section-gardner-hero",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Background image" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Garden tools, made simple" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Good tools. Better gardens." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Tools for everyday gardeners." },
     {
       "type": "textarea",
       "id": "text",
-      "label": "Text",
-      "default": "Durable, thoughtful essentials for the everyday gardener."
+      "label": "Text"
     },
     { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Shop garden tools" },
     { "type": "url", "id": "button_link", "label": "Primary button link" },
@@ -104,7 +110,7 @@
         { "value": "left", "label": "Left" },
         { "value": "center", "label": "Center" }
       ],
-      "default": "left"
+      "default": "center"
     }
   ],
   "presets": [{ "name": "Gardner hero" }]

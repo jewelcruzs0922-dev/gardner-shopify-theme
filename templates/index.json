@@ -3,16 +3,16 @@
     "gardner_hero": {
       "type": "gardner-hero",
       "settings": {
-        "eyebrow": "Garden tools, made simple",
-        "heading": "Good tools. Better gardens.",
-        "text": "Durable, thoughtful essentials for the everyday gardener — from first trowel to full harvest.",
+        "eyebrow": "",
+        "heading": "Tools for everyday gardeners.",
+        "text": "",
         "button_label": "Shop garden tools",
         "button_link": "shopify://collections/all",
         "button_label_2": "Read the guides",
         "button_link_2": "/blogs/news",
         "overlay_opacity": 30,
         "height": "large",
-        "alignment": "left"
+        "alignment": "center"
       }
     },
     "featured_collection": {
@@ -46,12 +46,42 @@
     "collection_list": {
       "type": "collection-list",
       "blocks": {
-        "cat_hand_tools": { "type": "featured_collection", "settings": { "collection": "hand-tools" } },
-        "cat_pruning": { "type": "featured_collection", "settings": { "collection": "pruning-cutting" } },
-        "cat_digging": { "type": "featured_collection", "settings": { "collection": "digging-planting" } },
-        "cat_watering": { "type": "featured_collection", "settings": { "collection": "watering-irrigation" } },
-        "cat_accessories": { "type": "featured_collection", "settings": { "collection": "garden-accessories" } },
-        "cat_power": { "type": "featured_collection", "settings": { "collection": "power-tools" } }
+        "cat_hand_tools": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hand-tools"
+          }
+        },
+        "cat_pruning": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pruning-cutting"
+          }
+        },
+        "cat_digging": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "digging-planting"
+          }
+        },
+        "cat_watering": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "watering-irrigation"
+          }
+        },
+        "cat_accessories": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "garden-accessories"
+          }
+        },
+        "cat_power": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "power-tools"
+          }
+        }
       },
       "block_order": [
         "cat_hand_tools",
@@ -80,117 +110,325 @@
         "image_position": "left",
         "eyebrow": "Our approach",
         "heading": "Tools that earn their place",
-        "text": "<p>We choose tools for how they feel in the hand and how they hold up in real soil. No gimmicks, no shelves of duplicates — just dependable essentials, clearly explained.</p>",
+        "text": "<p>We choose tools for how they feel in the hand and how they hold up in real soil. No gimmicks, no shelves of duplicates — just dependable essentials, clearly explained.</p><p>Every piece is picked for balance, repairability and the small details that still matter after a season of use: steel that can be sharpened, handles that can be re-oiled, and designs that do one job properly.</p><p>The result is a small, deliberate collection. Not everything — just the pieces worth keeping close.</p>",
         "button_label": "Shop the collection",
         "button_link": "shopify://collections/all"
       }
     },
     "why_gardner": {
-      "type": "multicolumn",
+      "type": "gardner-why-choose-us",
       "blocks": {
         "why_1": {
-          "type": "column",
+          "type": "benefit",
           "settings": {
-            "title": "Chosen for real gardens",
-            "text": "<p>Tools we would actually use, at prices that make sense for everyday gardening.</p>"
+            "title": "Thoughtfully selected",
+            "text": "<p>Practical gardening essentials chosen to help make everyday garden work easier.</p>"
           }
         },
         "why_2": {
-          "type": "column",
+          "type": "benefit",
           "settings": {
-            "title": "Clear, honest pricing",
-            "text": "<p>Demonstration prices are shown plainly — no invented urgency, no fake scarcity.</p>"
+            "title": "Made for growing",
+            "text": "<p>Find useful tools for planting, pruning, cultivating, and caring for your outdoor space.</p>"
           }
         },
         "why_3": {
-          "type": "column",
+          "type": "benefit",
           "settings": {
-            "title": "Guidance included",
-            "text": "<p>Short, practical guides help you choose the right tool and care for it well.</p>"
+            "title": "A better garden experience",
+            "text": "<p>Explore clear product details and useful essentials to help you choose with confidence.</p>"
           }
         }
       },
-      "block_order": ["why_1", "why_2", "why_3"],
+      "block_order": [
+        "why_1",
+        "why_2",
+        "why_3"
+      ],
       "settings": {
-        "title": "Why Gardner",
-        "heading_size": "h2",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
-        "button_label": "",
-        "button_link": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "eyebrow": "Why choose Gardner",
+        "heading": "Good tools. Better gardening.",
+        "text": "<p>Thoughtful essentials for growing, cultivating, and creating a garden you love.</p>",
+        "image_alt": "Lush raised garden beds with tomatoes, herbs and a copper watering can",
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
-    "reviews": {
-      "type": "gardner-reviews",
+    "testimonials": {
+      "type": "gardner-testimonials",
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
-            "quote": "The trowel feels solid without being heavy. It has become the tool I reach for first.",
-            "author": "Sample gardener",
-            "detail": "Raised-bed grower"
+            "quote": "The trowel feels solid without being heavy, and the handle sits comfortably even after an hour of planting. I used it to edge a new herb bed and it cut through compacted soil without bending. It has become the tool I reach for first, and it cleaned up easily with a quick wipe and dry.",
+            "author": "Amara Osei",
+            "detail": "Fictional profile - Bristol",
+            "image_asset": "gardner-testimonial-amara.jpg",
+            "image_alt": "Portrait of a woman in a sage work shirt standing in an allotment garden"
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "quote": "Clear product pages and honest prices made choosing my first pruners easy.",
-            "author": "Sample gardener",
-            "detail": "Balcony grower"
+            "quote": "Clear product pages and honest prices made choosing my first bypass pruners easy. The size guide helped me pick the right pair for smaller branches, and they arrived sharp and ready to use. After a season of pruning apple trees and roses, they still cut cleanly and feel well balanced in the hand.",
+            "author": "Daniel Mercer",
+            "detail": "Fictional profile - Yorkshire",
+            "image_asset": "gardner-testimonial-daniel.jpg",
+            "image_alt": "Portrait of a man in a chore jacket holding secateurs in a greenhouse"
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "quote": "The watering wand reaches the back of the border without soaking the path.",
-            "author": "Sample gardener",
-            "detail": "Cottage garden"
+            "quote": "The watering wand reaches the back of the border without soaking the path, which has made watering my balcony pots far quicker. The flow is gentle enough for seedlings but strong enough for the larger planters, and the trigger is easy to control. It has held up well through a wet spring and still feels sturdy.",
+            "author": "Priya Nair",
+            "detail": "Fictional profile - London",
+            "image_asset": "gardner-testimonial-priya.jpg",
+            "image_alt": "Portrait of a woman in a denim shirt on a balcony herb garden"
           }
         }
       },
-      "block_order": ["review_1", "review_2", "review_3"],
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
         "show_section": true,
-        "eyebrow": "In the garden",
-        "heading": "What gardeners are saying",
-        "text": "<p>Short notes from people who use these tools every week.</p>",
-        "disclaimer": "Demo content: these are illustrative sample reviews, not real customer feedback.",
-        "show_stars": true
+        "heading": "Customers Review",
+        "text": "",
+        "disclaimer": "Fictional profiles and sample reviews for layout preview only. Replace with approved customer feedback before publishing.",
+        "padding_top": 32,
+        "padding_bottom": 56
       }
     },
     "guides": {
-      "type": "featured-blog",
+      "type": "gardner-home-guides",
       "settings": {
         "blog": "news",
-        "post_limit": 3,
+        "eyebrow": "Journal",
         "heading": "Garden guides",
-        "heading_size": "h2",
-        "columns_desktop": 3,
-        "show_view_all": true,
-        "show_image": true,
-        "show_date": false,
-        "show_author": false,
-        "color_scheme": "scheme-1",
+        "show_date": true,
         "padding_top": 24,
         "padding_bottom": 64
       }
     },
     "gallery": {
       "type": "gardner-gallery",
+      "blocks": {
+        "gallery_01": {
+          "type": "image",
+          "settings": {
+            "alt": "Bypass pruning shears on folded linen with a rosemary sprig"
+          }
+        },
+        "gallery_02": {
+          "type": "image",
+          "settings": {
+            "alt": "Hand trowel and fork on a pale potting bench"
+          }
+        },
+        "gallery_03": {
+          "type": "image",
+          "settings": {
+            "alt": "Copper watering can beside raised herb beds"
+          }
+        },
+        "gallery_04": {
+          "type": "image",
+          "settings": {
+            "alt": "Canvas gardening gloves tied with natural twine"
+          }
+        },
+        "gallery_05": {
+          "type": "image",
+          "settings": {
+            "alt": "Terracotta pots planted with young herbs"
+          }
+        },
+        "gallery_06": {
+          "type": "image",
+          "settings": {
+            "alt": "Tidy raised beds with lettuce and herbs"
+          }
+        },
+        "gallery_07": {
+          "type": "image",
+          "settings": {
+            "alt": "Flatlay of pruners, trowel, fork, gloves, and twine"
+          }
+        },
+        "gallery_08": {
+          "type": "image",
+          "settings": {
+            "alt": "Long-handled hoe and seed trays in a greenhouse"
+          }
+        },
+        "gallery_09": {
+          "type": "image",
+          "settings": {
+            "alt": "Seedlings in wooden trays on a greenhouse shelf"
+          }
+        },
+        "gallery_10": {
+          "type": "image",
+          "settings": {
+            "alt": "Watering can watering herbs in a raised bed"
+          }
+        },
+        "gallery_11": {
+          "type": "image",
+          "settings": {
+            "alt": "Bypass secateurs in a leather holster"
+          }
+        },
+        "gallery_12": {
+          "type": "image",
+          "settings": {
+            "alt": "Garden bench with potted herbs and hand tools"
+          }
+        }
+      },
+      "block_order": [
+        "gallery_01",
+        "gallery_02",
+        "gallery_03",
+        "gallery_04",
+        "gallery_05",
+        "gallery_06",
+        "gallery_07",
+        "gallery_08",
+        "gallery_09",
+        "gallery_10",
+        "gallery_11",
+        "gallery_12"
+      ],
       "settings": {
-        "eyebrow": "From the garden",
-        "heading": "A closer look",
-        "text": "<p>Original editorial imagery made for this demo storefront.</p>",
-        "alt_1": "Raised garden beds in warm evening light",
-        "alt_2": "Hands planting a seedling in a raised bed",
-        "alt_3": "Garden hand tools on a potting bench",
-        "note": "Editorial imagery for this portfolio demo — not customer posts or a live social feed."
+        "eyebrow": "",
+        "heading": "Our gallery",
+        "text": "",
+        "note": ""
+      }
+    },
+    "new_arrivals": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "New to the shed",
+        "heading_size": "h2",
+        "description": "<p>Recent additions, chosen for how they feel in the hand and how they hold up in real soil.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "new-arrivals",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "padding_top": 72,
+        "padding_bottom": 24
+      }
+    },
+    "starter_kit": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "The three-tool start",
+        "heading_size": "h2",
+        "description": "<p>A bypass pruner, a hand trowel and a glove. The three pieces that cover most first-garden jobs.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "starter-kit",
+        "products_to_show": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "padding_top": 24,
+        "padding_bottom": 64
+      }
+    },
+    "faq": {
+      "type": "gardner-faq",
+      "blocks": {
+        "tools": {
+          "type": "question",
+          "settings": {
+            "question": "What types of gardening tools and equipment do you sell?",
+            "answer": "<p>Gardner carries hand tools, pruning and cutting tools, digging and planting tools, watering equipment, garden accessories, and selected power tools. Browse the <a href=\"/collections/all\">full collection</a> to compare the range.</p>"
+          }
+        },
+        "choose": {
+          "type": "question",
+          "settings": {
+            "question": "How do I choose the right tool for my gardening needs?",
+            "answer": "<p>Start with the job: a trowel for planting, a fork for loosening soil, bypass pruners for living stems, and a watering can or wand for containers. Our <a href=\"/blogs/news\">garden guides</a> explain the differences in more detail.</p>"
+          }
+        },
+        "first_kit": {
+          "type": "question",
+          "settings": {
+            "question": "What should a first tool kit include?",
+            "answer": "<p>A bypass pruner, hand trowel, and a pair of gloves cover most planting, weeding, and light pruning. Add a hand fork for soil work and a watering can or wand for containers. Our <a href=\"/collections/starter-kit\">three-tool start</a> is a simple place to begin.</p>"
+          }
+        },
+        "care": {
+          "type": "question",
+          "settings": {
+            "question": "How should I care for my tools?",
+            "answer": "<p>Wipe off soil, dry tools naturally, and oil wooden handles occasionally. Carbon steel benefits from drying and a light oil; stainless steel needs less fuss. Avoid soaking tools or leaving them outside.</p>"
+          }
+        },
+        "shipping": {
+          "type": "question",
+          "settings": {
+            "question": "Where do you ship, and how long does delivery take?",
+            "answer": "<p>Shipping regions, rates, and delivery estimates have not been finalized yet. The <a href=\"/pages/shipping\">Shipping page</a> is still a draft; please confirm the details with us before placing an order.</p>"
+          }
+        },
+        "returns": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return or exchange policy?",
+            "answer": "<p>Our <a href=\"/pages/returns\">Returns page</a> is still a draft. Please <a href=\"/pages/contact\">contact us</a> before ordering if you need a confirmed return or exchange commitment, and we will explain the current options.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tools",
+        "choose",
+        "first_kit",
+        "care",
+        "shipping",
+        "returns"
+      ],
+      "settings": {
+        "show_section": true,
+        "eyebrow": "FAQ's",
+        "heading": "Have Any Questions?",
+        "image_alt": "Gardener tending potted shrubs in a greenhouse",
+        "image_position": "left",
+        "open_first": false,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
@@ -198,9 +436,12 @@
     "gardner_hero",
     "featured_collection",
     "collection_list",
+    "new_arrivals",
     "gardner_story",
+    "starter_kit",
     "why_gardner",
-    "reviews",
+    "testimonials",
+    "faq",
     "guides",
     "gallery"
   ]

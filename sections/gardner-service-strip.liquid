@@ -1,0 +1,44 @@
+<section class="g-service-strip">
+  <div class="g-container g-service-strip__inner">
+    <p class="g-service-strip__kicker">{{ section.settings.kicker | escape }}</p>
+    <ul class="g-service-strip__list" role="list">
+      {%- for block in section.blocks -%}
+        <li class="g-service-strip__item" {{ block.shopify_attributes }}>
+          <span class="g-service-strip__index">0{{ forloop.index }}</span>
+          <div>
+            <p class="g-service-strip__label">{{ block.settings.label | escape }}</p>
+            {%- if block.settings.link != blank -%}
+              <a class="g-service-strip__detail" href="{{ block.settings.link }}">{{ block.settings.detail | escape }}</a>
+            {%- else -%}
+              <p class="g-service-strip__detail">{{ block.settings.detail | escape }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gardner service strip",
+  "tag": "section",
+  "class": "section-gardner-service",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "The Gardner standard" }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service item",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Shipping" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Calculated at checkout" },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "Gardner service strip" }]
+}
+{% endschema %}

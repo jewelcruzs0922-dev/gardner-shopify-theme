@@ -72,7 +72,7 @@ await test('Homepage: single h1 and section order', async () => {
   const h1Count = await page.locator('main h1').count();
   assert(h1Count === 1, `expected 1 h1, found ${h1Count}`);
   const ids = await page.locator('main > .shopify-section').evaluateAll((sections) => sections.map((section) => section.id));
-  const order = ['gardner_hero', 'featured_collection', 'collection_list', 'gardner_story', 'why_gardner', 'reviews', 'guides', 'gallery'];
+  const order = ['gardner_hero', 'featured_collection', 'collection_list', 'new_arrivals', 'gardner_story', 'starter_kit', 'why_gardner', 'testimonials', 'faq', 'guides', 'gallery'];
   let cursor = -1;
   for (const key of order) {
     const index = ids.findIndex((id) => id.includes(key));
@@ -85,11 +85,15 @@ await test('Homepage: single h1 and section order', async () => {
 });
 
 await test('Homepage: demo content disclosure', async () => {
-  const reviewNote = await page.locator('.g-reviews__demo-note').innerText();
-  assert(/demo content/i.test(reviewNote), 'review demo note missing');
-  const galleryNote = await page.locator('.g-gallery__note').innerText();
-  assert(/not customer posts/i.test(galleryNote), 'gallery editorial note missing');
-  return 'reviews and gallery labelled';
+  const reviewNote = await page.locator('.g-testimonials__note').innerText();
+  assert(/demo|fictional|sample/i.test(reviewNote), 'review demo note missing');
+  const galleryNote = page.locator('.g-gallery__note');
+  if (await galleryNote.count()) {
+    const galleryNoteText = await galleryNote.innerText();
+    assert(/not customer posts|editorial|demo/i.test(galleryNoteText), 'gallery editorial note mismatch');
+    return 'reviews and gallery labelled';
+  }
+  return 'reviews labelled; optional gallery note not set';
 });
 
 await test('Homepage: imagery loaded and category cards', async () => {
@@ -313,7 +317,7 @@ await test('Wishlist: saved item, remove, empty state', async () => {
 
 await test('Content pages return 200 with headings', async () => {
   const pages = [
-    ['/pages/about', /about/i],
+    ['/pages/about', /gardening|about/i],
     ['/pages/contact', /contact/i],
     ['/blogs/news', /guides/i],
     ['/blogs/news/choosing-pruning-shears', /pruning/i],
@@ -375,11 +379,12 @@ await test('Newsletter: accessible markup; end-to-end blocked by hCaptcha', asyn
 
 await test('Contact form: labels and required email', async () => {
   await open(page, env, '/pages/contact');
-  const labels = await page.locator('#ContactForm label').allTextContents();
+  const form = page.locator('.g-contact-form');
+  const labels = await form.locator('label').allTextContents();
   assert(labels.some((text) => /name/i.test(text)), 'name label missing');
   assert(labels.some((text) => /email/i.test(text)), 'email label missing');
   assert(labels.some((text) => /comment|message/i.test(text)), 'message label missing');
-  const required = await page.locator('#ContactForm [required]').evaluateAll((fields) => fields.map((field) => field.name || field.id));
+  const required = await form.locator('[required]').evaluateAll((fields) => fields.map((field) => field.name || field.id));
   assert(required.length > 0, 'contact form has no required fields');
   return labels.map((label) => label.replace(/\s+/g, ' ').trim()).join(', ');
 });
@@ -455,7 +460,7 @@ async function responsive(viewport, label) {
     const overflow = await responsivePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     const ok = overflow <= 1;
     responsiveResults.push(result(`${label} ${name}: no horizontal overflow`, ok ? 'pass' : 'fail', `${overflow}px`));
-    await responsivePage.screenshot({ path: ensureDir('docs/qa') + `/${name}-${label}.png`, fullPage: true, animations: 'disabled' });
+    await screenshot(responsivePage, `${name}-${label}.png`);
   }
   if (label === '390') {
     await responsivePage.evaluate(() => window.scrollTo(0, 0));

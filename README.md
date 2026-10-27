@@ -75,6 +75,7 @@ node scripts/gen-catalog-doc.mjs
 - [`docs/TEST-REPORT.md`](docs/TEST-REPORT.md) — actual functional, a11y, SEO, and performance results
 - [`docs/VISUAL-QA.md`](docs/VISUAL-QA.md) — matched-viewport comparisons
 - [`docs/KNOWN-LIMITATIONS.md`](docs/KNOWN-LIMITATIONS.md) — unresolved issues and owner actions
+- [`docs/READINESS-CHECKLIST.md`](docs/READINESS-CHECKLIST.md) — portfolio and commercial readiness status
 - [`docs/CASE-STUDY.md`](docs/CASE-STUDY.md) — portfolio case study
 - [`docs/qa/`](docs/qa/) — screenshots, axe report, Lighthouse reports, functional/SEO JSON evidence
 

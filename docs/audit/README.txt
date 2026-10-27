@@ -1,6 +1,6 @@
 Gardner Visual Audit Screenshot Set
 
-Captured: 2026-10-25T00:06:23.586Z
+Captured: 2026-10-25T00:30:03.958Z
 Store: gardner-dev-zwlohenx.myshopify.com
 Preview theme: 191259083065 (unpublished development store)
 Viewports: desktop 1440x900, mobile 390x844 (DSF 2)

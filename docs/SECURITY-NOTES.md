@@ -24,3 +24,11 @@ This file records credential-handling incidents and remediations without storing
 
 - `.env`, `.env.*`, keys, Shopify CLI state, and Playwright artifacts are excluded via `.gitignore`.
 - `.env.example` contains placeholders only.
+
+## 2026-10-27 — Second client secret rotated; Admin token reissued
+
+- A second, distinct client secret was found in the 2026-10-24 Playwright snapshot; the earlier note covered only the first secret.
+- Both previously exposed client secrets were revoked in Dev Dashboard. A fresh secret was generated and was not recorded or printed.
+- Revoking the client secrets invalidated the store-scoped Admin API token. A new OAuth token was issued through the same app and stored only in gitignored `.env`; a read-only `shop { name currencyCode }` query returned HTTP 200.
+- The two affected Playwright snapshots were redacted to remove `shpss_` values. No credential values are recorded in this note.
+- `.env` and `.playwright-mcp` remain untracked/ignored, with local ACL access limited to the current user, SYSTEM, and Administrators.

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T00:00:56.379Z",
+  "generated": "2026-10-27T18:09:33.351Z",
   "viewport": "1440x900",
   "pages": [
     {
@@ -11,7 +11,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 7
+          "nodes": 8
         }
       ]
     },
@@ -84,28 +84,34 @@
       "label": "about",
       "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/about",
       "violations": [],
-      "passes": 29,
-      "incomplete": []
+      "passes": 31,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 4
+        }
+      ]
     },
     {
       "label": "contact",
       "url": "https://gardner-dev-zwlohenx.myshopify.com/pages/contact",
       "violations": [],
-      "passes": 29,
-      "incomplete": []
+      "passes": 30,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 13
+        }
+      ]
     },
     {
       "label": "guides",
       "url": "https://gardner-dev-zwlohenx.myshopify.com/blogs/news",
       "violations": [],
       "passes": 29,
-      "incomplete": [
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "nodes": 1
-        }
-      ]
+      "incomplete": []
     },
     {
       "label": "article",
@@ -139,7 +145,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 7
+          "nodes": 8
         }
       ]
     },
@@ -157,7 +163,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 15
+          "nodes": 16
         }
       ]
     },
@@ -175,7 +181,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 7
+          "nodes": 6
         }
       ]
     },
@@ -207,7 +213,7 @@
         {
           "id": "color-contrast",
           "impact": "serious",
-          "nodes": 9
+          "nodes": 7
         }
       ]
     }

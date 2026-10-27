@@ -1,50 +1,111 @@
 {%- liquid
-  assign image_1 = section.settings.image_1
-  assign image_2 = section.settings.image_2
-  assign image_3 = section.settings.image_3
+  assign show_header = false
+  if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.text != blank
+    assign show_header = true
+  endif
+
+  assign row_one = section.blocks | slice: 0, 6
+  assign row_two = section.blocks | slice: 6, 6
 -%}
-<section class="g-gallery">
-  <div class="page-width">
-    <div class="g-gallery__head">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="g-eyebrow">{{ section.settings.eyebrow }}</p>
+
+<section class="g-gallery" aria-label="Garden gallery">
+  <div class="g-gallery__inner">
+    {%- if show_header -%}
+      <div class="g-gallery__head">
+        <div>
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="g-eyebrow">{{ section.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="g-gallery__title">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.text != blank -%}
+          <div class="g-gallery__text rte">{{ section.settings.text }}</div>
         {%- endif -%}
-        <h2 class="g-gallery__title">{{ section.settings.heading }}</h2>
       </div>
-      {%- if section.settings.text != blank -%}
-        <div class="g-gallery__text rte">{{ section.settings.text }}</div>
-      {%- endif -%}
-    </div>
-
-    <div class="g-gallery__grid">
-      <figure class="g-gallery__item g-gallery__item--tall">
-        {%- if image_1 != blank -%}
-          {{ image_1 | image_url: width: 1200 | image_tag: class: 'g-gallery__img', loading: 'lazy', sizes: '(min-width: 990px) 40vw, 100vw', widths: '500, 800, 1200', alt: section.settings.alt_1 }}
-        {%- else -%}
-          <img class="g-gallery__img" src="{{ 'gardner-hero-1200.jpg' | asset_url }}" srcset="{{ 'gardner-hero-800.jpg' | asset_url }} 800w, {{ 'gardner-hero-1200.jpg' | asset_url }} 1200w, {{ 'gardner-hero.jpg' | asset_url }} 2400w" sizes="(min-width: 990px) 40vw, 100vw" alt="{{ section.settings.alt_1 | escape }}" width="2400" height="1340" loading="lazy">
-        {%- endif -%}
-      </figure>
-      <figure class="g-gallery__item">
-        {%- if image_2 != blank -%}
-          {{ image_2 | image_url: width: 1000 | image_tag: class: 'g-gallery__img', loading: 'lazy', sizes: '(min-width: 990px) 30vw, 100vw', widths: '400, 700, 1000', alt: section.settings.alt_2 }}
-        {%- else -%}
-          <img class="g-gallery__img" src="{{ 'gardner-story-900.jpg' | asset_url }}" srcset="{{ 'gardner-story-600.jpg' | asset_url }} 600w, {{ 'gardner-story-900.jpg' | asset_url }} 900w, {{ 'gardner-story-1200.jpg' | asset_url }} 1200w" sizes="(min-width: 990px) 30vw, 100vw" alt="{{ section.settings.alt_2 | escape }}" width="1200" height="1490" loading="lazy">
-        {%- endif -%}
-      </figure>
-      <figure class="g-gallery__item">
-        {%- if image_3 != blank -%}
-          {{ image_3 | image_url: width: 1000 | image_tag: class: 'g-gallery__img', loading: 'lazy', sizes: '(min-width: 990px) 30vw, 100vw', widths: '400, 700, 1000', alt: section.settings.alt_3 }}
-        {%- else -%}
-          <img class="g-gallery__img" src="{{ 'gardner-footer-1200.jpg' | asset_url }}" srcset="{{ 'gardner-footer-800.jpg' | asset_url }} 800w, {{ 'gardner-footer-1200.jpg' | asset_url }} 1200w, {{ 'gardner-footer-1600.jpg' | asset_url }} 1600w" sizes="(min-width: 990px) 30vw, 100vw" alt="{{ section.settings.alt_3 | escape }}" width="1600" height="893" loading="lazy">
-        {%- endif -%}
-      </figure>
-    </div>
-
-    {%- if section.settings.note != blank -%}
-      <p class="g-gallery__note">{{ section.settings.note }}</p>
     {%- endif -%}
   </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="g-gallery__viewport">
+      <div class="g-gallery__rows">
+        <div class="g-gallery__track g-gallery__track--one">
+          {% render 'gardner-gallery-row', row_blocks: row_one, row_start: 0, clone_first: false %}
+        </div>
+
+        {%- if row_two.size > 0 -%}
+          <div class="g-gallery__track g-gallery__track--two">
+            {% render 'gardner-gallery-row', row_blocks: row_two, row_start: 6, clone_first: true %}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <dialog class="g-gallery-lightbox" data-gallery-dialog aria-label="Gallery image viewer">
+      <div class="g-gallery-lightbox__stage" data-gallery-stage>
+        <button class="g-gallery-lightbox__close" type="button" data-gallery-close aria-label="Close image viewer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button class="g-gallery-lightbox__arrow g-gallery-lightbox__arrow--prev" type="button" data-gallery-prev aria-label="Previous image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="g-gallery-lightbox__slides">
+          {%- for block in section.blocks -%}
+            {%- assign fallback_index = forloop.index | prepend: '00' | slice: -2, 2 -%}
+            {%- capture fallback_name -%}gardner-gallery-full-{{ fallback_index }}.jpg{%- endcapture -%}
+            {%- assign alt_text = block.settings.alt | default: block.settings.image.alt | default: 'Garden tools and plants' -%}
+
+            <figure class="g-gallery-lightbox__slide" data-gallery-slide="{{ forloop.index0 }}" hidden>
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 2000
+                  | image_tag:
+                    class: 'g-gallery-lightbox__img',
+                    loading: 'lazy',
+                    sizes: '(min-width: 990px) 90vw, 100vw',
+                    widths: '800, 1200, 1600, 2000',
+                    alt: alt_text
+                }}
+              {%- else -%}
+                <img
+                  class="g-gallery-lightbox__img"
+                  src="{{ fallback_name | asset_url }}"
+                  alt="{{ alt_text | escape }}"
+                  width="1600"
+                  height="1200"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            </figure>
+          {%- endfor -%}
+        </div>
+
+        <button class="g-gallery-lightbox__arrow g-gallery-lightbox__arrow--next" type="button" data-gallery-next aria-label="Next image">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <p class="g-gallery-lightbox__counter" data-gallery-counter aria-live="polite">1 / {{ section.blocks.size }}</p>
+      </div>
+    </dialog>
+  {%- endif -%}
+
+  {%- if section.settings.note != blank -%}
+    <div class="g-gallery__inner">
+      <p class="g-gallery__note">{{ section.settings.note }}</p>
+    </div>
+  {%- endif -%}
+
+  <script src="{{ 'gardner-gallery.js' | asset_url }}" defer></script>
 </section>
 
 {% schema %}
@@ -52,28 +113,36 @@
   "name": "Gardner gallery",
   "tag": "section",
   "class": "section-gardner-gallery",
+  "max_blocks": 12,
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "From the garden" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "A closer look" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "text", "label": "Text" },
+    { "type": "text", "id": "note", "label": "Note" }
+  ],
+  "blocks": [
     {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text",
-      "default": "<p>Original editorial imagery made for this demo storefront.</p>"
-    },
-    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-    { "type": "text", "id": "alt_1", "label": "Image 1 alt text", "default": "Raised garden beds in warm evening light" },
-    { "type": "image_picker", "id": "image_2", "label": "Image 2" },
-    { "type": "text", "id": "alt_2", "label": "Image 2 alt text", "default": "Hands planting a seedling in a raised bed" },
-    { "type": "image_picker", "id": "image_3", "label": "Image 3" },
-    { "type": "text", "id": "alt_3", "label": "Image 3 alt text", "default": "Garden hand tools on a potting bench" },
-    {
-      "type": "text",
-      "id": "note",
-      "label": "Note",
-      "default": "Editorial imagery for this portfolio demo — not customer posts or a live social feed."
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Leave empty to use the built-in demo image."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        }
+      ]
     }
   ],
-  "presets": [{ "name": "Gardner gallery" }]
+  "presets": [
+    {
+      "name": "Gardner gallery"
+    }
+  ]
 }
 {% endschema %}

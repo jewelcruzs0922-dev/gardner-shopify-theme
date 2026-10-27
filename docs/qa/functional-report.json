@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T00:04:03.324Z",
+  "generated": "2026-10-27T18:12:20.699Z",
   "environment": {
     "store": "gardner-dev-zwlohenx.myshopify.com",
     "previewThemeId": "191259083065",
@@ -21,12 +21,12 @@
     {
       "name": "Homepage: single h1 and section order",
       "status": "pass",
-      "detail": "8 sections"
+      "detail": "11 sections"
     },
     {
       "name": "Homepage: demo content disclosure",
       "status": "pass",
-      "detail": "reviews and gallery labelled"
+      "detail": "reviews labelled; optional gallery note not set"
     },
     {
       "name": "Homepage: imagery loaded and category cards",
@@ -46,7 +46,7 @@
     {
       "name": "Search: predictive results include product thumbnails",
       "status": "pass",
-      "detail": "10 thumbnails"
+      "detail": "9 thumbnails"
     },
     {
       "name": "Search: results page and empty state",
@@ -116,7 +116,7 @@
     {
       "name": "Contact form: labels and required email",
       "status": "pass",
-      "detail": "Name, Email *, Phone number, Comment"
+      "detail": "Full name *, Email address *, Phone number (optional), What can we help with? *, Message *"
     },
     {
       "name": "Keyboard: visible focus indicator",
@@ -136,7 +136,7 @@
     {
       "name": "No theme console errors during primary flows",
       "status": "pass",
-      "detail": "2 known preview/expected 404 artifact(s) filtered"
+      "detail": "1 known preview/expected 404 artifact(s) filtered"
     },
     {
       "name": "768 home: no horizontal overflow",
@@ -180,12 +180,10 @@
     }
   ],
   "consoleErrors": [
-    "Failed to load resource: the server responded with a status of 404 ()",
-    "pageerror: Section sections--28249738150201__header_section not found in the section rendering response"
+    "Failed to load resource: the server responded with a status of 404 ()"
   ],
   "failedResponses": [
     "404 https://cdn.shopify.com/shopify-marketing_assets/static/ShopifySans--regular.woff",
-    "404 https://gardner-dev-zwlohenx.myshopify.com/?section_id=sections--28249738150201__header_section",
     "404 https://gardner-dev-zwlohenx.myshopify.com/this-page-does-not-exist-qa"
   ]
 }

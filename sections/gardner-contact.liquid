@@ -1,0 +1,1681 @@
+{%- liquid
+  assign support_blocks = section.blocks | where: 'type', 'support'
+  assign detail_blocks = section.blocks | where: 'type', 'detail'
+  assign faq_blocks = section.blocks | where: 'type', 'faq'
+  assign faq_half = faq_blocks.size | divided_by: 2.0 | ceil
+  assign form_id = 'GardnerContactForm-' | append: section.id
+  assign error_id = 'GardnerContactErrors-' | append: section.id
+  assign hero_alt = section.settings.hero_alt | default: 'A metal watering can watering raised garden beds in the evening light'
+  assign topic_options = section.settings.topic_options | split: ','
+-%}
+
+<div class="g-contact">
+  <section class="g-contact-hero" aria-labelledby="GardnerContactTitle-{{ section.id }}">
+    <div class="g-contact-hero__media" aria-hidden="true">
+      {%- if section.settings.hero_image != blank -%}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2400
+          | image_tag:
+            class: 'g-contact-hero__img',
+            loading: 'eager',
+            fetchpriority: 'high',
+            sizes: '100vw',
+            widths: '800, 1200, 1600, 2000, 2400',
+            alt: hero_alt
+        }}
+      {%- else -%}
+        <img
+          class="g-contact-hero__img"
+          src="{{ 'gardner-about-hero-1600.jpg' | asset_url }}"
+          srcset="{{ 'gardner-about-hero-800.jpg' | asset_url }} 800w, {{ 'gardner-about-hero-1200.jpg' | asset_url }} 1200w, {{ 'gardner-about-hero-1600.jpg' | asset_url }} 1600w"
+          sizes="100vw"
+          width="1600"
+          height="661"
+          alt=""
+          fetchpriority="high"
+        >
+      {%- endif -%}
+    </div>
+
+    <div class="g-contact-container g-contact-hero__inner">
+      {%- if section.settings.hero_eyebrow != blank -%}
+        <p class="g-contact-eyebrow g-contact-eyebrow--light">{{ section.settings.hero_eyebrow | escape }}</p>
+      {%- endif -%}
+
+      <h1 class="g-contact-hero__title" id="GardnerContactTitle-{{ section.id }}">
+        {{ section.settings.hero_heading }}
+      </h1>
+
+      {%- if section.settings.hero_text != blank -%}
+        <div class="g-contact-hero__text rte">{{ section.settings.hero_text }}</div>
+      {%- endif -%}
+
+      {%- if support_blocks.size > 0 -%}
+        <div class="g-contact-hero__cards">
+          {%- for block in support_blocks -%}
+            <article class="g-contact-support" {{ block.shopify_attributes }}>
+              <span class="g-contact-support__icon">
+                {%- render 'gardner-contact-icon', icon: block.settings.icon -%}
+              </span>
+              <h2 class="g-contact-support__title">{{ block.settings.title | escape }}</h2>
+              <div class="g-contact-support__text rte">{{ block.settings.text }}</div>
+              {%- if block.settings.link_label != blank -%}
+                <a class="g-contact-support__link" href="{{ block.settings.link | default: '#contact-form' | escape }}">
+                  {{- block.settings.link_label | escape -}}
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+
+  <section class="g-contact-main" id="contact-form" aria-labelledby="GardnerContactFormTitle-{{ section.id }}">
+    <div class="g-contact-container">
+      <div class="g-contact-main__layout">
+        <div class="g-contact-form-panel">
+          <h2 class="g-visually-hidden" id="GardnerContactFormTitle-{{ section.id }}">Send us a message</h2>
+
+          {%- form 'contact', id: form_id, class: 'g-contact-form' -%}
+            {%- if form.posted_successfully? -%}
+              <div class="g-contact-status g-contact-status--success" role="status" tabindex="-1" autofocus>
+                <span class="g-contact-status__icon" aria-hidden="true">
+                  {{- 'icon-success.svg' | inline_asset_content -}}
+                </span>
+                <div>
+                  <p class="g-contact-status__title">Thank you. Your message has been sent.</p>
+                  <p class="g-contact-status__text">We will use the details you shared to respond to your enquiry.</p>
+                </div>
+              </div>
+            {%- elsif form.errors -%}
+              <div class="g-contact-status g-contact-status--error" id="{{ error_id }}" role="alert" tabindex="-1" autofocus>
+                <span class="g-contact-status__icon" aria-hidden="true">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                <div>
+                  <p class="g-contact-status__title">Please check the form and try again.</p>
+                  <ul class="g-contact-status__list" role="list">
+                    {%- for field in form.errors -%}
+                      <li>
+                        {{ form.errors.translated_fields[field] | capitalize }}
+                        {{ form.errors.messages[field] }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </div>
+            {%- endif -%}
+
+            <div class="g-contact-form__row">
+              <div class="g-contact-field">
+                <label class="g-contact-field__label" for="GardnerContactName-{{ section.id }}">
+                  Full name <span class="g-contact-field__required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="g-contact-field__input"
+                  type="text"
+                  id="GardnerContactName-{{ section.id }}"
+                  name="contact[Name]"
+                  value="{{ form.name | escape }}"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                  {% if form.errors contains 'name' %}
+                    aria-invalid="true"
+                    aria-describedby="{{ error_id }}"
+                  {% endif %}
+                >
+              </div>
+
+              <div class="g-contact-field">
+                <label class="g-contact-field__label" for="GardnerContactEmail-{{ section.id }}">
+                  Email address <span class="g-contact-field__required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="g-contact-field__input"
+                  type="email"
+                  id="GardnerContactEmail-{{ section.id }}"
+                  name="contact[email]"
+                  value="{{ form.email | escape }}"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  required
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="{{ error_id }}"
+                  {% endif %}
+                >
+              </div>
+            </div>
+
+            <div class="g-contact-form__row">
+              <div class="g-contact-field">
+                <label class="g-contact-field__label" for="GardnerContactPhone-{{ section.id }}">
+                  Phone number <span class="g-contact-field__optional">(optional)</span>
+                </label>
+                <input
+                  class="g-contact-field__input"
+                  type="tel"
+                  id="GardnerContactPhone-{{ section.id }}"
+                  name="contact[Phone]"
+                  value="{{ form.phone | escape }}"
+                  placeholder="Your phone number"
+                  autocomplete="tel"
+                  {% if form.errors contains 'phone' %}
+                    aria-invalid="true"
+                    aria-describedby="{{ error_id }}"
+                  {% endif %}
+                >
+              </div>
+
+              <div class="g-contact-field">
+                <label class="g-contact-field__label" for="GardnerContactTopic-{{ section.id }}">
+                  What can we help with? <span class="g-contact-field__required" aria-hidden="true">*</span>
+                </label>
+                <div class="g-contact-select">
+                  <select
+                    class="g-contact-field__input g-contact-field__select"
+                    id="GardnerContactTopic-{{ section.id }}"
+                    name="contact[Inquiry type]"
+                    required
+                    {% if form.errors contains 'Inquiry type' %}
+                      aria-invalid="true"
+                      aria-describedby="{{ error_id }}"
+                    {% endif %}
+                  >
+                    <option value="" disabled selected>Select a topic</option>
+                    {%- for option in topic_options -%}
+                      {%- assign topic = option | strip -%}
+                      {%- if topic != blank -%}
+                        <option value="{{ topic | escape }}">{{ topic | escape }}</option>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </select>
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="g-contact-field">
+              <label class="g-contact-field__label" for="GardnerContactMessage-{{ section.id }}">
+                Message <span class="g-contact-field__required" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                class="g-contact-field__input g-contact-field__textarea"
+                id="GardnerContactMessage-{{ section.id }}"
+                name="contact[body]"
+                rows="7"
+                placeholder="Tell us what you need help with"
+                required
+                {% if form.errors contains 'body' %}
+                  aria-invalid="true"
+                  aria-describedby="{{ error_id }}"
+                {% endif %}
+              >{{ form.body | escape }}</textarea>
+            </div>
+
+            <input type="hidden" name="contact[Page]" value="Contact">
+
+            <div class="g-contact-form__actions">
+              <button class="g-contact-button" type="submit">
+                <span>{{ section.settings.form_button_label | escape }}</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                  <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <p class="g-contact-form__note">Fields marked <span aria-hidden="true">*</span> are required.</p>
+            </div>
+          {%- endform -%}
+        </div>
+
+        <aside class="g-contact-info" aria-labelledby="GardnerContactInfoTitle-{{ section.id }}">
+          {%- if section.settings.support_eyebrow != blank -%}
+            <p class="g-contact-eyebrow">{{ section.settings.support_eyebrow | escape }}</p>
+          {%- endif -%}
+          <h2 class="g-contact-info__title" id="GardnerContactInfoTitle-{{ section.id }}">
+            {{ section.settings.support_heading }}
+          </h2>
+          {%- if section.settings.support_text != blank -%}
+            <div class="g-contact-info__text rte">{{ section.settings.support_text }}</div>
+          {%- endif -%}
+
+          {%- if detail_blocks.size > 0 or section.settings.support_email != blank or section.settings.support_phone != blank or section.settings.support_address != blank -%}
+            <ul class="g-contact-details" role="list">
+              {%- for block in detail_blocks -%}
+                <li class="g-contact-detail" {{ block.shopify_attributes }}>
+                  <span class="g-contact-detail__icon">
+                    {%- render 'gardner-contact-icon', icon: block.settings.icon -%}
+                  </span>
+                  <div class="g-contact-detail__content">
+                    <p class="g-contact-detail__label">{{ block.settings.title | escape }}</p>
+                    <div class="g-contact-detail__text rte">{{ block.settings.text }}</div>
+                  </div>
+                </li>
+              {%- endfor -%}
+
+              {%- if section.settings.support_email != blank -%}
+                <li class="g-contact-detail">
+                  <span class="g-contact-detail__icon">
+                    {%- render 'gardner-contact-icon', icon: 'mail' -%}
+                  </span>
+                  <div class="g-contact-detail__content">
+                    <p class="g-contact-detail__label">Email</p>
+                    <p class="g-contact-detail__text">
+                      <a href="mailto:{{ section.settings.support_email | escape }}">{{ section.settings.support_email | escape }}</a>
+                    </p>
+                  </div>
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.support_phone != blank -%}
+                <li class="g-contact-detail">
+                  <span class="g-contact-detail__icon">
+                    {%- render 'gardner-contact-icon', icon: 'phone' -%}
+                  </span>
+                  <div class="g-contact-detail__content">
+                    <p class="g-contact-detail__label">Phone</p>
+                    <p class="g-contact-detail__text">
+                      <a href="tel:{{ section.settings.support_phone | remove: ' ' | escape }}">{{ section.settings.support_phone | escape }}</a>
+                    </p>
+                  </div>
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.support_address != blank -%}
+                <li class="g-contact-detail">
+                  <span class="g-contact-detail__icon">
+                    {%- render 'gardner-contact-icon', icon: 'pin' -%}
+                  </span>
+                  <div class="g-contact-detail__content">
+                    <p class="g-contact-detail__label">Address</p>
+                    <p class="g-contact-detail__text">{{ section.settings.support_address | escape }}</p>
+                  </div>
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  {%- if faq_blocks.size > 0 -%}
+    <section class="g-contact-faq" aria-labelledby="GardnerContactFaqTitle-{{ section.id }}">
+      <div class="g-contact-container">
+        <header class="g-contact-faq__head">
+          {%- if section.settings.faq_eyebrow != blank -%}
+            <p class="g-contact-eyebrow g-contact-eyebrow--center">{{ section.settings.faq_eyebrow | escape }}</p>
+          {%- endif -%}
+          <h2 class="g-contact-faq__heading" id="GardnerContactFaqTitle-{{ section.id }}">
+            {{ section.settings.faq_heading }}
+          </h2>
+        </header>
+
+        <gardner-contact-faq class="g-contact-faq__grid">
+          <div class="g-contact-faq__column">
+            {%- for block in faq_blocks limit: faq_half -%}
+              <details class="g-contact-faq__item" {{ block.shopify_attributes }}>
+                <summary class="g-contact-faq__summary">
+                  <h3 class="g-contact-faq__question">{{ block.settings.question | escape }}</h3>
+                  <span class="g-contact-faq__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" focusable="false">
+                      <path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="g-contact-faq__answer">
+                  <div class="g-contact-faq__answer-inner">
+                    <div class="g-contact-faq__answer-content rte">{{ block.settings.answer }}</div>
+                  </div>
+                </div>
+              </details>
+            {%- endfor -%}
+          </div>
+
+          <div class="g-contact-faq__column">
+            {%- for block in faq_blocks offset: faq_half -%}
+              <details class="g-contact-faq__item" {{ block.shopify_attributes }}>
+                <summary class="g-contact-faq__summary">
+                  <h3 class="g-contact-faq__question">{{ block.settings.question | escape }}</h3>
+                  <span class="g-contact-faq__icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" focusable="false">
+                      <path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="g-contact-faq__answer">
+                  <div class="g-contact-faq__answer-inner">
+                    <div class="g-contact-faq__answer-content rte">{{ block.settings.answer }}</div>
+                  </div>
+                </div>
+              </details>
+            {%- endfor -%}
+          </div>
+        </gardner-contact-faq>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <section class="g-contact-cta" aria-labelledby="GardnerContactCta-{{ section.id }}">
+    <div class="g-contact-container">
+      <div class="g-contact-cta__inner">
+        <h2 class="g-contact-cta__heading" id="GardnerContactCta-{{ section.id }}">
+          {{ section.settings.cta_heading }}
+        </h2>
+        {%- if section.settings.cta_text != blank -%}
+          <div class="g-contact-cta__text rte">{{ section.settings.cta_text }}</div>
+        {%- endif -%}
+        {%- if section.settings.cta_button_label != blank -%}
+          <a class="g-contact-cta__button" href="{{ section.settings.cta_button_link | default: '#contact-form' | escape }}">
+            {{- section.settings.cta_button_label | escape -}}
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+              <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% style %}
+  .g-contact {
+    --g-contact-accent: #5a7f1e;
+    --g-contact-error: #b3261e;
+    --g-contact-panel: #fffdf8;
+    --g-contact-line: rgba(30, 42, 22, 0.12);
+    background: var(--g-cream);
+    color: var(--g-ink);
+  }
+
+  .g-contact *,
+  .g-contact *::before,
+  .g-contact *::after {
+    box-sizing: border-box;
+  }
+
+  .g-contact-container {
+    width: 100%;
+    max-width: 140rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.6rem, 4vw, 4rem);
+  }
+
+  .g-contact-eyebrow {
+    display: inline-flex;
+    gap: 0.9rem;
+    align-items: center;
+    margin: 0 0 1.6rem;
+    color: var(--g-ink-soft);
+    font-family: var(--font-body-family);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .g-contact-eyebrow::before {
+    content: '';
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--g-apple);
+  }
+
+  .g-contact-eyebrow--light {
+    color: var(--g-lemon);
+  }
+
+  .g-contact-eyebrow--center {
+    justify-content: center;
+  }
+
+  .g-contact-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(6.4rem, 8vw, 9rem) clamp(4.8rem, 6vw, 6.4rem);
+    background: #22301c;
+  }
+
+  .g-contact-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .g-contact-hero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 30, 15, 0.64), rgba(20, 30, 15, 0.5) 46%, rgba(20, 30, 15, 0.8));
+  }
+
+  .g-contact-hero__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .g-contact-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .g-contact-hero__title {
+    max-width: 13ch;
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-heading-family);
+    font-size: clamp(6.4rem, 8vw, 10.4rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+
+  .g-contact-hero__title em {
+    color: inherit;
+    font-style: normal;
+  }
+
+  .g-contact-hero__text {
+    max-width: 68rem;
+    margin-top: 2rem;
+    color: rgba(247, 241, 227, 0.86);
+    font-size: 1.7rem;
+    line-height: 1.65;
+  }
+
+  .g-contact-hero__text p {
+    margin: 0;
+  }
+
+  .g-contact-hero__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.6rem, 2.4vw, 2.6rem);
+    width: 100%;
+    margin-top: clamp(3.2rem, 4.8vw, 4.8rem);
+    text-align: left;
+  }
+
+  .g-contact-support {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 22rem;
+    padding: clamp(2.2rem, 2.8vw, 3rem);
+    border: 1px solid rgba(30, 42, 22, 0.08);
+    border-radius: 14px;
+    background: rgba(247, 241, 227, 0.95);
+    box-shadow: 0 16px 40px rgba(15, 24, 11, 0.16);
+    color: var(--g-ink);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: transform 240ms var(--g-ease), box-shadow 240ms var(--g-ease);
+  }
+
+  .g-contact-support:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px rgba(15, 24, 11, 0.22);
+  }
+
+  .g-contact-support__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-support__icon svg {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .g-contact-support__title {
+    margin: 1.8rem 0 0;
+    color: var(--g-ink);
+    font-family: var(--font-body-family);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .g-contact-support__text {
+    margin-top: 0.9rem;
+    color: var(--g-ink-soft);
+    font-size: 1.5rem;
+    line-height: 1.65;
+  }
+
+  .g-contact-support__text p {
+    margin: 0;
+  }
+
+  .g-contact-support__link {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 1.8rem;
+    color: var(--g-ink);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-decoration-color: var(--g-ink);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+    transition: color 180ms var(--g-ease);
+  }
+
+  .g-contact-support__link:hover {
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-support__link svg {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .g-contact-hero :focus-visible {
+    outline-color: var(--g-lemon);
+  }
+
+  .g-contact-main {
+    padding-block: clamp(6rem, 7vw, 8rem);
+    scroll-margin-top: 9rem;
+  }
+
+  .g-contact-main__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(4rem, 6vw, 7.2rem);
+    align-items: center;
+  }
+
+  .g-contact-form-panel {
+    width: 100%;
+    max-width: 64rem;
+    padding: clamp(2.4rem, 4vw, 4.2rem);
+    border: 1px solid var(--g-contact-line);
+    border-radius: 16px;
+    background: var(--g-contact-panel);
+    box-shadow: 0 24px 70px rgba(30, 42, 22, 0.09);
+  }
+
+  .g-contact-form {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .g-contact-form__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .g-contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 0;
+  }
+
+  .g-contact-field__label {
+    color: var(--g-ink-soft);
+    font-family: var(--font-body-family);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .g-contact-field__required {
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-field__optional {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .g-contact-field__input {
+    width: 100%;
+    min-height: 5.2rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background: rgba(30, 42, 22, 0.055);
+    color: var(--g-ink);
+    font-family: var(--font-body-family);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    transition: border-color 180ms var(--g-ease), background-color 180ms var(--g-ease), box-shadow 180ms var(--g-ease);
+  }
+
+  .g-contact-field__input::placeholder {
+    color: rgba(74, 85, 64, 0.64);
+    opacity: 1;
+  }
+
+  .g-contact-field__input:hover {
+    background: rgba(30, 42, 22, 0.075);
+  }
+
+  .g-contact-field__input:focus {
+    border-color: var(--g-apple);
+    outline: 2px solid transparent;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(141, 191, 57, 0.17);
+  }
+
+  .g-contact-field__input[aria-invalid='true'] {
+    border-color: var(--g-contact-error);
+    background: #fff5f4;
+  }
+
+  .g-contact-field__textarea {
+    min-height: 15rem;
+    resize: vertical;
+  }
+
+  .g-contact-select {
+    position: relative;
+  }
+
+  .g-contact-select svg {
+    position: absolute;
+    top: 50%;
+    right: 1.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--g-ink-soft);
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  .g-contact-field__select {
+    appearance: none;
+    padding-right: 4.6rem;
+    cursor: pointer;
+  }
+
+  .g-contact-form__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .g-contact-button,
+  .g-contact-cta__button {
+    display: inline-flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 5.4rem;
+    padding: 1.5rem 2.4rem;
+    border: 0;
+    border-radius: var(--g-radius-pill);
+    background: var(--g-apple);
+    color: var(--g-ink);
+    font-family: var(--font-body-family);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 200ms var(--g-ease), color 200ms var(--g-ease), transform 200ms var(--g-ease);
+  }
+
+  .g-contact-button {
+    width: 100%;
+  }
+
+  .g-contact-button:hover,
+  .g-contact-cta__button:hover {
+    background: var(--g-ink);
+    color: var(--g-cream);
+    transform: translateY(-1px);
+  }
+
+  .g-contact-button svg,
+  .g-contact-cta__button svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .g-contact-form__note {
+    margin: 0;
+    color: var(--g-ink-soft);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .g-contact-form__note span {
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-status {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    padding: 1.6rem 1.8rem;
+    border-left: 3px solid var(--g-apple);
+    border-radius: 8px;
+    background: var(--g-sage);
+    color: var(--g-ink);
+    font-size: 1.45rem;
+    line-height: 1.6;
+  }
+
+  .g-contact-status--error {
+    border-left-color: var(--g-contact-error);
+    background: #fdf1ef;
+  }
+
+  .g-contact-status--error .g-contact-status__icon {
+    color: var(--g-contact-error);
+  }
+
+  .g-contact-status:focus-visible {
+    outline-color: var(--g-contact-accent);
+  }
+
+  .g-contact-status__icon {
+    display: block;
+    flex: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-status__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .g-contact-status__title {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .g-contact-status__text {
+    margin: 0.2rem 0 0;
+  }
+
+  .g-contact-status__list {
+    margin: 0.5rem 0 0;
+    padding-left: 1.8rem;
+  }
+
+  .g-contact-info {
+    min-width: 0;
+    padding-block: 1rem;
+  }
+
+  .g-contact-info__title {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.6rem, 3.4vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .g-contact-info__title em {
+    color: var(--g-contact-accent);
+    font-style: normal;
+  }
+
+  .g-contact-info__text {
+    max-width: 52rem;
+    margin-top: 2rem;
+    color: var(--g-ink-soft);
+    font-size: 1.65rem;
+    line-height: 1.72;
+  }
+
+  .g-contact-info__text p {
+    margin: 0;
+  }
+
+  .g-contact-details {
+    margin: 2.8rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .g-contact-detail {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.4rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--g-contact-line);
+  }
+
+  .g-contact-detail__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--g-contact-accent);
+  }
+
+  .g-contact-detail__icon svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .g-contact-detail__content {
+    min-width: 0;
+  }
+
+  .g-contact-detail__label {
+    margin: 0;
+    color: var(--g-ink);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .g-contact-detail__text {
+    margin: 0.3rem 0 0;
+    color: var(--g-ink-soft);
+    font-size: 1.45rem;
+    line-height: 1.6;
+  }
+
+  .g-contact-detail__text p {
+    margin: 0;
+  }
+
+  .g-contact-detail__text a {
+    color: var(--g-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--g-apple);
+    text-underline-offset: 0.2em;
+  }
+
+  .g-contact-faq {
+    padding-top: clamp(4rem, 5vw, 6rem);
+    padding-bottom: clamp(6rem, 7vw, 8rem);
+  }
+
+  .g-contact-faq__head {
+    margin-bottom: clamp(3.2rem, 4.5vw, 4.8rem);
+    text-align: center;
+  }
+
+  .g-contact-faq__heading {
+    margin: 0 auto;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(4.4rem, 5vw, 6.4rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .g-contact-faq__heading em {
+    color: var(--g-contact-accent);
+    font-style: normal;
+  }
+
+  .g-contact-faq__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem;
+    align-items: start;
+  }
+
+  .g-contact-faq__column {
+    display: grid;
+    gap: 1.6rem;
+    align-content: start;
+    min-width: 0;
+  }
+
+  .g-contact-faq__item {
+    min-width: 0;
+    border: 1px solid var(--g-contact-line);
+    border-radius: 12px;
+    background: var(--g-contact-panel);
+    box-shadow: 0 12px 34px rgba(30, 42, 22, 0.06);
+    transition: box-shadow 220ms var(--g-ease);
+  }
+
+  .g-contact-faq__item:hover {
+    box-shadow: 0 16px 40px rgba(30, 42, 22, 0.09);
+  }
+
+  .g-contact-faq__summary {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 7.2rem;
+    padding: 2rem 2.4rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .g-contact-faq__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .g-contact-faq__summary:focus-visible {
+    outline: 2px solid var(--g-ink);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+
+  .g-contact-faq__question {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-body-family);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.45;
+  }
+
+  .g-contact-faq__icon {
+    display: block;
+    flex: none;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--g-ink-soft);
+    transition: color 200ms var(--g-ease), transform 260ms var(--g-ease);
+  }
+
+  .g-contact-faq__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .g-contact-faq__item[open] .g-contact-faq__icon {
+    color: var(--g-contact-accent);
+    transform: rotate(180deg);
+  }
+
+  .g-contact-faq__item.is-closing .g-contact-faq__icon {
+    color: var(--g-ink-soft);
+    transform: rotate(0);
+  }
+
+  .g-contact-faq__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 300ms var(--g-ease);
+  }
+
+  .g-contact-faq__item[open] .g-contact-faq__answer {
+    grid-template-rows: 1fr;
+  }
+
+  .g-contact-faq__item.is-closing .g-contact-faq__answer {
+    grid-template-rows: 0fr;
+  }
+
+  .g-contact-faq__answer-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .g-contact-faq__answer-content {
+    padding: 0 2.4rem 2.2rem;
+    color: var(--g-ink-soft);
+    font-size: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .g-contact-faq__answer-content p {
+    margin: 0;
+  }
+
+  .g-contact-faq__answer-content p + p {
+    margin-top: 1em;
+  }
+
+  .g-contact-faq__answer-content a {
+    color: var(--g-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--g-apple);
+    text-underline-offset: 0.2em;
+  }
+
+  .g-contact-cta {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(6rem, 7vw, 8rem);
+    background: var(--g-sage);
+  }
+
+  .g-contact-cta__inner {
+    position: relative;
+    max-width: 96rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .g-contact-cta__heading {
+    max-width: 21ch;
+    margin: 0 auto;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(4.2rem, 5vw, 6.4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .g-contact-cta__heading em {
+    color: var(--g-contact-accent);
+    font-style: normal;
+  }
+
+  .g-contact-cta__text {
+    max-width: 58rem;
+    margin: 2rem auto 0;
+    color: var(--g-ink-soft);
+    font-size: 1.65rem;
+    line-height: 1.7;
+  }
+
+  .g-contact-cta__text p {
+    margin: 0;
+  }
+
+  .g-contact-cta__button {
+    margin-top: 2.8rem;
+    background: var(--g-ink);
+    color: var(--g-cream);
+  }
+
+  .g-contact-cta__button:hover {
+    background: var(--g-apple);
+    color: var(--g-ink);
+  }
+
+  @media screen and (max-width: 989px) {
+    .g-contact-hero {
+      padding-block: 6.4rem 5.2rem;
+    }
+
+    .g-contact-hero__cards {
+      grid-template-columns: 1fr;
+      max-width: 56rem;
+    }
+
+    .g-contact-support {
+      min-height: 0;
+    }
+
+    .g-contact-support__link {
+      margin-top: 0.8rem;
+    }
+
+    .g-contact-main__layout {
+      grid-template-columns: 1fr;
+      gap: 4.8rem;
+    }
+
+    .g-contact-form-panel {
+      max-width: none;
+    }
+
+    .g-contact-info {
+      max-width: 64rem;
+      padding-block: 0;
+    }
+
+    .g-contact-faq__grid {
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+    }
+
+    .g-contact-faq__column {
+      gap: 1.4rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .g-contact-hero {
+      padding-block: 5.2rem 4rem;
+    }
+
+    .g-contact-hero__title {
+      font-size: clamp(5rem, 15vw, 6.8rem);
+    }
+
+    .g-contact-hero__text {
+      margin-top: 1.4rem;
+      font-size: 1.5rem;
+    }
+
+    .g-contact-hero__cards {
+      gap: 1.2rem;
+      margin-top: 3.2rem;
+    }
+
+    .g-contact-support {
+      padding: 2rem;
+    }
+
+    .g-contact-support__title {
+      margin-top: 1.4rem;
+      font-size: 1.7rem;
+    }
+
+    .g-contact-main {
+      padding-block: 4.8rem;
+    }
+
+    .g-contact-form-panel {
+      padding: 2rem;
+    }
+
+    .g-contact-form__row {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+
+    .g-contact-form {
+      gap: 1.2rem;
+    }
+
+    .g-contact-info__title {
+      font-size: 3.8rem;
+    }
+
+    .g-contact-info__text {
+      margin-top: 1.4rem;
+      font-size: 1.5rem;
+    }
+
+    .g-contact-faq__head {
+      margin-bottom: 3.2rem;
+    }
+
+    .g-contact-faq__heading {
+      font-size: 4rem;
+    }
+
+    .g-contact-faq__summary {
+      min-height: 6.2rem;
+      padding: 1.6rem 1.8rem;
+    }
+
+    .g-contact-faq__question {
+      font-size: 1.5rem;
+    }
+
+    .g-contact-faq__answer-content {
+      padding: 0 1.8rem 1.8rem;
+      font-size: 1.4rem;
+    }
+
+    .g-contact-cta {
+      padding-block: 5.2rem;
+    }
+
+    .g-contact-cta__heading {
+      font-size: 4rem;
+    }
+
+    .g-contact-cta__text {
+      margin-top: 1.4rem;
+      font-size: 1.5rem;
+    }
+
+    .g-contact-cta__button {
+      width: 100%;
+      max-width: 32rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .g-contact-support,
+    .g-contact-faq__item,
+    .g-contact-faq__answer,
+    .g-contact-faq__icon,
+    .g-contact-button,
+    .g-contact-cta__button {
+      transition: none;
+    }
+  }
+{% endstyle %}
+
+{% javascript %}
+  (() => {
+    if (customElements.get('gardner-contact-faq')) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    class GardnerContactFaq extends HTMLElement {
+      connectedCallback() {
+        if (this.dataset.ready === 'true') return;
+        this.dataset.ready = 'true';
+
+        this.addEventListener('click', (event) => {
+          const summary = event.target.closest('summary');
+          if (!summary || !this.contains(summary)) return;
+
+          const item = summary.parentElement;
+          if (!item || item.tagName !== 'DETAILS' || !item.open) return;
+          if (item.classList.contains('is-closing')) {
+            event.preventDefault();
+            return;
+          }
+          if (reducedMotion.matches) return;
+
+          event.preventDefault();
+          item.classList.add('is-closing');
+
+          window.setTimeout(() => {
+            item.open = false;
+            item.classList.remove('is-closing');
+          }, 320);
+        });
+      }
+    }
+
+    customElements.define('gardner-contact-faq', GardnerContactFaq);
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Gardner contact",
+  "tag": "section",
+  "class": "section-gardner-contact",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "hero_alt",
+      "label": "Background image alt text",
+      "default": "A metal watering can watering raised garden beds in the evening light"
+    },
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "richtext",
+      "id": "hero_text",
+      "label": "Supporting text"
+    },
+    {
+      "type": "header",
+      "content": "Contact form"
+    },
+    {
+      "type": "text",
+      "id": "form_button_label",
+      "label": "Submit button label",
+      "default": "Send message"
+    },
+    {
+      "type": "text",
+      "id": "topic_options",
+      "label": "Inquiry topics",
+      "default": "Choosing the right tools, Product question, Order help, Returns or warranty, Something else",
+      "info": "Separate each topic with a comma."
+    },
+    {
+      "type": "header",
+      "content": "Support information"
+    },
+    {
+      "type": "text",
+      "id": "support_eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "support_heading",
+      "label": "Heading",
+      "default": "Contact our <em>support team</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "support_text",
+      "label": "Text",
+      "default": "<p>Tell us what you are growing, which tool you are considering, or what you need help with. Include your order number if your question is about an order.</p>"
+    },
+    {
+      "type": "text",
+      "id": "support_email",
+      "label": "Support email",
+      "info": "Optional. Add only a verified email address; it will not display while blank."
+    },
+    {
+      "type": "text",
+      "id": "support_phone",
+      "label": "Support phone",
+      "info": "Optional. Add only a verified phone number; it will not display while blank."
+    },
+    {
+      "type": "text",
+      "id": "support_address",
+      "label": "Business address",
+      "info": "Optional. Add only a verified address; it will not display while blank."
+    },
+    {
+      "type": "header",
+      "content": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "faq_eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_heading",
+      "label": "Heading",
+      "default": "Customers <em>frequently ask</em>"
+    },
+    {
+      "type": "header",
+      "content": "Closing call to action"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cta_heading",
+      "label": "Heading",
+      "default": "Need a hand with your garden? <em>We're here to help.</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "cta_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_label",
+      "label": "Button label",
+      "default": "Contact us"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_link",
+      "label": "Button link",
+      "default": "#contact-form"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "support",
+      "name": "Support card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "headset", "label": "Headset" },
+            { "value": "question", "label": "Question" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "box", "label": "Box" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "pin", "label": "Location" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "headset"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Customer support"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Questions about an order, a return, or the right tool for the job? Send us a note.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Send a message"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "default": "#contact-form"
+        }
+      ]
+    },
+    {
+      "type": "detail",
+      "name": "Support detail",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "headset", "label": "Headset" },
+            { "value": "question", "label": "Question" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "box", "label": "Box" },
+            { "value": "mail", "label": "Mail" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "pin", "label": "Location" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "headset"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Customer support"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use the form for product questions, order help, and returns.</p>"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How can I choose the right gardening tools?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Start with the job you need to do, then choose a tool made for that work. Our <a href=\"/blogs/news\">garden guides</a> explain the differences.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "Gardner contact",
+      "blocks": [
+        {
+          "type": "support",
+          "settings": {
+            "icon": "headset",
+            "title": "Customer support",
+            "text": "<p>Questions about an order, a return, or the right tool for the job? Send us a note.</p>",
+            "link_label": "Send a message",
+            "link": "#contact-form"
+          }
+        },
+        {
+          "type": "support",
+          "settings": {
+            "icon": "question",
+            "title": "Product questions",
+            "text": "<p>Not sure which size or shape will suit your garden? Ask before you order.</p>",
+            "link_label": "Browse garden tools",
+            "link": "/collections/all"
+          }
+        },
+        {
+          "type": "support",
+          "settings": {
+            "icon": "truck",
+            "title": "Order assistance",
+            "text": "<p>Have an order number ready so we can help you find the right information.</p>",
+            "link_label": "Ask about an order",
+            "link": "#contact-form"
+          }
+        },
+        {
+          "type": "detail",
+          "settings": {
+            "icon": "headset",
+            "title": "Customer support",
+            "text": "<p>Use the form for product questions, order help, and returns.</p>"
+          }
+        },
+        {
+          "type": "detail",
+          "settings": {
+            "icon": "question",
+            "title": "Product advice",
+            "text": "<p>Tell us what you are growing and the job you need to do.</p>"
+          }
+        },
+        {
+          "type": "detail",
+          "settings": {
+            "icon": "truck",
+            "title": "Order questions",
+            "text": "<p>Include your order number so we can find the right details.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How can I choose the right gardening tools?",
+            "answer": "<p>Start with the job you need to do: planting, weeding, pruning, or watering. Our <a href=\"/blogs/news\">garden guides</a> explain the differences, and you can send us the details through the form.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How can I check my order status?",
+            "answer": "<p>Your order confirmation email includes the order details. If you need help finding an update, send us a message with your order number.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Shipping options and costs are shown at checkout. If you need help with a delivery question, send us a message with your order number.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>See our <a href=\"/pages/returns\">Returns page</a> for the return details available at this time. For a specific item, contact us before ordering.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Are your gardening tools suitable for beginners?",
+            "answer": "<p>Many of our tools are straightforward hand tools for everyday garden jobs. Product pages explain what each tool is for, and our guides can help you build a simple kit.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Do your products come with a warranty?",
+            "answer": "<p>Warranty information varies by product. Check the product page or ask us before ordering so we can point you to the right details.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How do I care for and maintain my tools?",
+            "answer": "<p>Clean soil from tools after use, dry metal parts, and keep cutting edges sharp. Our <a href=\"/blogs/news/clean-sharpen-bypass-pruners\">pruner care guide</a> covers cleaning, sharpening, and oiling.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How can I contact customer support?",
+            "answer": "<p>Use the <a href=\"#contact-form\">contact form</a> on this page. Include your order number if your question is about an order, and as much detail as you can about the product or garden job.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

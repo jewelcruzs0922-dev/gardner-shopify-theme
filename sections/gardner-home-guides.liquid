@@ -1,0 +1,271 @@
+{%- liquid
+  assign guide_blog = blogs[section.settings.blog]
+  if guide_blog == blank
+    assign guide_blog = blogs.news
+  endif
+-%}
+
+{%- if guide_blog.articles_count > 0 -%}
+  <section class="gardner-home-guides gardner-home-guides--{{ section.id }}" aria-labelledby="GardnerGuidesHeading-{{ section.id }}-heading">
+    <div class="gardner-home-guides__inner">
+      <header class="gardner-home-guides__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="gardner-home-guides__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h2 class="gardner-home-guides__heading" id="GardnerGuidesHeading-{{ section.id }}-heading">
+          {{ section.settings.heading | default: guide_blog.title | escape }}
+        </h2>
+      </header>
+
+      <ul class="gardner-home-guides__grid" role="list">
+        {%- for article in guide_blog.articles limit: 3 -%}
+          <li class="gardner-home-guides__item">
+            <a class="gardner-home-guides__card" href="{{ article.url }}">
+              <span class="gardner-home-guides__media">
+                {%- if article.image -%}
+                  {{
+                    article.image
+                    | image_url: width: 1600
+                    | image_tag:
+                      loading: 'lazy',
+                      sizes: '(min-width: 990px) 31vw, (min-width: 750px) 46vw, 92vw',
+                      widths: '400, 600, 800, 1000, 1200, 1600',
+                      alt: article.image.alt | default: article.title
+                  }}
+                {%- else -%}
+                  <img
+                    src="{{ 'gardner-hero.jpg' | asset_url }}"
+                    alt="{{ article.title | escape }}"
+                    width="1600"
+                    height="1067"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              </span>
+              <span class="gardner-home-guides__body">
+                <span class="gardner-home-guides__title">{{ article.title | escape }}</span>
+                {%- if section.settings.show_date -%}
+                  <time class="gardner-home-guides__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                      <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                      <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                    {{ article.published_at | date: format: 'abbreviated_date' }}
+                  </time>
+                {%- endif -%}
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- endif -%}
+
+{% style %}
+  .gardner-home-guides--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% stylesheet %}
+  .gardner-home-guides {
+    color: var(--g-ink);
+    background: transparent;
+  }
+
+  .gardner-home-guides__inner {
+    max-width: var(--g-container);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .gardner-home-guides__header {
+    margin-bottom: clamp(3.4rem, 4vw, 4.8rem);
+    text-align: center;
+  }
+
+  .gardner-home-guides__eyebrow {
+    margin: 0 0 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .gardner-home-guides__heading {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.8rem, 4vw, 4.9rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .gardner-home-guides__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2.2rem, 2.3vw, 3.2rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gardner-home-guides__card {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gardner-home-guides__media {
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(30, 42, 22, 0.08);
+  }
+
+  .gardner-home-guides__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .gardner-home-guides__body {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    padding: 2.4rem 1rem 0;
+    text-align: center;
+  }
+
+  .gardner-home-guides__title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+  }
+
+  .gardner-home-guides__date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--g-ink-soft);
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .gardner-home-guides__date svg {
+    width: 1.45rem;
+    height: 1.45rem;
+    flex: none;
+  }
+
+  .gardner-home-guides__card:hover .gardner-home-guides__media img {
+    transform: scale(1.025);
+  }
+
+  .gardner-home-guides__card:focus-visible {
+    outline: 2px solid var(--g-ink);
+    outline-offset: 6px;
+    border-radius: 12px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .gardner-home-guides__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .gardner-home-guides__grid {
+      grid-template-columns: 1fr;
+      gap: 3.3rem;
+    }
+
+    .gardner-home-guides__header {
+      margin-bottom: 3.2rem;
+    }
+
+    .gardner-home-guides__title {
+      font-size: 2rem;
+    }
+
+    .gardner-home-guides__body {
+      padding-top: 1.8rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gardner-home-guides__media img {
+      transition: none;
+    }
+
+    .gardner-home-guides__card:hover .gardner-home-guides__media img {
+      transform: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Gardner home guides",
+  "tag": "section",
+  "class": "section gardner-home-guides-section",
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Journal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Garden guides"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gardner home guides"
+    }
+  ]
+}
+{% endschema %}

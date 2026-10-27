@@ -1,0 +1,263 @@
+{%- liquid
+  assign why_image = section.settings.image
+-%}
+<section class="gardner-why gardner-why--{{ section.id }}">
+  <div class="gardner-why__inner">
+    <div class="gardner-why__intro">
+      <span class="gardner-why__eyebrow">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 29V15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M16 18C9 18 5 13.5 4.5 6.5 11.5 6 16 10.5 16 18Z" fill="currentColor"/>
+          <path d="M16 14C22.5 14 27 10 27.5 3.5 20.5 3 16 7.5 16 14Z" fill="currentColor"/>
+        </svg>
+        {{ section.settings.eyebrow | escape }}
+      </span>
+      <h2 class="gardner-why__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}
+        <div class="gardner-why__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="gardner-why__benefits">
+      {%- for block in section.blocks -%}
+        <article class="gardner-why__item" {{ block.shopify_attributes }}>
+          <span class="gardner-why__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="gardner-why__item-title">{{ block.settings.title | escape }}</h3>
+            <div class="gardner-why__item-text rte">{{ block.settings.text }}</div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <figure class="gardner-why__media">
+      {%- if why_image != blank -%}
+        {{
+          why_image
+          | image_url: width: 1400
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(min-width: 990px) 44vw, 100vw',
+            widths: '500, 800, 1100, 1400',
+            alt: section.settings.image_alt
+        }}
+      {%- else -%}
+        <img
+          src="{{ 'gardner-why.jpg' | asset_url }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          width="1200"
+          height="1500"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </figure>
+  </div>
+</section>
+
+{% style %}
+  .gardner-why--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% stylesheet %}
+  .gardner-why {
+    background: var(--g-sage);
+    color: var(--g-ink);
+    border-top: 1px solid rgba(30, 42, 22, 0.12);
+    overflow: hidden;
+  }
+
+  .gardner-why__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-areas:
+      'intro media'
+      'benefits media';
+    column-gap: clamp(3.5rem, 7vw, 8rem);
+    row-gap: clamp(3rem, 5vw, 5rem);
+    align-items: start;
+    width: 100%;
+    max-width: var(--g-container);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .gardner-why__intro {
+    grid-area: intro;
+    max-width: 680px;
+  }
+
+  .gardner-why__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.2rem 2rem;
+    border: 1px solid rgba(30, 42, 22, 0.28);
+    border-radius: 999px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .gardner-why__eyebrow svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--g-apple);
+  }
+
+  .gardner-why__heading {
+    max-width: 11ch;
+    margin: 2.4rem 0 1.8rem;
+    font-size: clamp(4.2rem, 6vw, 7.6rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.055em;
+  }
+
+  .gardner-why__text {
+    max-width: 44ch;
+    font-size: 1.7rem;
+    line-height: 1.65;
+    color: var(--g-ink-soft);
+  }
+
+  .gardner-why__text p { margin: 0; }
+
+  .gardner-why__benefits {
+    grid-area: benefits;
+    border-top: 1px dashed rgba(30, 42, 22, 0.28);
+  }
+
+  .gardner-why__item {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: 1.6rem;
+    padding: 2.6rem 0;
+    border-bottom: 1px dashed rgba(30, 42, 22, 0.28);
+  }
+
+  .gardner-why__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-top: 0.2rem;
+    color: var(--g-apple);
+  }
+
+  .gardner-why__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gardner-why__item-title {
+    margin: 0 0 0.8rem;
+    font-size: clamp(2.1rem, 2.2vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .gardner-why__item-text {
+    max-width: 42ch;
+    font-size: 1.45rem;
+    line-height: 1.7;
+    color: var(--g-ink-soft);
+  }
+
+  .gardner-why__item-text p { margin: 0; }
+
+  .gardner-why__media {
+    grid-area: media;
+    align-self: stretch;
+    min-height: 620px;
+    margin: 0;
+    border-radius: clamp(18px, 2vw, 28px);
+    overflow: hidden;
+    background: rgba(30, 42, 22, 0.06);
+  }
+
+  .gardner-why__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .gardner-why__inner {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'intro'
+        'media'
+        'benefits';
+      row-gap: 3.2rem;
+    }
+
+    .gardner-why__heading { max-width: 12ch; }
+
+    .gardner-why__media,
+    .gardner-why__media img {
+      min-height: 0;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      max-height: 560px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .gardner-why__heading { font-size: clamp(3.8rem, 11vw, 5.4rem); }
+    .gardner-why__item { padding: 2.2rem 0; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Gardner why choose us",
+  "tag": "section",
+  "class": "section-gardner-why",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why choose Gardner" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Good tools. Better gardening." },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Supporting text",
+      "default": "<p>Thoughtful essentials for growing, cultivating, and creating a garden you love.</p>"
+    },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Lush raised garden beds with tomatoes, herbs and a copper watering can" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Top padding", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 8, "unit": "px", "label": "Bottom padding", "default": 72 }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Thoughtfully selected" },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Practical gardening essentials chosen to help make everyday garden work easier.</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Gardner why choose us",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}

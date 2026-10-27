@@ -1,0 +1,177 @@
+{
+  "sections": {
+    "about": {
+      "type": "gardner-about",
+      "blocks": {
+        "hero_tools": {
+          "type": "hero_card",
+          "settings": {
+            "eyebrow": "Tools",
+            "title": "Dependable tools",
+            "text": "<p>Hand tools, pruning gear and watering equipment chosen for real gardens.</p>",
+            "link_label": "Shop all tools",
+            "link": "shopify://collections/all"
+          }
+        },
+        "hero_guides": {
+          "type": "hero_card",
+          "settings": {
+            "eyebrow": "Guides",
+            "title": "Clear guidance",
+            "text": "<p>Seasonal notes and practical guides to help you choose and care for your tools.</p>",
+            "link_label": "Read the journal",
+            "link": "/blogs/news"
+          }
+        },
+        "hero_approach": {
+          "type": "hero_card",
+          "settings": {
+            "eyebrow": "Our approach",
+            "title": "A considered range",
+            "text": "<p>No gimmicks or shelves of duplicates. Just pieces worth keeping close.</p>",
+            "link_label": "How we choose",
+            "link": "#gardner-approach"
+          }
+        },
+        "feature_digging": {
+          "type": "feature",
+          "settings": {
+            "image_alt": "A hand trowel lifting soil in a garden bed",
+            "title": "Digging & planting",
+            "text": "<p>Trowels, forks and dibbers for preparing soil, planting and everyday bed work.</p>",
+            "link_label": "Shop digging & planting",
+            "link": "shopify://collections/digging-planting"
+          }
+        },
+        "feature_pruning": {
+          "type": "feature",
+          "settings": {
+            "image_alt": "Secateurs and twine on a wooden potting bench",
+            "title": "Pruning & cutting",
+            "text": "<p>Bypass pruners, snips and saws for clean cuts and healthier growth.</p>",
+            "link_label": "Shop pruning & cutting",
+            "link": "shopify://collections/pruning-cutting"
+          }
+        },
+        "feature_watering": {
+          "type": "feature",
+          "settings": {
+            "image_alt": "A metal watering can watering raised beds of herbs",
+            "title": "Watering & irrigation",
+            "text": "<p>Cans, wands and gentle water breakers for careful watering at the root.</p>",
+            "link_label": "Shop watering & irrigation",
+            "link": "shopify://collections/watering-irrigation"
+          }
+        },
+        "step_job": {
+          "type": "step",
+          "settings": {
+            "label": "01",
+            "title": "Start with the job",
+            "image_alt": "A hand trowel lifting soil in a garden bed",
+            "text": "<p>Choose tools by the work in front of you, not by the shelf. A few well-made essentials cover most garden jobs.</p>",
+            "link_label": "Shop hand tools",
+            "link": "shopify://collections/hand-tools"
+          }
+        },
+        "step_clarity": {
+          "type": "step",
+          "settings": {
+            "label": "02",
+            "title": "Keep it clear",
+            "image_alt": "Secateurs and twine on a wooden potting bench",
+            "text": "<p>Plain descriptions, useful details and practical guides — so it is easy to choose the right tool and use it well.</p>",
+            "link_label": "Read the guides",
+            "link": "/blogs/news"
+          }
+        },
+        "step_care": {
+          "type": "step",
+          "settings": {
+            "label": "03",
+            "title": "Make it last",
+            "image_alt": "A metal watering can watering raised beds of herbs",
+            "text": "<p>Steel that can be sharpened, handles that can be re-oiled and designs that reward a little care.</p>",
+            "link_label": "Shop the range",
+            "link": "shopify://collections/all"
+          }
+        },
+        "trust_chosen": {
+          "type": "trust",
+          "settings": {
+            "title": "Chosen with care",
+            "icon": "heart",
+            "text": "<p>Useful pieces for real gardens, selected for balance, comfort and repairability.</p>",
+            "link_label": "Shop all tools",
+            "link": "shopify://collections/all"
+          }
+        },
+        "trust_plain": {
+          "type": "trust",
+          "settings": {
+            "title": "Explained plainly",
+            "icon": "chat",
+            "text": "<p>Straightforward product details and guides, without jargon or inflated claims.</p>",
+            "link_label": "Read the guides",
+            "link": "/blogs/news"
+          }
+        },
+        "trust_keep": {
+          "type": "trust",
+          "settings": {
+            "title": "Worth keeping",
+            "icon": "shield",
+            "text": "<p>A focused collection designed to be maintained, sharpened and used season after season.</p>",
+            "link_label": "Tool care guide",
+            "link": "/blogs/news/clean-sharpen-bypass-pruners"
+          }
+        }
+      },
+      "block_order": [
+        "hero_tools",
+        "hero_guides",
+        "hero_approach",
+        "feature_digging",
+        "feature_pruning",
+        "feature_watering",
+        "step_job",
+        "step_clarity",
+        "step_care",
+        "trust_chosen",
+        "trust_plain",
+        "trust_keep"
+      ],
+      "settings": {
+        "hero_image": "",
+        "hero_alt": "A metal watering can watering raised beds of herbs in the evening light",
+        "hero_eyebrow": "",
+        "hero_heading": "Gardening, made simpler.",
+        "hero_text": "",
+        "intro_eyebrow": "Our story",
+        "intro_heading": "A calmer way to buy <em>garden tools</em>",
+        "intro_text": "<p>Gardner is a demonstration garden-tools storefront built around a simple idea: the right tool should be easy to understand, comfortable to use, and worth keeping.</p><p>We focus on a deliberate range for digging, planting, pruning and watering — with clear product details and practical guides, so you can spend less time comparing and more time in the garden.</p>",
+        "intro_button_label": "Shop garden tools",
+        "intro_button_link": "shopify://collections/all",
+        "features_heading": "",
+        "approach_eyebrow": "",
+        "approach_heading": "A practical <em>approach</em>",
+        "approach_text": "<p>Three simple ideas guide the range — and the way we think about useful garden tools.</p>",
+        "trust_eyebrow": "The Gardner standard",
+        "trust_heading": "",
+        "blog": "news",
+        "journal_eyebrow": "Field notes",
+        "journal_heading": "From the <em>journal</em>",
+        "journal_text": "<p>Practical guides for the jobs in front of you.</p>",
+        "journal_button_label": "Read all guides",
+        "journal_button_link": "/blogs/news",
+        "cta_heading": "Ready to make gardening <em>simpler?</em>",
+        "cta_text": "",
+        "cta_button_label": "Shop garden tools",
+        "cta_button_link": "shopify://collections/all"
+      }
+    }
+  },
+  "order": [
+    "about"
+  ]
+}

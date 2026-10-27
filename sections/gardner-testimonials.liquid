@@ -1,0 +1,700 @@
+{%- liquid
+  assign slide_count = section.blocks.size
+  assign carousel_label = section.settings.heading | default: 'Customer reviews'
+-%}
+{%- if section.settings.show_section and slide_count > 0 -%}
+  <section class="g-testimonials g-testimonials--{{ section.id }}" aria-labelledby="g-testimonials-title-{{ section.id }}">
+    <div class="g-testimonials__inner">
+      <header class="g-testimonials__head">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="g-testimonials__heading" id="g-testimonials-title-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="g-testimonials__intro rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </header>
+
+      <gardner-testimonials class="g-testimonials__carousel">
+        <div
+          class="g-testimonials__viewport"
+          data-viewport
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="{{ carousel_label | escape }}"
+          tabindex="0"
+        >
+          <div class="g-testimonials__track" data-track>
+            {%- for block in section.blocks -%}
+              {%- assign fallback_asset = block.settings.image_asset | default: 'gardner-testimonial-amara.jpg' -%}
+              <article
+                class="g-testimonials__slide"
+                data-slide
+                id="Slide-{{ section.id }}-{{ forloop.index }}"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="{{ forloop.index }} of {{ slide_count }}"
+                {{ block.shopify_attributes }}
+              >
+                <div class="g-testimonials__card">
+                  <figure class="g-testimonials__media">
+                    {%- if block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 1600
+                        | image_tag:
+                          loading: 'lazy',
+                          decoding: 'async',
+                          sizes: '(min-width: 990px) 48vw, (min-width: 750px) 46vw, 100vw',
+                          widths: '500, 750, 1000, 1300, 1600',
+                          alt: block.settings.image_alt
+                      }}
+                    {%- else -%}
+                      <img
+                        src="{{ fallback_asset | asset_url }}"
+                        alt="{{ block.settings.image_alt | escape }}"
+                        width="1040"
+                        height="860"
+                        loading="lazy"
+                        decoding="async"
+                      >
+                    {%- endif -%}
+                  </figure>
+
+                  <div class="g-testimonials__body">
+                    <blockquote class="g-testimonials__quote">
+                      <p>{{ block.settings.quote | escape | newline_to_br }}</p>
+                    </blockquote>
+                    <footer class="g-testimonials__meta">
+                      <p class="g-testimonials__author">{{ block.settings.author | escape }}</p>
+                      {%- if block.settings.detail != blank -%}
+                        <p class="g-testimonials__detail">{{ block.settings.detail | escape }}</p>
+                      {%- endif -%}
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- if slide_count > 1 -%}
+          <div class="g-testimonials__controls">
+            <button class="g-testimonials__control" type="button" data-prev aria-label="Previous testimonial">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M10 2.5 4.5 8l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="g-testimonials__control" type="button" data-next aria-label="Next testimonial">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M6 2.5 11.5 8 6 13.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <p class="visually-hidden" data-live aria-live="polite" aria-atomic="true"></p>
+        {%- endif -%}
+
+        {%- if section.settings.disclaimer != blank -%}
+          <p class="g-testimonials__note">{{ section.settings.disclaimer | escape }}</p>
+        {%- endif -%}
+      </gardner-testimonials>
+    </div>
+  </section>
+{%- endif -%}
+
+{% style %}
+  .g-testimonials--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% stylesheet %}
+  .g-testimonials {
+    background: var(--g-cream);
+    color: var(--g-ink);
+  }
+
+  .g-testimonials__inner {
+    box-sizing: content-box;
+    width: auto;
+    max-width: 129.6rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+
+  .g-testimonials__head {
+    margin: 0 0 4rem;
+    text-align: center;
+  }
+
+  .g-testimonials__heading {
+    margin: 0;
+    font-size: 4.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--g-ink);
+  }
+
+  .g-testimonials__intro {
+    max-width: 55ch;
+    margin: 1.6rem auto 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--g-ink-soft);
+  }
+
+  .g-testimonials__intro p {
+    margin: 0;
+  }
+
+  .g-testimonials__carousel {
+    display: block;
+  }
+
+  .g-testimonials__viewport {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .g-testimonials__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .g-testimonials__viewport.is-enhanced {
+    overflow: hidden;
+    scroll-snap-type: none;
+    touch-action: pan-y;
+  }
+
+  .g-testimonials__viewport:focus-visible {
+    outline: 2px solid var(--g-apple);
+    outline-offset: 4px;
+    border-radius: var(--g-radius-md);
+  }
+
+  .g-testimonials__track {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .g-testimonials__viewport.is-enhanced .g-testimonials__track {
+    will-change: transform;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .g-testimonials__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .g-testimonials__card {
+    display: grid;
+    grid-template-columns: calc(50% - 2rem) minmax(0, 1fr);
+    gap: 2rem;
+    height: 43rem;
+  }
+
+  .g-testimonials__media {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--g-radius-md);
+    background: var(--g-sage);
+  }
+
+  .g-testimonials__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .g-testimonials__body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6rem;
+    min-width: 0;
+    height: 100%;
+    padding: 3rem;
+    border: 1px solid #ddceb2;
+    border-radius: var(--g-radius-md);
+    background: #fbf6ed;
+  }
+
+  .g-testimonials__quote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: var(--font-body-family);
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--g-ink);
+  }
+
+  .g-testimonials__quote p {
+    margin: 0;
+  }
+
+  .g-testimonials__meta {
+    margin: 0;
+  }
+
+  .g-testimonials__author {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--g-ink);
+  }
+
+  .g-testimonials__detail {
+    margin: 0.2rem 0 0;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--g-ink-soft);
+  }
+
+  .g-testimonials__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.5rem;
+  }
+
+  .g-testimonials__control {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 5.2rem;
+    height: 5.2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--g-ink-soft);
+    cursor: pointer;
+  }
+
+  .g-testimonials__control::before {
+    content: '';
+    position: absolute;
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 1px solid #ddceb2;
+    border-radius: 50%;
+    background: #fbf6ed;
+    transition: background-color var(--g-duration) var(--g-ease), border-color var(--g-duration) var(--g-ease), transform var(--g-duration) var(--g-ease);
+  }
+
+  .g-testimonials__control svg {
+    position: relative;
+    z-index: 1;
+    width: 1.7rem;
+    height: 1.7rem;
+    transition: color var(--g-duration) var(--g-ease);
+  }
+
+  .g-testimonials__control:hover::before {
+    border-color: var(--g-apple);
+    background: var(--g-apple);
+  }
+
+  .g-testimonials__control:hover svg {
+    color: var(--g-cream);
+  }
+
+  .g-testimonials__control:active::before {
+    transform: scale(0.96);
+  }
+
+  .g-testimonials__control:focus-visible {
+    outline: none;
+  }
+
+  .g-testimonials__control:focus-visible::before {
+    outline: 2px solid var(--g-apple);
+    outline-offset: 2px;
+  }
+
+  .g-testimonials__note {
+    margin: 1.6rem auto 0;
+    max-width: 60ch;
+    padding-inline: 1.6rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--g-ink-soft);
+    opacity: 0.72;
+  }
+
+  @media screen and (max-width: 989px) {
+    .g-testimonials__heading {
+      font-size: 3.8rem;
+    }
+
+    .g-testimonials__card {
+      height: auto;
+      min-height: 34rem;
+    }
+
+    .g-testimonials__media {
+      height: 100%;
+      min-height: 34rem;
+    }
+
+    .g-testimonials__body {
+      gap: 4rem;
+      padding: 3rem;
+    }
+
+    .g-testimonials__quote {
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .g-testimonials__head {
+      margin-bottom: 2.5rem;
+    }
+
+    .g-testimonials__heading {
+      font-size: 3rem;
+    }
+
+    .g-testimonials__intro {
+      margin-top: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    .g-testimonials__card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      height: auto;
+    }
+
+    .g-testimonials__media {
+      height: 34rem;
+    }
+
+    .g-testimonials__body {
+      min-height: 27.4rem;
+      padding: 2rem;
+      gap: 4rem;
+    }
+
+    .g-testimonials__controls {
+      margin-top: 4.8rem;
+    }
+
+    .g-testimonials__note {
+      margin-top: 1.2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .g-testimonials__viewport.is-enhanced .g-testimonials__track {
+      transition: none;
+    }
+
+    .g-testimonials__control::before {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (() => {
+    if (customElements.get('gardner-testimonials')) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    class GardnerTestimonials extends HTMLElement {
+      connectedCallback() {
+        if (this.initialized) return;
+        this.initialized = true;
+
+        this.viewport = this.querySelector('[data-viewport]');
+        this.track = this.querySelector('[data-track]');
+        this.realSlides = Array.from(this.querySelectorAll('[data-slide]'));
+        this.previousButton = this.querySelector('[data-prev]');
+        this.nextButton = this.querySelector('[data-next]');
+        this.liveRegion = this.querySelector('[data-live]');
+        this.count = this.realSlides.length;
+
+        if (!this.viewport || !this.track || this.count < 2) return;
+
+        this.position = 1;
+        this.locked = false;
+        this.pointerStart = null;
+
+        this.enhance();
+        this.bind();
+        this.update(false);
+      }
+
+      enhance() {
+        const firstClone = this.realSlides[0].cloneNode(true);
+        const lastClone = this.realSlides[this.count - 1].cloneNode(true);
+
+        [firstClone, lastClone].forEach((clone) => {
+          clone.removeAttribute('id');
+          clone.removeAttribute('data-shopify-editor-block');
+          clone.setAttribute('aria-hidden', 'true');
+          clone.inert = true;
+        });
+
+        this.track.prepend(lastClone);
+        this.track.append(firstClone);
+        this.viewport.classList.add('is-enhanced');
+
+        this.track.style.transition = 'none';
+        this.applyTransform();
+        requestAnimationFrame(() => {
+          this.track.style.transition = '';
+        });
+      }
+
+      bind() {
+        this.previousButton.addEventListener('click', () => this.go(-1));
+        this.nextButton.addEventListener('click', () => this.go(1));
+
+        this.viewport.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            this.go(-1);
+          }
+
+          if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            this.go(1);
+          }
+        });
+
+        this.viewport.addEventListener('pointerdown', (event) => {
+          if (!event.isPrimary || event.pointerType === 'mouse') return;
+          this.pointerStart = { x: event.clientX, y: event.clientY };
+        });
+
+        this.viewport.addEventListener('pointerup', (event) => {
+          if (!this.pointerStart) return;
+
+          const deltaX = event.clientX - this.pointerStart.x;
+          const deltaY = event.clientY - this.pointerStart.y;
+          this.pointerStart = null;
+
+          if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            this.go(deltaX < 0 ? 1 : -1);
+          }
+        });
+
+        this.viewport.addEventListener('pointercancel', () => {
+          this.pointerStart = null;
+        });
+
+        this.track.addEventListener('transitionend', (event) => {
+          if (event.target === this.track && event.propertyName === 'transform') {
+            this.finish();
+          }
+        });
+      }
+
+      applyTransform() {
+        this.track.style.transform = `translate3d(${-this.position * 100}%, 0, 0)`;
+      }
+
+      go(direction) {
+        if (this.locked) return;
+
+        if (reducedMotion.matches) {
+          this.position += direction;
+          this.normalize();
+          this.applyTransform();
+          this.update(true);
+          return;
+        }
+
+        this.locked = true;
+        this.position += direction;
+        this.applyTransform();
+        clearTimeout(this.finishTimer);
+        this.finishTimer = setTimeout(() => this.finish(), 650);
+      }
+
+      finish() {
+        if (!this.locked) return;
+        this.locked = false;
+        clearTimeout(this.finishTimer);
+
+        if (this.position < 1 || this.position > this.count) {
+          this.track.style.transition = 'none';
+          this.normalize();
+          this.applyTransform();
+          void this.track.offsetWidth;
+          this.track.style.transition = '';
+        } else {
+          this.normalize();
+          this.applyTransform();
+        }
+
+        this.update(true);
+      }
+
+      normalize() {
+        if (this.position < 1) {
+          this.position = this.count;
+        } else if (this.position > this.count) {
+          this.position = 1;
+        }
+      }
+
+      update(announce) {
+        const index = ((this.position - 1) % this.count + this.count) % this.count;
+
+        this.realSlides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === index;
+          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+          slide.inert = !isActive;
+        });
+
+        if (!announce || !this.liveRegion) return;
+
+        const name = this.realSlides[index].querySelector('.g-testimonials__author')?.textContent.trim();
+        this.liveRegion.textContent = `Testimonial ${index + 1} of ${this.count}${name ? `: ${name}` : ''}`;
+      }
+    }
+
+    customElements.define('gardner-testimonials', GardnerTestimonials);
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Gardner testimonials",
+  "tag": "section",
+  "class": "section-gardner-testimonials",
+  "settings": [
+    { "type": "checkbox", "id": "show_section", "label": "Show section", "default": true },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Customers Review" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Introductory copy"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Placeholder disclaimer",
+      "default": "Fictional profiles and sample reviews for layout preview only. Replace with approved customer feedback before publishing."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review text",
+          "default": "The trowel feels solid without being heavy, and the handle sits comfortably even after an hour of planting. I used it to edge a new herb bed and it cut through compacted soil without bending. It has become the tool I reach for first, and it cleaned up easily with a quick wipe and dry."
+        },
+        { "type": "text", "id": "author", "label": "Reviewer name", "default": "Sample gardener" },
+        { "type": "text", "id": "detail", "label": "Location or role", "default": "Raised-bed grower" },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Reviewer image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "default": "Portrait of a woman in a sage work shirt standing in an allotment garden"
+        },
+        {
+          "type": "select",
+          "id": "image_asset",
+          "label": "Fallback theme image",
+          "info": "Used when no reviewer image is selected.",
+          "options": [
+            { "value": "gardner-gallery-01.jpg", "label": "Gallery 01 — tomatoes" },
+            { "value": "gardner-gallery-02.jpg", "label": "Gallery 02 — planting" },
+            { "value": "gardner-gallery-03.jpg", "label": "Gallery 03 — dahlias" },
+            { "value": "gardner-gallery-04.jpg", "label": "Gallery 04 — greenhouse" },
+            { "value": "gardner-gallery-05.jpg", "label": "Gallery 05 — planting bulbs" },
+            { "value": "gardner-story.jpg", "label": "Story — trowel care" },
+            { "value": "gardner-why.jpg", "label": "Why — raised beds" }
+          ],
+          "default": "gardner-gallery-01.jpg"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Gardner testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author": "Amara Osei",
+            "detail": "Fictional profile - Bristol",
+            "image_asset": "gardner-testimonial-amara.jpg",
+            "image_alt": "Portrait of a woman in a sage work shirt standing in an allotment garden"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Clear product pages and honest prices made choosing my first bypass pruners easy. The size guide helped me pick the right pair for smaller branches, and they arrived sharp and ready to use. After a season of pruning apple trees and roses, they still cut cleanly and feel well balanced in the hand.",
+            "author": "Daniel Mercer",
+            "detail": "Fictional profile - Yorkshire",
+            "image_asset": "gardner-testimonial-daniel.jpg",
+            "image_alt": "Portrait of a man in a chore jacket holding secateurs in a greenhouse"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "The watering wand reaches the back of the border without soaking the path, which has made watering my balcony pots far quicker. The flow is gentle enough for seedlings but strong enough for the larger planters, and the trigger is easy to control. It has held up well through a wet spring and still feels sturdy.",
+            "author": "Priya Nair",
+            "detail": "Fictional profile - London",
+            "image_asset": "gardner-testimonial-priya.jpg",
+            "image_alt": "Portrait of a woman in a denim shirt on a balcony herb garden"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

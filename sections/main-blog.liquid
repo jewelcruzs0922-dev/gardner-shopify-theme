@@ -1,142 +1,246 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'gardner-blog.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+{%- liquid
+  assign blog_heading = section.settings.heading | default: blog.title
+-%}
+
+{%- paginate blog.articles by 7 -%}
+  {%- liquid
+    assign show_featured = section.settings.show_featured
+    if paginate.current_page > 1
+      assign show_featured = false
+    endif
+  -%}
+  <section class="g-blog g-blog--{{ section.id }}" aria-labelledby="GBlogTitle-{{ section.id }}">
+    <div class="g-blog__inner">
+      <header class="g-blog__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="g-blog__eyebrow">
+            <span class="g-blog__eyebrow-line" aria-hidden="true"></span>
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
+        <h1 class="g-blog__heading" id="GBlogTitle-{{ section.id }}">{{ blog_heading | escape }}</h1>
+        {%- if section.settings.intro != blank -%}
+          <div class="g-blog__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </header>
+
+      {%- if blog.articles_count > 0 -%}
+        {%- if show_featured -%}
+          {%- assign featured_article = blog.articles.first -%}
+          {%- assign featured_excerpt = featured_article.excerpt_or_content | strip_html | strip_newlines | truncatewords: 32 -%}
+          {%- if featured_article.image != blank -%}
+            {%- assign featured_alt = featured_article.image.alt | default: featured_article.title -%}
+          {%- else -%}
+            {%- assign featured_alt = featured_article.title -%}
+          {%- endif -%}
+
+          <a class="g-blog__feature" href="{{ featured_article.url }}">
+            <div class="g-blog__feature-data">
+              {%- if section.settings.show_date -%}
+                <p class="g-blog__date">
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                    <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                  {{ featured_article.published_at | time_tag: format: 'date' }}
+                </p>
+              {%- endif -%}
+              <h2 class="g-blog__feature-title">{{ featured_article.title | escape }}</h2>
+              {%- if section.settings.show_excerpt and featured_excerpt != blank -%}
+                <p class="g-blog__feature-text">{{ featured_excerpt }}</p>
+              {%- endif -%}
+              <span class="g-blog__read-more">
+                Read more
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M2.5 8h10M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+
+            <figure class="g-blog__feature-media">
+              {%- if featured_article.image != blank -%}
+                {{
+                  featured_article.image
+                  | image_url: width: 1800
+                  | image_tag:
+                    loading: 'eager',
+                    fetchpriority: 'high',
+                    decoding: 'async',
+                    sizes: '(min-width: 992px) 52vw, 100vw',
+                    widths: '600, 900, 1200, 1500, 1800',
+                    alt: featured_alt
+                }}
+              {%- else -%}
+                <img
+                  src="{{ 'gardner-gallery-01.jpg' | asset_url }}"
+                  alt="{{ featured_alt | escape }}"
+                  width="1024"
+                  height="1024"
+                  loading="eager"
+                  decoding="async"
+                >
+              {%- endif -%}
+            </figure>
+          </a>
+        {%- endif -%}
+
+        <div class="g-blog__grid">
+          {%- for article in blog.articles -%}
+            {%- if show_featured and forloop.first -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- if article.image != blank -%}
+              {%- assign card_alt = article.image.alt | default: article.title -%}
+            {%- else -%}
+              {%- assign card_alt = article.title -%}
+            {%- endif -%}
+
+            <a class="g-blog__card" href="{{ article.url }}">
+              <figure class="g-blog__card-media">
+                {%- if article.image != blank -%}
+                  {{
+                    article.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      decoding: 'async',
+                      sizes: '(min-width: 1200px) 32vw, (min-width: 750px) 46vw, 100vw',
+                      widths: '400, 600, 800, 1000, 1200',
+                      alt: card_alt
+                  }}
+                {%- else -%}
+                  <img
+                    src="{{ 'gardner-gallery-01.jpg' | asset_url }}"
+                    alt="{{ card_alt | escape }}"
+                    width="1024"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {%- endif -%}
+              </figure>
+              <div class="g-blog__card-data">
+                <h2 class="g-blog__card-title">{{ article.title | escape }}</h2>
+                {%- if section.settings.show_date -%}
+                  <p class="g-blog__date">
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                      <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                      <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                    {{ article.published_at | time_tag: format: 'date' }}
+                  </p>
+                {%- endif -%}
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="g-blog__pagination" aria-label="Blog pagination">
+            {%- if paginate.previous -%}
+              <a class="g-blog__page-arrow" href="{{ paginate.previous.url }}" rel="prev">
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M13.5 8h-10M7.5 4l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Previous
+              </a>
+            {%- endif -%}
+
+            <div class="g-blog__page-list">
+              {%- for part in paginate.parts -%}
+                {%- assign part_number = part.title | plus: 0 -%}
+                {%- if part.is_link -%}
+                  <a class="g-blog__page-link" href="{{ part.url }}" aria-label="Page {{ part.title }}">{{ part.title }}</a>
+                {%- else -%}
+                  <span
+                    class="g-blog__page-link{% if part_number == paginate.current_page %} is-current{% endif %}"
+                    {% if part_number == paginate.current_page %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    {{ part.title }}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            {%- if paginate.next -%}
+              <a class="g-blog__page-arrow" href="{{ paginate.next.url }}" rel="next">
+                Next
+                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                  <path d="M2.5 8h10M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- else -%}
+        <div class="g-blog__empty">
+          <p>No guides have been published yet.</p>
+          <a class="g-blog__read-more" href="{{ routes.root_url }}">
+            Back to the shop
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M2.5 8h10M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endpaginate -%}
+
+{% style %}
+  .g-blog--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  @media screen and (max-width: 749px) {
+    .g-blog--{{ section.id }} {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
   }
-{%- endstyle -%}
-
-{%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
-
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
-        </div>
-      {%- endfor -%}
-    </div>
-
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
-    {%- endif -%}
-  </div>
-{%- endpaginate -%}
+{% endstyle %}
 
 {% schema %}
 {
-  "name": "t:sections.main-blog.name",
+  "name": "Blog posts",
   "tag": "section",
-  "class": "section",
+  "class": "section-main-blog",
   "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
     {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label"
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Defaults to the blog title when left blank."
     },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_date",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_date.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_author",
-      "default": false,
-      "label": "t:sections.main-blog.settings.show_author.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
+    { "type": "richtext", "id": "intro", "label": "Introductory copy" },
+    { "type": "checkbox", "id": "show_featured", "label": "Feature the latest post", "default": true },
+    { "type": "checkbox", "id": "show_date", "label": "Show publication date", "default": true },
+    { "type": "checkbox", "id": "show_excerpt", "label": "Show excerpt on featured post", "default": true },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 96,
+      "step": 8,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "label": "Top padding",
+      "default": 0
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 120,
+      "step": 8,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "label": "Bottom padding",
+      "default": 64
     }
   ]
 }

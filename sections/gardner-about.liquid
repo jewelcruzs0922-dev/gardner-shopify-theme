@@ -1,0 +1,1724 @@
+{%- liquid
+  assign hero_cards = section.blocks | where: 'type', 'hero_card'
+  assign features = section.blocks | where: 'type', 'feature'
+  assign steps = section.blocks | where: 'type', 'step'
+  assign trust_items = section.blocks | where: 'type', 'trust'
+
+  assign feature_fallbacks = 'gardner-guide-trowel.jpg,gardner-guide-pruner-care.jpg,gardner-guide-watering.jpg' | split: ','
+  assign step_fallbacks = 'gardner-guide-trowel.jpg,gardner-guide-pruner-care.jpg,gardner-guide-watering.jpg' | split: ','
+
+  assign about_blog = blogs[section.settings.blog]
+  if about_blog == blank or about_blog.articles_count == 0
+    assign about_blog = blogs.news
+  endif
+
+  assign first_progress = 16.666
+  if steps.size > 0
+    assign first_progress = 100.0 | divided_by: steps.size | divided_by: 2.0
+  endif
+
+  assign hero_alt = section.settings.hero_alt | default: 'A metal watering can watering raised beds of herbs in the evening light'
+-%}
+
+<div class="g-about">
+  <section class="g-about-hero" aria-labelledby="GardnerAboutTitle-{{ section.id }}">
+    <div class="g-about-hero__banner">
+      {%- if section.settings.hero_image != blank -%}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2400
+          | image_tag:
+            class: 'g-about-hero__img',
+            loading: 'eager',
+            fetchpriority: 'high',
+            sizes: '100vw',
+            widths: '800, 1200, 1600, 2000, 2400',
+            alt: hero_alt
+        }}
+      {%- else -%}
+        <img
+          class="g-about-hero__img"
+          src="{{ 'gardner-about-hero-1600.jpg' | asset_url }}"
+          srcset="{{ 'gardner-about-hero-800.jpg' | asset_url }} 800w, {{ 'gardner-about-hero-1200.jpg' | asset_url }} 1200w, {{ 'gardner-about-hero-1600.jpg' | asset_url }} 1600w"
+          sizes="100vw"
+          width="1600"
+          height="661"
+          alt="{{ hero_alt | escape }}"
+          fetchpriority="high"
+        >
+      {%- endif -%}
+
+      <span class="g-about-hero__shade" aria-hidden="true"></span>
+
+      <div class="g-about-hero__content g-about-container">
+        {%- if section.settings.hero_eyebrow != blank -%}
+          <p class="g-about-eyebrow g-about-eyebrow--light">{{ section.settings.hero_eyebrow | escape }}</p>
+        {%- endif -%}
+        <h1 class="g-about-hero__title" id="GardnerAboutTitle-{{ section.id }}">
+          {{ section.settings.hero_heading | escape }}
+        </h1>
+        {%- if section.settings.hero_text != blank -%}
+          <div class="g-about-hero__text rte">{{ section.settings.hero_text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if hero_cards.size > 0 -%}
+      <div class="g-about-container">
+        <div class="g-about-hero__cards">
+          {%- for block in hero_cards limit: 3 -%}
+            <article class="g-about-card" {{ block.shopify_attributes }}>
+              {%- if block.settings.eyebrow != blank -%}
+                <p class="g-about-card__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+              {%- endif -%}
+              <h2 class="g-about-card__title">{{ block.settings.title | escape }}</h2>
+              <div class="g-about-card__text rte">{{ block.settings.text }}</div>
+              {%- if block.settings.link_label != blank -%}
+                <a class="g-about-card__link" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+                  {{- block.settings.link_label | escape -}}
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </section>
+
+  <section class="g-about-intro" aria-labelledby="GardnerAboutIntro-{{ section.id }}">
+    <div class="g-about-container g-about-intro__inner">
+      {%- if section.settings.intro_eyebrow != blank -%}
+        <p class="g-about-eyebrow">{{ section.settings.intro_eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="g-about-heading" id="GardnerAboutIntro-{{ section.id }}">
+        {{ section.settings.intro_heading }}
+      </h2>
+      {%- if section.settings.intro_text != blank -%}
+        <div class="g-about-intro__text rte">{{ section.settings.intro_text }}</div>
+      {%- endif -%}
+      {%- if section.settings.intro_button_label != blank -%}
+        <a
+          class="button g-about-button"
+          href="{{ section.settings.intro_button_link | default: routes.all_products_collection_url }}"
+        >
+          {{- section.settings.intro_button_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </section>
+
+  {%- if features.size > 0 -%}
+    <section class="g-about-features" aria-labelledby="GardnerAboutFeatures-{{ section.id }}">
+      <div class="g-about-container">
+        <h2
+          class="{% if section.settings.features_heading == blank %}g-visually-hidden{% else %}g-about-features__heading g-about-heading{% endif %}"
+          id="GardnerAboutFeatures-{{ section.id }}"
+        >
+          {{ section.settings.features_heading | default: 'Explore the range' }}
+        </h2>
+
+        <div class="g-about-features__grid">
+          {%- for block in features limit: 3 -%}
+            {%- assign fallback_image = feature_fallbacks[forloop.index0] | default: 'gardner-guide-trowel.jpg' -%}
+            <article class="g-about-feature" {{ block.shopify_attributes }}>
+              <a class="g-about-feature__media" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      loading: 'lazy',
+                      sizes: '(min-width: 990px) 30vw, 92vw',
+                      widths: '400, 600, 800, 1000, 1400',
+                      alt: block.settings.image_alt | default: block.settings.title
+                  }}
+                {%- else -%}
+                  <img
+                    src="{{ fallback_image | asset_url }}"
+                    alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                    width="1600"
+                    height="1067"
+                    loading="lazy"
+                  >
+                {%- endif -%}
+              </a>
+              <div class="g-about-feature__body">
+                <h3 class="g-about-feature__title">{{ block.settings.title | escape }}</h3>
+                <div class="g-about-feature__text rte">{{ block.settings.text }}</div>
+                {%- if block.settings.link_label != blank -%}
+                  <a class="g-about-card__link" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+                    {{- block.settings.link_label | escape -}}
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                      <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if steps.size > 0 -%}
+    <section class="g-about-approach" id="gardner-approach" aria-labelledby="GardnerAboutApproach-{{ section.id }}">
+      <div class="g-about-container">
+        <header class="g-about-approach__header">
+          {%- if section.settings.approach_eyebrow != blank -%}
+            <p class="g-about-eyebrow g-about-eyebrow--lemon">{{ section.settings.approach_eyebrow | escape }}</p>
+          {%- endif -%}
+          <h2 class="g-about-heading" id="GardnerAboutApproach-{{ section.id }}">
+            {{ section.settings.approach_heading }}
+          </h2>
+          {%- if section.settings.approach_text != blank -%}
+            <div class="g-about-approach__intro rte">{{ section.settings.approach_text }}</div>
+          {%- endif -%}
+        </header>
+
+        <about-approach class="g-about-approach__component" data-approach>
+          <div class="g-about-approach__timeline">
+            {%- if steps.size > 1 -%}
+              <button class="g-about-arrow" type="button" data-approach-prev aria-label="Previous step">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M20 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            {%- endif -%}
+
+            <div class="g-about-approach__track">
+              <div class="g-about-approach__line" aria-hidden="true">
+                <span data-approach-progress style="width: {{ first_progress }}%;"></span>
+              </div>
+              <div class="g-about-approach__markers" role="tablist" aria-label="Our approach steps">
+                {%- for block in steps -%}
+                  <button
+                    class="g-about-marker"
+                    type="button"
+                    role="tab"
+                    id="GardnerAboutStepTab-{{ section.id }}-{{ forloop.index0 }}"
+                    aria-controls="GardnerAboutStepPanel-{{ section.id }}-{{ forloop.index0 }}"
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                    tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+                    data-approach-tab="{{ forloop.index0 }}"
+                    aria-label="{{ block.settings.label | escape }}: {{ block.settings.title | escape }}"
+                  >
+                    <span class="g-about-marker__label">{{ block.settings.label | escape }}</span>
+                    <span class="g-about-marker__dot" aria-hidden="true"></span>
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+
+            {%- if steps.size > 1 -%}
+              <button class="g-about-arrow" type="button" data-approach-next aria-label="Next step">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            {%- endif -%}
+          </div>
+
+          <div class="g-about-approach__panels">
+            {%- for block in steps -%}
+              {%- assign fallback_step = step_fallbacks[forloop.index0] | default: 'gardner-guide-trowel.jpg' -%}
+              <div
+                class="g-about-approach__panel"
+                id="GardnerAboutStepPanel-{{ section.id }}-{{ forloop.index0 }}"
+                role="tabpanel"
+                aria-labelledby="GardnerAboutStepTab-{{ section.id }}-{{ forloop.index0 }}"
+                tabindex="0"
+                data-approach-panel="{{ forloop.index0 }}"
+                {% unless forloop.first %}hidden{% endunless %}
+              >
+                <figure class="g-about-approach__media">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '(min-width: 990px) 42vw, 92vw',
+                        widths: '500, 700, 900, 1200',
+                        alt: block.settings.image_alt | default: block.settings.title
+                    }}
+                  {%- else -%}
+                    <img
+                      src="{{ fallback_step | asset_url }}"
+                      alt="{{ block.settings.image_alt | default: block.settings.title | escape }}"
+                      width="1600"
+                      height="1067"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </figure>
+
+                <div class="g-about-approach__copy">
+                  <p class="g-about-approach__step">Step {{ block.settings.label | escape }}</p>
+                  <h3 class="g-about-approach__title">{{ block.settings.title | escape }}</h3>
+                  <div class="g-about-approach__text rte">{{ block.settings.text }}</div>
+                  {%- if block.settings.link_label != blank -%}
+                    <a class="g-about-approach__link" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+                      {{- block.settings.link_label | escape -}}
+                      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                        <path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </about-approach>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if trust_items.size > 0 -%}
+    <section class="g-about-trust"{% if section.settings.trust_heading != blank %} aria-labelledby="GardnerAboutTrust-{{ section.id }}"{% endif %}>
+      <div class="g-about-container">
+        <header class="g-about-trust__header">
+          {%- if section.settings.trust_eyebrow != blank -%}
+            <p class="g-about-eyebrow">{{ section.settings.trust_eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.trust_heading != blank -%}
+            <h2 class="g-about-heading" id="GardnerAboutTrust-{{ section.id }}">
+              {{ section.settings.trust_heading }}
+            </h2>
+          {%- endif -%}
+        </header>
+
+        <div class="g-about-trust__grid">
+          {%- for block in trust_items limit: 3 -%}
+            <article class="g-about-trust__item" {{ block.shopify_attributes }}>
+              <h3 class="g-about-trust__title">{{ block.settings.title | escape }}</h3>
+              <span class="g-about-trust__icon" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'heart' -%}
+                    <svg viewBox="0 0 32 32" focusable="false">
+                      <path d="M16 27S5 20.2 5 12.4C5 8.9 7.7 6.5 10.8 6.5c2.2 0 4.1 1.2 5.2 3.1 1.1-1.9 3-3.1 5.2-3.1 3.1 0 5.8 2.4 5.8 5.9C27 20.2 16 27 16 27Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                    </svg>
+                  {%- when 'chat' -%}
+                    <svg viewBox="0 0 32 32" focusable="false">
+                      <path d="M5.5 7.5h21v14h-12l-6 4.5v-4.5h-3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                      <path d="M10.5 12.5h11M10.5 17h7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                    </svg>
+                  {%- when 'shield' -%}
+                    <svg viewBox="0 0 32 32" focusable="false">
+                      <path d="M16 4 26 8v7c0 6-4.2 10.4-10 13-5.8-2.6-10-7-10-13V8z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                      <path d="m11.2 16 3.2 3.2 6.4-6.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 32 32" focusable="false">
+                      <path d="M16 29V15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                      <path d="M16 18C9 18 5 13.5 4.5 6.5 11.5 6 16 10.5 16 18Z" fill="currentColor"/>
+                      <path d="M16 14C22.5 14 27 10 27.5 3.5 20.5 3 16 7.5 16 14Z" fill="currentColor"/>
+                    </svg>
+                {%- endcase -%}
+              </span>
+              {%- if block.settings.text != blank -%}
+                <div class="g-about-trust__text rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.link_label != blank -%}
+                <a class="g-about-trust__link" href="{{ block.settings.link | default: routes.all_products_collection_url }}">
+                  {{- block.settings.link_label | escape -}}
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M6 14 14 6M8 6h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if about_blog.articles_count > 0 -%}
+    <section class="g-about-journal">
+      <div class="g-about-container">
+        <div class="g-about-journal__grid">
+          {%- for article in about_blog.articles limit: 3 -%}
+            <article class="g-about-article">
+              <a class="g-about-article__link" href="{{ article.url }}">
+                <span class="g-about-article__media">
+                  {%- if article.image -%}
+                    {{
+                      article.image
+                      | image_url: width: 1200
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '(min-width: 990px) 30vw, (min-width: 750px) 45vw, 92vw',
+                        widths: '400, 600, 800, 1000, 1200',
+                        alt: article.image.alt | default: article.title
+                    }}
+                  {%- else -%}
+                    <img
+                      src="{{ 'gardner-guide-spring-tools.jpg' | asset_url }}"
+                      alt="{{ article.title | escape }}"
+                      width="1600"
+                      height="1067"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </span>
+                <span class="g-about-article__body">
+                  <h3 class="g-about-article__title">{{ article.title | escape }}</h3>
+                  <span class="g-about-article__meta">
+                    <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                      <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                      <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                    <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                      {{ article.published_at | date: format: 'abbreviated_date' }}
+                    </time>
+                  </span>
+                </span>
+              </a>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  <section class="g-about-cta" aria-labelledby="GardnerAboutCta-{{ section.id }}">
+    <div class="g-about-container g-about-cta__inner">
+      <h2 class="g-about-heading g-about-cta__heading" id="GardnerAboutCta-{{ section.id }}">
+        {{ section.settings.cta_heading }}
+      </h2>
+      {%- if section.settings.cta_text != blank -%}
+        <div class="g-about-cta__text rte">{{ section.settings.cta_text }}</div>
+      {%- endif -%}
+      {%- if section.settings.cta_button_label != blank -%}
+        <a
+          class="button g-about-button"
+          href="{{ section.settings.cta_button_link | default: routes.all_products_collection_url }}"
+        >
+          {{- section.settings.cta_button_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+<script src="{{ 'gardner-about.js' | asset_url }}" defer></script>
+
+{% stylesheet %}
+  .g-about {
+    --g-about-accent: #4f6b18;
+    --g-about-accent-dark: #f4e24c;
+    background: var(--g-cream);
+    color: var(--g-ink);
+    overflow: clip;
+  }
+
+  .g-about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .g-about .g-about-heading {
+    margin: 0;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.2rem, 4.5vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .g-about .g-about-heading em {
+    font-style: normal;
+    color: var(--g-about-accent);
+  }
+
+  .g-about-eyebrow {
+    margin: 0 0 1.4rem;
+    color: var(--g-ink-soft);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .g-about-eyebrow--light {
+    color: rgba(247, 241, 227, 0.78);
+  }
+
+  .g-about-eyebrow--lemon {
+    color: var(--g-about-accent-dark);
+  }
+
+  .g-about-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5rem;
+    margin-top: 3.2rem;
+    padding: 1.3rem 2.8rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--g-ink);
+    color: var(--g-cream);
+    box-shadow: none;
+    font-family: var(--font-body-family);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: background-color 220ms var(--g-ease), color 220ms var(--g-ease), transform 220ms var(--g-ease);
+  }
+
+  .g-about-button:hover {
+    background: var(--g-lemon);
+    color: var(--g-ink);
+    transform: translateY(-1px);
+  }
+
+  .g-about-button::before,
+  .g-about-button::after {
+    content: none;
+  }
+
+  /* Hero */
+  .g-about-hero {
+    position: relative;
+  }
+
+  .g-about-hero__banner {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 620px;
+    padding: 9rem 0 18rem;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--g-cream);
+    background: var(--g-ink);
+  }
+
+  .g-about-hero__img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .g-about-hero__shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: block;
+    background:
+      linear-gradient(180deg, rgba(14, 20, 9, 0.46) 0%, rgba(14, 20, 9, 0.66) 52%, rgba(14, 20, 9, 0.85) 100%),
+      rgba(10, 15, 7, 0.16);
+  }
+
+  .g-about-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .g-about-hero__title {
+    max-width: 14ch;
+    margin: 0 auto;
+    color: var(--g-cream);
+    font-family: var(--font-heading-family);
+    font-size: clamp(5.8rem, 6.8vw, 9.2rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    text-wrap: balance;
+  }
+
+  .g-about-hero__text {
+    max-width: 56ch;
+    margin: 2rem auto 0;
+    color: rgba(247, 241, 227, 0.9);
+    font-size: clamp(1.55rem, 1.6vw, 1.8rem);
+    line-height: 1.6;
+  }
+
+  .g-about-hero__text p {
+    margin: 0;
+  }
+
+  .g-about-hero__cards {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+    margin-top: -11rem;
+    padding-bottom: clamp(5rem, 7vw, 8rem);
+  }
+
+  .g-about-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 27rem;
+    padding: clamp(2.6rem, 3vw, 3.6rem);
+    padding-bottom: clamp(10rem, 9vw, 12.5rem);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 46px rgba(30, 42, 22, 0.11);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 10rem), transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 10rem), transparent 100%);
+  }
+
+  .g-about-card__eyebrow {
+    display: flex;
+    align-items: flex-end;
+    min-height: 2.1em;
+    margin: 0 0 1.4rem;
+    color: var(--g-about-accent);
+    font-size: clamp(3.6rem, 2.8vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .g-about-card__title {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.8rem, 2.2vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  .g-about-card__text {
+    margin-top: 1.5rem;
+    color: var(--g-ink-soft);
+    font-size: 1.7rem;
+    line-height: 1.65;
+  }
+
+  .g-about-card__text p {
+    margin: 0;
+  }
+
+  .g-about-card__link,
+  .g-about-text-link,
+  .g-about-approach__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 2rem;
+    color: var(--g-ink);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+
+  .g-about-card__link {
+    font-size: 1.6rem;
+  }
+
+  .g-about-hero .g-about-card__link {
+    text-decoration: none;
+  }
+
+  .g-about-hero .g-about-card__link:hover {
+    color: var(--g-about-accent);
+  }
+
+  .g-about-card__link svg,
+  .g-about-text-link svg,
+  .g-about-approach__link svg {
+    width: 1.7rem;
+    height: 1.7rem;
+    flex: none;
+    transition: transform 200ms var(--g-ease);
+  }
+
+  .g-about-card__link:hover svg,
+  .g-about-text-link:hover svg,
+  .g-about-approach__link:hover svg {
+    transform: translateX(0.3rem);
+  }
+
+  .g-about-card__link:focus-visible,
+  .g-about-text-link:focus-visible,
+  .g-about-approach__link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  /* Intro */
+  .g-about-intro {
+    padding: clamp(6rem, 8vw, 9rem) 0 clamp(4.5rem, 6vw, 6.5rem);
+    text-align: center;
+  }
+
+  .g-about-intro__inner {
+    max-width: 900px;
+  }
+
+  .g-about-intro .g-about-eyebrow {
+    font-size: 1.3rem;
+  }
+
+  .g-about-intro .g-about-heading {
+    font-size: clamp(3.8rem, 4.8vw, 5.2rem);
+  }
+
+  .g-about-intro__text {
+    max-width: 66ch;
+    margin: 2rem auto 0;
+    color: var(--g-ink-soft);
+    font-size: clamp(1.7rem, 1.7vw, 1.9rem);
+    line-height: 1.7;
+  }
+
+  .g-about-intro .g-about-button {
+    font-size: 1.7rem;
+  }
+
+  .g-about-intro__text p {
+    margin: 0 0 1.2rem;
+  }
+
+  .g-about-intro__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Feature cards */
+  .g-about-features {
+    padding-bottom: clamp(6rem, 8vw, 9rem);
+  }
+
+  .g-about-features__heading {
+    margin-bottom: 3.2rem;
+    text-align: center;
+  }
+
+  .g-about-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .g-about-feature {
+    display: flex;
+    flex-direction: column;
+    min-height: 52rem;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 32px rgba(30, 42, 22, 0.07);
+    transition: transform 250ms var(--g-ease), box-shadow 250ms var(--g-ease);
+  }
+
+  .g-about-feature:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 22px 42px rgba(30, 42, 22, 0.14);
+  }
+
+  .g-about-feature__media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--g-sage);
+  }
+
+  .g-about-feature__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms var(--g-ease);
+  }
+
+  .g-about-feature__media:hover img {
+    transform: scale(1.025);
+  }
+
+  .g-about-feature__media:focus-visible {
+    outline: 2px solid var(--g-ink);
+    outline-offset: -3px;
+  }
+
+  .g-about-feature__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 3.2rem 2.6rem 4.8rem;
+    text-align: center;
+  }
+
+  .g-about-feature__title {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.8rem, 2.5vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .g-about-feature__text {
+    margin: 1.2rem 0 0;
+    color: var(--g-ink-soft);
+    font-size: 1.7rem;
+    line-height: 1.65;
+  }
+
+  .g-about-feature__text p {
+    margin: 0;
+  }
+
+  .g-about-feature .g-about-card__link {
+    margin-inline: auto;
+    padding-top: 1.8rem;
+    font-size: 1.7rem;
+    text-decoration: none;
+  }
+
+  .g-about-feature .g-about-card__link:hover {
+    color: var(--g-about-accent);
+  }
+
+  /* Approach */
+  .g-about-approach {
+    padding: clamp(6.5rem, 9vw, 10rem) 0;
+    color: var(--g-cream);
+    background: var(--g-ink);
+    scroll-margin-top: 7rem;
+  }
+
+  .g-about-approach__header {
+    max-width: 850px;
+    margin: 0 auto clamp(3.6rem, 5vw, 5rem);
+    text-align: center;
+  }
+
+  .g-about-approach__intro {
+    max-width: 60ch;
+    margin: 1.8rem auto 0;
+    color: rgba(247, 241, 227, 0.72);
+    font-size: 1.9rem;
+    line-height: 1.65;
+  }
+
+  .g-about-approach__intro p {
+    margin: 0;
+  }
+
+  .g-about-approach .g-about-heading {
+    color: var(--g-cream);
+    font-size: clamp(4.2rem, 5vw, 5.4rem);
+  }
+
+  .g-about-approach .g-about-heading em {
+    color: var(--g-about-accent-dark);
+  }
+
+  .g-about-approach__component {
+    display: block;
+  }
+
+  .g-about-approach__timeline {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: clamp(1.4rem, 2.4vw, 2.6rem);
+    align-items: center;
+    margin-bottom: clamp(3.6rem, 5vw, 5rem);
+  }
+
+  .g-about-arrow {
+    display: inline-grid;
+    place-items: center;
+    width: 6.4rem;
+    height: 6.4rem;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    color: var(--g-ink);
+    background: var(--g-about-accent-dark);
+    cursor: pointer;
+    transition: transform 200ms var(--g-ease), background-color 200ms var(--g-ease);
+  }
+
+  .g-about-arrow svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .g-about-arrow:hover {
+    transform: translateY(-1px);
+    background: var(--g-cream);
+  }
+
+  .g-about-approach :focus-visible {
+    outline-color: var(--g-about-accent-dark);
+  }
+
+  .g-about-approach__track {
+    position: relative;
+    height: 5rem;
+    min-width: 0;
+  }
+
+  .g-about-approach__line {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 1px;
+    overflow: hidden;
+    background: rgba(247, 241, 227, 0.35);
+  }
+
+  .g-about-approach__line span {
+    display: block;
+    height: 100%;
+    background: var(--g-about-accent-dark);
+    transition: width 320ms var(--g-ease);
+  }
+
+  .g-about-approach__markers {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .g-about-marker {
+    position: relative;
+    flex: 1 1 0;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    color: rgba(247, 241, 227, 0.65);
+    background: transparent;
+    font-family: var(--font-body-family);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .g-about-marker__label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    transition: color 200ms var(--g-ease);
+  }
+
+  .g-about-marker__dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: var(--g-cream);
+    transform: translate(-50%, -50%);
+    transition: background-color 200ms var(--g-ease), transform 200ms var(--g-ease);
+  }
+
+  .g-about-marker[aria-selected='true'] {
+    color: var(--g-about-accent-dark);
+  }
+
+  .g-about-marker[aria-selected='true'] .g-about-marker__dot {
+    background: var(--g-about-accent-dark);
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+
+  .g-about-marker[aria-selected='true'] .g-about-marker__label,
+  .g-about-marker:hover .g-about-marker__label {
+    color: var(--g-about-accent-dark);
+  }
+
+  .g-about-approach__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(3.5rem, 7vw, 8rem);
+    align-items: center;
+  }
+
+  .g-about-approach__panel[hidden] {
+    display: none;
+  }
+
+  .g-about-approach__media {
+    aspect-ratio: 1.08 / 1;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(247, 241, 227, 0.1);
+  }
+
+  .g-about-approach__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .g-about-approach__step {
+    margin: 0 0 1.2rem;
+    color: var(--g-about-accent-dark);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .g-about-approach__title {
+    max-width: 15ch;
+    margin: 0;
+    color: var(--g-cream);
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.4rem, 3.2vw, 3.8rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .g-about-approach__text {
+    max-width: 46ch;
+    margin: 1.8rem 0 0;
+    color: rgba(247, 241, 227, 0.76);
+    font-size: 1.9rem;
+    line-height: 1.7;
+  }
+
+  .g-about-approach__text p {
+    margin: 0;
+  }
+
+  .g-about-approach__link {
+    margin-top: 2.4rem;
+    padding-top: 0;
+    color: var(--g-cream);
+    font-size: 1.7rem;
+  }
+
+  .g-about-approach__link:hover {
+    color: var(--g-about-accent-dark);
+  }
+
+  /* Trust */
+  .g-about-trust {
+    padding: clamp(6rem, 8vw, 9rem) 0;
+    border-bottom: 1px solid rgba(30, 42, 22, 0.1);
+  }
+
+  .g-about-trust__header {
+    max-width: 750px;
+    margin: 0 auto clamp(3.4rem, 4.5vw, 4.8rem);
+    text-align: center;
+  }
+
+  .g-about-trust .g-about-eyebrow {
+    font-size: 1.8rem;
+  }
+
+  .g-about-trust__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2.4rem, 2.6vw, 3.2rem);
+  }
+
+  .g-about-trust__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 48rem;
+    padding: 4rem 3rem;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    transition: transform 250ms var(--g-ease), box-shadow 250ms var(--g-ease);
+  }
+
+  .g-about-trust__item:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 22px 42px rgba(30, 42, 22, 0.14);
+  }
+
+  .g-about-trust__title {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-heading-family);
+    font-size: clamp(2.6rem, 2.2vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .g-about-trust__icon {
+    display: block;
+    width: 8.4rem;
+    height: 8.4rem;
+    margin: 3.8rem auto;
+    color: var(--g-apple);
+  }
+
+  .g-about-trust__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .g-about-trust__text {
+    max-width: 32ch;
+    margin: 0 auto;
+    color: var(--g-ink-soft);
+    font-size: 1.7rem;
+    line-height: 1.65;
+  }
+
+  .g-about-trust__text p {
+    margin: 0;
+  }
+
+  .g-about-trust__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 3.2rem;
+    color: var(--g-ink);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .g-about-trust__link svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: none;
+    transition: transform 200ms var(--g-ease);
+  }
+
+  .g-about-trust__link:hover {
+    color: var(--g-about-accent);
+  }
+
+  .g-about-trust__link:hover svg {
+    transform: translate(0.2rem, -0.2rem);
+  }
+
+  /* Journal */
+  .g-about-journal {
+    padding: clamp(6rem, 8vw, 9rem) 0;
+  }
+
+  .g-about-journal__header {
+    display: flex;
+    gap: 3rem;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: clamp(3.2rem, 4vw, 4.4rem);
+  }
+
+  .g-about-journal__header > div {
+    max-width: 750px;
+  }
+
+  .g-about-journal__intro {
+    max-width: 55ch;
+    margin-top: 1.2rem;
+    color: var(--g-ink-soft);
+    font-size: 1.55rem;
+    line-height: 1.65;
+  }
+
+  .g-about-journal__intro p {
+    margin: 0;
+  }
+
+  .g-about-text-link {
+    flex: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .g-about-journal__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2.4rem, 3vw, 3.4rem);
+  }
+
+  .g-about-article {
+    min-width: 0;
+  }
+
+  .g-about-article__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .g-about-article__link:focus-visible {
+    outline: 2px solid var(--g-ink);
+    outline-offset: 5px;
+    border-radius: 12px;
+  }
+
+  .g-about-article__media {
+    display: block;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--g-sage);
+  }
+
+  .g-about-article__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms var(--g-ease);
+  }
+
+  .g-about-article__link:hover .g-about-article__media img {
+    transform: scale(1.025);
+  }
+
+  .g-about-article__body {
+    display: block;
+    padding-top: 1.8rem;
+    text-align: center;
+  }
+
+  .g-about-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.1rem;
+    color: var(--g-ink-soft);
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .g-about-article__meta svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: none;
+  }
+
+  .g-about-article__title {
+    margin: 0;
+    color: var(--g-ink);
+    font-family: var(--font-body-family);
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  .g-about-article__excerpt {
+    display: block;
+    margin-top: 1.1rem;
+    color: var(--g-ink-soft);
+    font-size: 1.45rem;
+    line-height: 1.65;
+  }
+
+  .g-about-article__author {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1.6rem;
+    color: var(--g-ink);
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .g-about-article__avatar {
+    display: inline-grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    color: var(--g-ink);
+    background: var(--g-sage);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* CTA */
+  .g-about-cta {
+    padding: clamp(6rem, 8vw, 9rem) 0;
+    background: var(--g-sage);
+    text-align: center;
+  }
+
+  .g-about-cta__inner {
+    max-width: 900px;
+  }
+
+  .g-about .g-about-cta__heading {
+    max-width: 16ch;
+    margin-inline: auto;
+    font-size: clamp(4.8rem, 5.6vw, 6.4rem);
+  }
+
+  .g-about-cta__text {
+    max-width: 56ch;
+    margin: 1.6rem auto 0;
+    color: var(--g-ink-soft);
+    font-size: 1.55rem;
+    line-height: 1.65;
+  }
+
+  .g-about-cta__text p {
+    margin: 0;
+  }
+
+  .g-about-cta .g-about-button {
+    margin-top: 2.8rem;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .g-about-hero__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .g-about-card:last-child {
+      grid-column: 1 / -1;
+      width: calc(50% - 1.5rem);
+      justify-self: center;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .g-about-hero__banner {
+      min-height: 540px;
+      padding: 8rem 0 15rem;
+    }
+
+    .g-about-hero__cards {
+      margin-top: -9rem;
+    }
+
+    .g-about-features__grid,
+    .g-about-journal__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .g-about-feature:last-child,
+    .g-about-article:last-child {
+      grid-column: 1 / -1;
+      width: calc(50% - 1.2rem);
+      justify-self: center;
+    }
+
+    .g-about-approach__panel {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+
+    .g-about-approach__media {
+      aspect-ratio: 16 / 10;
+    }
+
+    .g-about-approach__title {
+      max-width: 18ch;
+    }
+
+    .g-about-trust__grid {
+      grid-template-columns: 1fr;
+      gap: 2.4rem;
+    }
+
+    .g-about-trust__item {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding: 3.6rem 2.8rem;
+    }
+
+    .g-about-trust__icon {
+      margin: 3.2rem auto;
+    }
+
+    .g-about-trust__text {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .g-about-hero__banner {
+      min-height: 390px;
+      padding: 6rem 0 7rem;
+    }
+
+    .g-about-hero__title {
+      max-width: 10ch;
+      font-size: clamp(3.9rem, 11vw, 5.2rem);
+    }
+
+    .g-about-hero__text {
+      max-width: 34ch;
+      font-size: 1.5rem;
+    }
+
+    .g-about-hero__cards {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3.2rem;
+      padding-bottom: 4.8rem;
+    }
+
+    .g-about-card {
+      min-height: 0;
+    }
+
+    .g-about-card:last-child {
+      grid-column: auto;
+      width: auto;
+    }
+
+    .g-about-intro {
+      padding-top: 4.8rem;
+    }
+
+    .g-about-intro__text {
+      font-size: 1.5rem;
+    }
+
+    .g-about-features {
+      padding-bottom: 5.6rem;
+    }
+
+    .g-about-features__grid,
+    .g-about-journal__grid {
+      grid-template-columns: 1fr;
+      gap: 2.6rem;
+    }
+
+    .g-about-feature:last-child,
+    .g-about-article:last-child {
+      grid-column: auto;
+      width: auto;
+    }
+
+    .g-about-feature__body {
+      padding: 2.4rem 2rem 2.2rem;
+    }
+
+    .g-about-approach {
+      padding-block: 5.6rem;
+    }
+
+    .g-about-approach__timeline {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.6rem;
+    }
+
+    .g-about-arrow {
+      display: none;
+    }
+
+    .g-about-approach__line {
+      top: 50%;
+    }
+
+    .g-about-approach__panel {
+      gap: 2.4rem;
+    }
+
+    .g-about-approach__media {
+      aspect-ratio: 4 / 3;
+    }
+
+    .g-about-trust__item {
+      display: flex;
+      flex-direction: column;
+      padding: 3.6rem 2.4rem;
+    }
+
+    .g-about-trust__text {
+      margin-top: 0;
+    }
+
+    .g-about-journal__header {
+      display: block;
+    }
+
+    .g-about-text-link {
+      margin-top: 1.8rem;
+    }
+
+    .g-about-cta {
+      padding-block: 5.6rem;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .g-about-hero__title {
+      font-size: 3.9rem;
+    }
+
+    .g-about-card__title {
+      font-size: 2.7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .g-about-feature__media img,
+    .g-about-article__media img,
+    .g-about-arrow,
+    .g-about-card__link svg,
+    .g-about-text-link svg,
+    .g-about-approach__link svg,
+    .g-about-approach__line span {
+      transition: none;
+    }
+
+    .g-about-feature__media:hover img,
+    .g-about-article__link:hover .g-about-article__media img {
+      transform: none;
+    }
+  }
+
+  @media print {
+    .g-about-arrow,
+    .g-about-hero__cards,
+    .g-about-journal,
+    .g-about-cta {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Gardner About page",
+  "tag": "section",
+  "class": "section-gardner-about",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    {
+      "type": "text",
+      "id": "hero_alt",
+      "label": "Hero image alt text",
+      "default": "A metal watering can watering raised beds of herbs in the evening light"
+    },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Gardening, made simpler." },
+    {
+      "type": "richtext",
+      "id": "hero_text",
+      "label": "Supporting text",
+      "default": "<p>A small, considered range of tools — and clear advice for using them well.</p>"
+    },
+    { "type": "header", "content": "Introduction" },
+    { "type": "text", "id": "intro_eyebrow", "label": "Eyebrow", "default": "Our story" },
+    {
+      "type": "inline_richtext",
+      "id": "intro_heading",
+      "label": "Heading",
+      "default": "A calmer way to buy <em>garden tools</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Text",
+      "default": "<p>Gardner is a demonstration garden-tools storefront built around a simple idea: the right tool should be easy to understand, comfortable to use, and worth keeping.</p><p>We focus on a deliberate range for digging, planting, pruning and watering — with clear product details and practical guides, so you can spend less time comparing and more time in the garden.</p>"
+    },
+    { "type": "text", "id": "intro_button_label", "label": "Button label", "default": "Shop garden tools" },
+    { "type": "url", "id": "intro_button_link", "label": "Button link" },
+    { "type": "header", "content": "Feature cards" },
+    { "type": "text", "id": "features_heading", "label": "Visible heading (optional)" },
+    { "type": "paragraph", "content": "Add up to three Feature cards. Each card can use its own image; otherwise a related image from the theme is used." },
+    { "type": "header", "content": "Approach" },
+    { "type": "text", "id": "approach_eyebrow", "label": "Eyebrow" },
+    {
+      "type": "inline_richtext",
+      "id": "approach_heading",
+      "label": "Heading",
+      "default": "A practical <em>approach</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "approach_text",
+      "label": "Text",
+      "default": "<p>Three simple ideas guide the range — and the way we think about useful garden tools.</p>"
+    },
+    { "type": "header", "content": "Trust statements" },
+    { "type": "text", "id": "trust_eyebrow", "label": "Eyebrow", "default": "The Gardner standard" },
+    {
+      "type": "inline_richtext",
+      "id": "trust_heading",
+      "label": "Heading"
+    },
+    { "type": "header", "content": "Journal" },
+    { "type": "blog", "id": "blog", "label": "Blog" },
+    { "type": "text", "id": "journal_eyebrow", "label": "Eyebrow", "default": "Field notes" },
+    {
+      "type": "inline_richtext",
+      "id": "journal_heading",
+      "label": "Heading",
+      "default": "From the <em>journal</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "journal_text",
+      "label": "Text",
+      "default": "<p>Practical guides for the jobs in front of you.</p>"
+    },
+    { "type": "text", "id": "journal_button_label", "label": "Button label", "default": "Read all guides" },
+    { "type": "url", "id": "journal_button_link", "label": "Button link" },
+    { "type": "header", "content": "Closing call to action" },
+    {
+      "type": "inline_richtext",
+      "id": "cta_heading",
+      "label": "Heading",
+      "default": "Ready to make gardening <em>simpler?</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "cta_text",
+      "label": "Text",
+      "default": "<p>Start with a few good tools and clear advice.</p>"
+    },
+    { "type": "text", "id": "cta_button_label", "label": "Button label", "default": "Shop garden tools" },
+    { "type": "url", "id": "cta_button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    {
+      "type": "hero_card",
+      "name": "Hero card",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Tools" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Dependable essentials" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Hand tools, pruning gear and watering equipment chosen for real gardens.</p>"
+        },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop all tools" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature card",
+      "limit": 3,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Digging & planting" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Trowels, forks and dibbers for preparing soil, planting and everyday bed work.</p>"
+        },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop the category" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Approach step",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Step label", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Start with the job" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Choose tools by the work in front of you, not by the shelf. A few well-made essentials cover most garden jobs.</p>"
+        },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop hand tools" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust statement",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Chosen with care" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield check" }
+          ],
+          "default": "leaf"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Useful pieces for real gardens, selected for balance, comfort and repairability.</p>"
+        },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Shop all tools" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Gardner About page",
+      "blocks": [
+        { "type": "hero_card" },
+        { "type": "hero_card" },
+        { "type": "hero_card" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "step" },
+        { "type": "step" },
+        { "type": "step" },
+        { "type": "trust" },
+        { "type": "trust" },
+        { "type": "trust" }
+      ]
+    }
+  ]
+}
+{% endschema %}

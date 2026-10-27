@@ -1,6 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'gardner-blog.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template">
+<article class="article-template g-article">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -9,63 +10,52 @@
         </div>
       {%- when 'featured_image' -%}
         {%- if article.image -%}
-          <div
-            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-            {{ block.shopify_attributes }}
-          >
-            <div
-              class="article-template__hero-{{ block.settings.image_height }} media"
-              {% if block.settings.image_height == 'adapt' and article.image %}
-                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
-              {% endif %}
-            >
-              <img
-                srcset="
-                  {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
-                  {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
-                  {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
-                  {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
-                  {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
-                  {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
-                  {{ article.image | image_url }} {{ article.image.width }}w
-                "
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                src="{{ article.image | image_url: width: 1100 }}"
-                loading="eager"
-                fetchpriority="high"
-                width="{{ article.image.width }}"
-                height="{{ article.image.height }}"
-                alt="{{ article.image.alt | escape }}"
-              >
+          {%- assign article_image_alt = article.image.alt | default: article.title -%}
+          <figure class="g-article__hero" {{ block.shopify_attributes }}>
+            <div class="g-article__hero-media">
+              {{
+                article.image
+                | image_url: width: 2000
+                | image_tag:
+                  loading: 'eager',
+                  fetchpriority: 'high',
+                  decoding: 'async',
+                  sizes: '(min-width: 1400px) 1320px, 100vw',
+                  widths: '600, 900, 1200, 1500, 1800, 2000',
+                  alt: article_image_alt
+              }}
             </div>
-          </div>
+          </figure>
         {%- endif -%}
 
       {%- when 'title' -%}
         <header
-          class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="g-article__head{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
           {{ block.shopify_attributes }}
         >
-          <h1
-            class="article-template__title"
-          >
-            {{ article.title | escape }}
-          </h1>
-          {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing">
-              {{- article.published_at | time_tag: format: 'date' -}}
-            </span>
-          {%- endif -%}
-          {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing">
-              <span>{{ article.author }}</span>
-            </span>
-          {%- endif -%}
+          <div class="g-article__head-inner">
+            <a class="g-article__eyebrow" href="{{ blog.url }}">{{ blog.title | escape }}</a>
+            <h1 class="g-article__title">{{ article.title | escape }}</h1>
+            <div class="g-article__meta">
+              {%- if block.settings.blog_show_date -%}
+                <span class="g-article__meta-date">
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                    <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                  {{- article.published_at | time_tag: format: 'date' -}}
+                </span>
+              {%- endif -%}
+              {%- if block.settings.blog_show_author -%}
+                <span>{{ article.author }}</span>
+              {%- endif -%}
+            </div>
+          </div>
         </header>
 
       {%- when 'content' -%}
         <div
-          class="article-template__content page-width page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="g-article__body rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
@@ -73,7 +63,7 @@
 
       {%- when 'share' -%}
         <div
-          class="article-template__social-sharing page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="g-article__share{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {{ block.shopify_attributes }}
         >
           {% assign share_url = request.origin | append: article.url %}
@@ -82,16 +72,78 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="g-article__back{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
       <span class="icon-wrap">
         <span class="svg-wrapper">
           {{- 'icon-arrow.svg' | inline_asset_content -}}
         </span>
       </span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
+      Back to {{ blog.title | escape }}
     </a>
   </div>
+  {%- if blog.articles_count > 1 -%}
+    <section class="g-article__related" aria-labelledby="RelatedArticlesTitle-{{ section.id }}">
+      <div class="g-article__related-inner">
+        <header class="g-article__related-head">
+          <p class="g-blog__eyebrow">
+            <span class="g-blog__eyebrow-line" aria-hidden="true"></span>
+            Keep reading
+          </p>
+          <h2 class="g-article__related-title" id="RelatedArticlesTitle-{{ section.id }}">More from the journal</h2>
+        </header>
+
+        <div class="g-blog__grid">
+          {%- for related_article in blog.articles limit: 4 -%}
+            {%- if related_article.id == article.id -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- if related_article.image != blank -%}
+              {%- assign related_alt = related_article.image.alt | default: related_article.title -%}
+            {%- else -%}
+              {%- assign related_alt = related_article.title -%}
+            {%- endif -%}
+            <a class="g-blog__card" href="{{ related_article.url }}">
+              <figure class="g-blog__card-media">
+                {%- if related_article.image != blank -%}
+                  {{
+                    related_article.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      decoding: 'async',
+                      sizes: '(min-width: 1200px) 32vw, (min-width: 750px) 46vw, 100vw',
+                      widths: '400, 600, 800, 1000, 1200',
+                      alt: related_alt
+                  }}
+                {%- else -%}
+                  <img
+                    src="{{ 'gardner-gallery-01.jpg' | asset_url }}"
+                    alt="{{ related_alt | escape }}"
+                    width="1024"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {%- endif -%}
+              </figure>
+              <div class="g-blog__card-data">
+                <h3 class="g-blog__card-title">{{ related_article.title | escape }}</h3>
+                <p class="g-blog__date">
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <rect x="2.75" y="4.25" width="14.5" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                    <path d="M2.75 8h14.5M6.5 2.5v3M13.5 2.5v3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                  </svg>
+                  {{ related_article.published_at | time_tag: format: 'date' }}
+                </p>
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
@@ -304,33 +356,7 @@
     {
       "type": "featured_image",
       "name": "t:sections.main-article.blocks.featured_image.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "select",
-          "id": "image_height",
-          "options": [
-            {
-              "value": "adapt",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
-            },
-            {
-              "value": "small",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
-            },
-            {
-              "value": "medium",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
-            },
-            {
-              "value": "large",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
-            }
-          ],
-          "default": "adapt",
-          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
-        }
-      ]
+      "limit": 1
     },
     {
       "type": "title",

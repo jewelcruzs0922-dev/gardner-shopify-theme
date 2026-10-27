@@ -102,6 +102,8 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    <script src="{{ 'gardner-scroll-effects.js' | asset_url }}" defer="defer"></script>
+
     {{ content_for_header }}
 
     {%- liquid
@@ -319,6 +321,16 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'gardner.css' | asset_url | stylesheet_tag }}
+    <noscript>
+      <style>
+        html.js body.g-scroll main > .shopify-section :is(h1, h2, h3, h4, h5, h6, p, .button, img, .g-hero__logo, .g-eyebrow):not(.g-hero__img):not(.g-stagger *):not(.g-gallery__track *):not(media-gallery *),
+        html.js body.g-scroll .g-hero__media {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
+        }
+      </style>
+    </noscript>
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -361,7 +373,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %} g-scroll{% if request.page_type == 'index' %} g-home-scroll{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

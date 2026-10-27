@@ -83,7 +83,16 @@ export function ensureDir(dir) {
 export async function screenshot(page, name, fullPage = true) {
   const dir = ensureDir('docs/qa');
   const file = path.join(dir, name);
-  await page.screenshot({ path: file, fullPage, animations: 'disabled' });
+  const style = fullPage
+    ? await page.addStyleTag({
+        content: '.g-hero__logo, .g-hero__eyebrow, .g-hero__title, .g-hero__text, .g-hero__actions .button { animation: none !important; }'
+      })
+    : null;
+  try {
+    await page.screenshot({ path: file, fullPage, animations: 'disabled' });
+  } finally {
+    if (style) await style.evaluate((node) => node.remove());
+  }
   return file;
 }
 
