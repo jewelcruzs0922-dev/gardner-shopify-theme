@@ -17,8 +17,28 @@ A portfolio-quality Shopify Online Store 2.0 theme for a fictional garden-tools 
 | Repository | [jewelcruzs0922-dev/gardner-shopify-theme](https://github.com/jewelcruzs0922-dev/gardner-shopify-theme) (private) |
 | Portfolio readiness | Ready with documented limitations |
 | Commercial readiness | Not ready |
+| Last verified | 2026-10-28 |
 
 Gardner is not a live business. No real orders are fulfilled, no customer data was submitted, and no product-image rights are claimed.
+
+## Contents
+
+- [What this project demonstrates](#what-this-project-demonstrates)
+- [Screenshots](#screenshots)
+- [Feature highlights](#feature-highlights)
+- [Technology](#technology)
+- [Architecture at a glance](#architecture-at-a-glance)
+- [Repository layout](#repository-layout)
+- [Getting started](#getting-started)
+- [Commands](#commands)
+- [QA tooling](#qa-tooling)
+- [Verification summary](#verification-summary)
+- [Troubleshooting](#troubleshooting)
+- [Documentation](#documentation)
+- [Security and privacy](#security-and-privacy)
+- [Known limitations](#known-limitations)
+- [License and attribution](#license-and-attribution)
+- [Portfolio note](#portfolio-note)
 
 ## What this project demonstrates
 
@@ -28,6 +48,16 @@ Gardner is not a live business. No real orders are fulfilled, no customer data w
 - **Accessibility:** semantic landmarks, keyboard focus states, labelled controls, reduced-motion support, and automated axe checks across pages and interactive states.
 - **Quality engineering:** Playwright functional tests, SEO/structured-data checks, Theme Check, Lighthouse diagnostics, screenshot capture, and documented evidence.
 - **Secure handoff:** ignored local secrets, sanitized documentation, reproducible setup, and a clean private GitHub repository.
+
+## Screenshots
+
+### Collection
+
+![Hand Tools collection](docs/qa/readme-collection.jpg)
+
+*Hand Tools collection with filtering, sorting, wishlist toggles, and demo inventory. Current 1440px preview.*
+
+The homepage image above and collection image here are current captures of the approved storefront. Additional responsive captures are in [`docs/qa/`](docs/qa/).
 
 ## Feature highlights
 
@@ -73,6 +103,28 @@ Typography uses Josefin Sans for headings and Manrope for body copy through Shop
 | Hosting | Shopify development store (private preview) |
 
 There is no application build step. The theme is pushed directly to Shopify.
+
+## Architecture at a glance
+
+```text
+Shopify request
+  -> layout/theme.liquid       global shell, fonts, CSS/JS, SEO defaults
+  -> templates/*.json          page-type composition and section order
+  -> sections/*.liquid         page sections and custom Gardner blocks
+  -> snippets/*.liquid         reusable cards, media, facets, SEO, and UI helpers
+  -> assets/*.css / *.js       Dawn components, Gardner brand layer, and interactions
+```
+
+| Area | Primary files |
+|---|---|
+| Brand tokens and visual layer | `assets/gardner.css` |
+| Homepage composition | `templates/index.json` |
+| Header, mega menu, sticky behavior | `sections/header.liquid`, `snippets/header-mega-menu.liquid` |
+| Product media and gallery | `snippets/product-media-gallery.liquid`, `snippets/product-media-modal.liquid` |
+| Wishlist | `assets/gardner-wishlist.js`, `sections/gardner-wishlist.liquid` |
+| Scroll-reveal and hero motion | `assets/gardner-scroll-effects.js`, `assets/gardner.css` |
+| Editorial gallery | `assets/gardner-gallery.js`, `sections/gardner-gallery.liquid` |
+| QA and preview automation | `scripts/lib/storefront.mjs`, `scripts/qa*.mjs` |
 
 ## Repository layout
 
@@ -162,6 +214,19 @@ node scripts/set-stock.mjs
 node scripts/gen-catalog-doc.mjs
 ```
 
+## QA tooling
+
+| Command | Script | Output |
+|---|---|---|
+| `npm run qa` | `scripts/qa.mjs` | Functional results, responsive checks, and full-page screenshots |
+| `npm run qa:a11y` | `scripts/qa-a11y.mjs` | axe report for 13 pages and 5 interactive states |
+| `npm run qa:seo` | `scripts/qa-seo.mjs` | Titles, canonicals, structured data, robots, sitemap, and link checks |
+| `npm run lint` | Shopify Theme Check | Theme validity with a failing error threshold |
+| `node scripts/perf.mjs` | `scripts/perf.mjs` | Lighthouse medians and theme-only diagnostics |
+| `npm audit` | npm | Dependency vulnerability audit |
+
+The Playwright helpers in `scripts/lib/storefront.mjs` handle password-gated preview access, storefront URLs, screenshot capture, and report writing. Preview theme ID defaults to `191259083065` and can be overridden with `GARDNER_PREVIEW_THEME_ID`.
+
 ## Verification summary
 
 Latest verified results are in [`docs/qa/`](docs/qa/). Full details and historical context are in [`docs/TEST-REPORT.md`](docs/TEST-REPORT.md).
@@ -181,6 +246,15 @@ Latest verified results are in [`docs/qa/`](docs/qa/). Full details and historic
 | Lighthouse | Desktop 95; mobile 47.5–53 with preview/platform overhead; theme-only 67–72 |
 
 The mobile Lighthouse results include Shopify preview bar, Shop Pay/cart-sync, checkout assets, web pixels, and analytics. The theme-only diagnostic is an estimate of theme contribution, not a storefront score.
+
+## Troubleshooting
+
+- **`Missing .env`** — copy `.env.example` to `.env` and fill in the local values. Do not commit it.
+- **Storefront redirects to `/password`** — set `SHOPIFY_STOREFRONT_PASSWORD` and authenticate once in the browser. The development store is intentionally private.
+- **Theme preview shows the wrong theme** — confirm `191259083065` is the intended unpublished theme, or set `GARDNER_PREVIEW_THEME_ID` for the QA scripts.
+- **`shopify theme push` reports an auth error** — export `SHOPIFY_CLI_THEME_TOKEN` from the local `SHOPIFY_ADMIN_TOKEN` value as shown above.
+- **Lighthouse cannot find Chrome** — set `CHROME_PATH` to the local Chrome executable before running `scripts/perf.mjs`.
+- **Newsletter submission does not complete** — this is the documented invisible hCaptcha block, not a theme failure.
 
 ## Documentation
 
@@ -207,6 +281,16 @@ The mobile Lighthouse results include Shopify preview bar, Shop Pay/cart-sync, c
 - Rotate the Admin API token and remove the temporary "Gardner Admin" app after archiving the project.
 
 Secret scans are not proof that every possible secret is absent. They are a verification step, not a guarantee.
+
+## Handoff and maintenance
+
+- The canonical handoff is the private GitHub repository on `master`.
+- Keep the development store and theme unpublished unless the owner explicitly authorizes a launch.
+- Do not delete or modify the published Horizon theme.
+- Review duplicate unpublished theme `191258853689` before making any cleanup decision.
+- Rotate the Admin API token and remove the temporary "Gardner Admin" app after the project is archived.
+- Keep the handoff ZIP and QA evidence with the project owner; do not add `.env`, browser state, or credentials to either.
+- Re-run the QA commands after changing theme code, storefront content, or Shopify platform dependencies.
 
 ## Known limitations
 
