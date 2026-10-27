@@ -2,7 +2,9 @@
 
 A portfolio-quality Shopify Online Store 2.0 theme for a fictional garden-tools storefront. Gardner is a design and engineering study: an editorial retail experience built on Dawn, with custom sections, original copy, responsive layouts, accessible interactions, and automated QA.
 
-![Gardner homepage](docs/audit/desktop/01-home.jpg)
+![Gardner current homepage](docs/qa/readme-home.jpg)
+
+*Current Gardner homepage at 1440px.*
 
 ## Project status
 
