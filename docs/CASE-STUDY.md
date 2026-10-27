@@ -83,8 +83,8 @@ The inventory script uses `inventory_levels.json` with `inventory_item_ids`, avo
 - Collection-card `sizes` corrected for the two-column mobile grid
 - Wishlist MutationObserver optimized to inspect only added cards (removed a 1.5 s scripting/forced-reflow hotspot)
 - Dynamic checkout disabled to avoid loading the Shop Pay checkout bundle on every PDP
-- Desktop Lighthouse: **99 performance**, LCP ~1.0 s
-- Mobile Lighthouse is dominated by Shopify preview/platform scripts; the theme-only diagnostic is 72–77, with accessibility 100 and SEO 100
+- Desktop Lighthouse: **95 performance**, LCP ~1.4 s
+- Mobile Lighthouse is dominated by Shopify preview/platform scripts; the theme-only diagnostic is 67–72, with accessibility 100 and SEO 100
 
 ## Verification
 
@@ -107,7 +107,7 @@ The inventory script uses `inventory_levels.json` with `inventory_item_ids`, avo
 | Wishlist injected toggles caused a 1.5 s scripting hotspot | WeakSet + added-node-only observer + CSS positioning instead of per-card `getComputedStyle` |
 | Product images downloaded at 1500 px for 178 px cards | Corrected `sizes` for the 2-column mobile collection grid |
 | No multi-variant product in the researched range | Kept the variant picker functional; documented that variant selection was not exercised rather than inventing variants |
-| No GitHub authentication | Prepared the local repo and documented the exact owner action |
+| GitHub delivery | Created the private repository after owner-authenticated GitHub CLI access, then pushed and verified `master` |
 
 ## What I would do next
 

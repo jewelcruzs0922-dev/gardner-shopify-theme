@@ -41,7 +41,7 @@
 
 ### Repository and handoff
 
-- [ ] Run `gh auth login`, create the chosen private repository, and push the local history.
+- [x] Create the private repository [jewelcruzs0922-dev/gardner-shopify-theme](https://github.com/jewelcruzs0922-dev/gardner-shopify-theme) and push `master` at commit `493ce40`.
 - [ ] Decide whether to keep, archive, or delete duplicate unpublished theme `191258853689`. Do not delete it without approval.
 - [ ] Rotate the Admin API token and delete the temporary "Gardner Admin" app after the project is archived.
 - [ ] Review the handoff ZIP contents and confirm the deliberate exclusions: `.env`, `.playwright-mcp/`, `.git/`, `.tmp/`, `node_modules/`, `.shopify/`, `docs/reference/`, `docs/theme-push-verbose.log`, and existing ZIPs.

@@ -4,6 +4,8 @@ A portfolio-quality, native Shopify Online Store 2.0 theme for a garden-tools st
 
 **Status:** Development / portfolio project. The store and theme are **unpublished**. Nothing in this repository is a live business, and no real orders are fulfilled.
 
+**Repository:** [jewelcruzs0922-dev/gardner-shopify-theme](https://github.com/jewelcruzs0922-dev/gardner-shopify-theme) (private).
+
 ## What is included
 
 - Native Dawn-based Shopify theme with an original brand layer
@@ -86,6 +88,6 @@ node scripts/gen-catalog-doc.mjs
 - Gardner is **not** an authorized reseller of any brand.
 - Reviews are visibly labelled demonstration content, not real customer feedback.
 - Newsletter submission is blocked in automation by Shopify's invisible hCaptcha; see the test report.
-- GitHub remote creation is blocked until `gh auth login` is completed by the owner. The local repository is prepared for handoff.
+- GitHub delivery is complete in the private repository [jewelcruzs0922-dev/gardner-shopify-theme](https://github.com/jewelcruzs0922-dev/gardner-shopify-theme). Do not make it public without owner approval.
 
 See [`docs/KNOWN-LIMITATIONS.md`](docs/KNOWN-LIMITATIONS.md) for the full list.

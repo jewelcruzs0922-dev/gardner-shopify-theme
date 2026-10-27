@@ -1,7 +1,7 @@
 ﻿# Gardner — Project Plan and Status
 
 - **Created:** 2026-10-23 (UTC)
-- **Last updated:** 2026-10-25
+- **Last updated:** 2026-10-28
 - **Store:** Gardner Dev — `gardner-dev-zwlohenx.myshopify.com` (Basic / Development store, unpublished)
 - **Admin:** `https://admin.shopify.com/store/gardner-dev-zwlohenx`
 - **Preview theme:** `#191259083065` ("Gardner Dawn Baseline", unpublished)
@@ -30,9 +30,9 @@
 | M4 | Collection + product | **Complete** | Filters/sort, cards, gallery lightbox, inventory states, trust strip, related products |
 | M5 | Cart, search, wishlist | **Complete** | Drawer/cart page, predictive search + empty state, localStorage wishlist |
 | M6 | Content + policies | **Complete with owner review pending** | About, Contact, Guides + 3 articles, Shipping/Returns/Privacy/Terms drafts, 404; policies are not legal advice |
-| M7 | Quality pass | **Complete within available tools** | Theme Check 0 errors; functional 31 pass/1 blocked; axe 0; SEO 20/20; Lighthouse desktop 99/mobile platform-limited |
-| M8 | Handoff | **Complete locally; GitHub blocked** | README, architecture, catalog, test report, visual QA, case study, asset inventory, screenshots; `gh auth login` required |
-| M9 | GitHub repo/push | **Blocked** | `gh` unauthenticated; local commits prepared |
+| M7 | Quality pass | **Complete within available tools** | Theme Check 0 errors; functional 31 pass/1 blocked; axe 0; SEO 20/20; Lighthouse desktop 95/mobile platform-limited |
+| M8 | Handoff | **Complete** | README, architecture, catalog, test report, visual QA, case study, asset inventory, screenshots, readiness checklist |
+| M9 | GitHub repo/push | **Complete** | Private repository `jewelcruzs0922-dev/gardner-shopify-theme`; `master` pushed at `493ce40` |
 
 ## Repository layout
 
@@ -62,15 +62,14 @@ Gardner/
 | SEO / JSON-LD | Rendered DOM inspection + local parse | 20/20 checks pass; public validator unavailable |
 | Responsive | 1440×900, 768×1024, 390×844 | Pass, no horizontal overflow; screenshots captured |
 | Visual vs reference | Side-by-side crops | Complete with documented differences |
-| Performance | Lighthouse 13.5, repeated medians | Desktop 99; mobile platform-limited; theme-only 72–77 |
+| Performance | Lighthouse 13.5, repeated medians | Desktop 95; mobile platform-limited; theme-only 67–72 |
 | Browsers | Chromium only | Safari/Firefox/Edge not tested |
-| GitHub | `gh` CLI | Blocked — owner must authenticate |
+| GitHub | `gh` CLI | Pass — private repository created and `master` pushed |
 
 ## Ownership / blockers
 
 | Item | Owner | Needed for |
 |---|---|---|
-| `gh auth login` | Owner | Create/push GitHub repository |
 | Product image licensing | Owner | Commercial use |
 | Policy/legal review | Owner | Real storefront operation |
 | US market/currency presentation review | Owner | Checkout presentation |

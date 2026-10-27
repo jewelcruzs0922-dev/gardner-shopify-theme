@@ -179,7 +179,7 @@ shopify theme push --unpublished --theme "Gardner Dawn Baseline" --store gardner
 **Theme Check**
 ```
 shopify theme check --path . --fail-level error
-=> 168 files, 0 errors, 9 warnings, exit 0
+=> 178 files, 0 errors, 9 warnings, exit 0
 ```
 Evidence: `docs/theme-check-final.log`, `docs/theme-check-final.json`.
 
@@ -199,14 +199,14 @@ Evidence: `docs/theme-check-final.log`, `docs/theme-check-final.json`.
 - Evidence: `docs/qa/seo-report.json`.
 
 **Performance** (`node scripts/perf.mjs`)
-- Home desktop median: perf 99, a11y 97, best-practices 96, SEO 100, LCP 0.97 s, TBT 23 ms.
-- Home mobile median: perf 61, LCP 8.08 s (2.79–8.40 s), TBT 200 ms; platform/preview scripts dominate first paint.
-- Collection mobile: perf 53.5; product mobile: perf 53.
-- Theme-only diagnostic (platform requests blocked): home 72 / product 77, a11y 100.
+- Home desktop median: perf 95, a11y 97, best-practices 96, SEO 100, LCP 1.41 s, TBT 10.5 ms.
+- Home mobile median: perf 53, LCP 11.14 s, TBT 322.5 ms; platform/preview scripts dominate first paint.
+- Collection mobile: perf 47.5; product mobile: perf 52.
+- Theme-only diagnostic (platform requests blocked): home 67 / product 72, a11y 100.
 - Evidence: `docs/qa/lighthouse-summary.json` and raw reports.
 
 **Other**
 - Catalog audit: 32 total, 32 active, 0 without image.
 - Theme audit: published theme remains Horizon; two unpublished Gardner themes (#191259083065 canonical, #191258853689 earlier duplicate).
 - Visual comparisons and screenshots added under `docs/qa/`.
-- GitHub remote still blocked (`gh` unauthenticated).
+- GitHub private repository created and `master` pushed: `jewelcruzs0922-dev/gardner-shopify-theme` at `493ce40`.

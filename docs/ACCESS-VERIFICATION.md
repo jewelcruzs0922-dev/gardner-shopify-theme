@@ -41,7 +41,7 @@ Rationale: the brief requires an authorized development environment with no cost
 
 | Item | Evidence | Impact | Owner action |
 |---|---|---|---|
-| **GitHub CLI not authenticated** | `gh auth status` → "You are not logged into any GitHub hosts." | Cannot create/push a GitHub repository | Run `gh auth login` |
+| ~~GitHub CLI not authenticated~~ | **Resolved:** `gh auth status` shows `jewelcruzs0922-dev`; private repository created and `master` pushed | — | — |
 | **Shopify CLI OAuth unavailable in this shell** | `shopify auth login` → “--alias is required in non-interactive terminal environments” | CLI `theme dev/push` cannot OAuth normally | **Worked around:** use `SHOPIFY_CLI_THEME_TOKEN` from `.env`; `theme push` verified working |
 | **Composio Shopify connection targets FurBuddies, not Gardner** | Active account: `pet-pantry-test.myshopify.com` (FurBuddies) | Composio product/collection tools would write to the wrong store | Use the store-scoped Admin API token instead |
 | **Composio could not install on the trial store** | Connection for `gardnerofficial` reached Shopify app-grant; **Install disabled** (“distribution method”) | No Composio access to Gardner | Superseded by the Dev Dashboard app + token |
@@ -62,9 +62,9 @@ Rationale: the brief requires an authorized development environment with no cost
 - No credential values are recorded in this document.
 
 
-## 2026-10-25 follow-up
+## 2026-10-28 follow-up
 
-- GitHub CLI remains unauthenticated; no remote repository was created or pushed. Local commits are ready.
+- GitHub CLI authenticated as `jewelcruzs0922-dev`; private repository `jewelcruzs0922-dev/gardner-shopify-theme` created and `master` pushed at `493ce40`.
 - Final functional, axe, SEO, and Lighthouse evidence is under `docs/qa/`.
 - Catalog expanded to 32 products (2 soil-care additions); see `docs/catalog-research.md`.
 - Newsletter automation remains blocked by Shopify invisible hCaptcha.

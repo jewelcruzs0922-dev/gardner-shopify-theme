@@ -1,6 +1,6 @@
 # Gardner Test Report
 
-- **Executed:** 2026-10-25 (UTC)
+- **Executed:** 2026-10-25 (UTC); final QA and GitHub delivery update 2026-10-28
 - **Store:** Gardner Dev, `gardner-dev-zwlohenx.myshopify.com` (development store, unpublished)
 - **Preview theme:** `#191259083065` ("Gardner Dawn Baseline"), unpublished
 - **Environment:** Windows 11, Node 26.8.1, npm 11.19.0, Shopify CLI 4.9.4, Playwright 1.64.1 (Chromium headless), Lighthouse 13.5.0, Chrome installed locally
@@ -17,10 +17,10 @@ Only checks that were actually executed are reported as passed. Blocked and unru
 | Functional QA | **31 pass, 0 fail, 1 blocked** | `docs/qa/functional-report.json` |
 | Automated accessibility (axe) | **0 violations** across 13 pages + 5 interactive states, with Shopify preview-bar iframe excluded | `docs/qa/axe-report.json` |
 | SEO / structured data | **20/20 pass** | `docs/qa/seo-report.json` |
-| Performance | Desktop Lighthouse **99**; mobile **53–61** with platform/preview overhead; theme-only diagnostic **72–77** | `docs/qa/lighthouse-summary.json` |
+| Performance | Desktop Lighthouse **95**; mobile **47.5–53** with platform/preview overhead; theme-only diagnostic **67–72** | `docs/qa/lighthouse-summary.json` |
 | Browser coverage | Chromium only | Safari, Firefox, and Edge were **not** tested |
 | Newsletter end-to-end | **Blocked** by Shopify invisible hCaptcha | See §6 |
-| GitHub remote | **Blocked** by unauthenticated `gh` | See §10 |
+| GitHub delivery | **Complete** in private repository `jewelcruzs0922-dev/gardner-shopify-theme` | See §10 |
 
 ## 2. Theme Check
 
@@ -28,7 +28,7 @@ Only checks that were actually executed are reported as passed. Blocked and unru
 shopify theme check --path . --fail-level error
 ```
 
-- 168 files inspected
+- 178 files inspected
 - 0 errors
 - 9 warnings (Dawn-inherited: `LiquidComplexity`, `UnusedAssign`, `UndefinedObject`, `OrphanedSnippet`, `VariableName`)
 - Exit code 0
@@ -112,10 +112,10 @@ Command: `node scripts/perf.mjs` (Lighthouse 13.5.0, authenticated preview, medi
 
 | Target | Perf | A11y | Best practices | SEO | Median LCP | LCP range | Median TBT | Median CLS |
 |---|---|---|---|---|---|---|---|---|
-| Home, mobile | 61 | 97 | 96 | 100 | 8.08 s | 2.79–8.40 s | 200 ms | 0.002 |
-| Home, desktop | 99 | 97 | 96 | 100 | 0.97 s | 0.86–1.01 s | 23 ms | 0.000 |
-| Collection, mobile | 53.5 | 97 | 96 | 100 | 7.61 s | 7.53–7.68 s | 431 ms | 0.002 |
-| Product, mobile | 53 | 97 | 96 | 100 | 7.74 s | 7.68–7.80 s | 399 ms | 0.025 |
+| Home, mobile | 53 | 97 | 96 | 100 | 11.14 s | 10.94–11.30 s | 322.5 ms | 0.000 |
+| Home, desktop | 95 | 97 | 96 | 100 | 1.41 s | 1.21–1.72 s | 10.5 ms | 0.0002 |
+| Collection, mobile | 47.5 | 97 | 96 | 100 | 10.07 s | 9.94–10.21 s | 529 ms | 0.000 |
+| Product, mobile | 52 | 97 | 96 | 100 | 8.03 s | 8.01–8.05 s | 404 ms | 0.000003 |
 
 **Why mobile is low despite a fast theme:** the preview environment loads Shopify’s full preview bar plus shop.js/cart-sync, checkout-web chunks, web pixels, analytics, and perf-kit. In one run, 309 requests / ~2.18 MB were recorded, with ~253 requests to the shop domain. Under Lighthouse’s 4× mobile CPU throttle, FCP is delayed to ~4.7–4.9 s and the hero image (already downloaded by ~180 ms) cannot paint until the main thread frees up.
 
@@ -123,14 +123,14 @@ Command: `node scripts/perf.mjs` (Lighthouse 13.5.0, authenticated preview, medi
 
 | Target | Perf | A11y | LCP | TBT |
 |---|---|---|---|---|
-| Home | 72 | 100 | 5.06 s | 149 ms |
-| Product | 77 | 100 | 4.58 s | 92 ms |
+| Home | 67 | 100 | 7.60 s | 65.5 ms |
+| Product | 72 | 100 | 4.82 s | 216 ms |
 
 This diagnostic is **not** a storefront score; it estimates theme contribution.
 
 Positive findings:
 
-- Desktop Lighthouse performance 99, LCP ~1.0 s
+- Desktop Lighthouse performance 95, LCP ~1.4 s
 - Hero image downloads as 800w/53 KB on mobile and is preloaded with `fetchpriority=high`
 - CLS in a real browser navigation measured 0.000; Lighthouse reports 0.002–0.025 (preview bar/platform)
 - Accessibility 100 in the theme-only diagnostic, SEO 100 in all runs
@@ -160,7 +160,7 @@ A later screenshot-led correction pass fixed the mobile wordmark/header, product
 
 | Item | Status | Reason / next action |
 |---|---|---|
-| GitHub repository creation/push | **Blocked** | `gh auth status` reports no login. Run `gh auth login`, then create/push the local repo. |
+| GitHub repository creation/push | **Complete** | Private repository `jewelcruzs0922-dev/gardner-shopify-theme`; `master` pushed at `493ce40`. |
 | Newsletter delivery | **Blocked** | Shopify invisible hCaptcha in automation; complete manually in a browser if needed. |
 | Shop Pay / accelerated checkout | Not tested | Dynamic checkout disabled on the product template; native checkout not exercised. |
 | Real checkout, payments, taxes, shipping rates | Not tested | Development store; brief forbids real transactions. |

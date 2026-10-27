@@ -6,7 +6,7 @@ This file separates verified facts from blockers, unverified assumptions, and it
 
 | Item | Impact | Exact action |
 |---|---|---|
-| **GitHub remote not created** | The local repository is prepared and committed, but no remote/push exists. | Run `gh auth login` in the project shell, then create a repository and push: `gh repo create gardner-shopify-theme --source . --private --push` (or the owner's preferred visibility/name). |
+| **GitHub repository visibility** | The repository is private by owner choice: `jewelcruzs0922-dev/gardner-shopify-theme`. | Do not change it to public or transfer ownership without explicit approval. |
 | **Newsletter submission not verified end-to-end** | Label/validation/captcha injection verified; delivery and subscriber management unverified. | Submit once manually in a browser, solve the invisible hCaptcha, and confirm the subscriber appears in Shopify admin. |
 | **Product image rights unlicensed** | Cannot be used commercially. | Replace product photos with licensed assets or obtain written permission from each brand/retailer. Keep source notes in `docs/catalog-research.md`. |
 | **Policy pages are drafts** | Shipping, Returns, Privacy, and Terms are placeholder templates, not legal advice or final policy. | Owner/legal review before any real use; complete business name, address, support details, timelines, tax treatment, and privacy practices. |
